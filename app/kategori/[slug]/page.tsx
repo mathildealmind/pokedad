@@ -43,11 +43,9 @@ const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
 function hasProductPhoto(card: PokemonCard): boolean {
   const images = [
     card.imageFront,
-    card.imageBack,
-    ...(card.variants ?? []).flatMap((variant) => [
-      variant.imageFront,
-      variant.imageBack,
-    ]),
+    ...(card.variants ?? []).map(
+      (variant) => variant.imageFront
+    ),
   ];
 
   return images.some(
