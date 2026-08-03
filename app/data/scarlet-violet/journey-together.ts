@@ -6,7 +6,7 @@ import {
   CardRarity,
 } from "../types";
 
-const IMAGE_BASE = "/images/cards/scarlet-violet/journey-together";
+const IMAGE_BASE = "/series/scarlet-violet/journey-together";
 const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
 
 export const journeyTogether: PokemonCard[] = [
