@@ -22,6 +22,16 @@
 }
 */
 
+/*
+ * Mere kompakt desktopvisning.
+ * Mobil og tablet beholder browserens normale grundstørrelse.
+ */
+@media (min-width: 1200px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
 html,
 body {
   margin: 0;
