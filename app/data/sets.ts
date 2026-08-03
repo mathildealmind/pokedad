@@ -654,7 +654,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 180,
     releaseDate: "2017-05-05",
-    logo: "/series/sun-moon/guardians-rising/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/guardians-rising/symbol.png",
   },
   "burning-shadows": {
@@ -663,7 +663,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 169,
     releaseDate: "2017-08-04",
-    logo: "/series/sun-moon/burning-shadows/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/burning-shadows/symbol.png",
   },
   "crimson-invasion": {
@@ -672,7 +672,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 126,
     releaseDate: "2017-11-03",
-    logo: "/series/sun-moon/crimson-invasion/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/crimson-invasion/symbol.png",
   },
   "ultra-prism": {
@@ -681,7 +681,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 173,
     releaseDate: "2018-02-02",
-    logo: "/series/sun-moon/ultra-prism/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/ultra-prism/symbol.png",
   },
   "forbidden-light": {
@@ -690,7 +690,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 146,
     releaseDate: "2018-05-04",
-    logo: "/series/sun-moon/forbidden-light/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/forbidden-light/symbol.png",
   },
   "celestial-storm": {
@@ -699,7 +699,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 183,
     releaseDate: "2018-08-03",
-    logo: "/series/sun-moon/celestial-storm/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/celestial-storm/symbol.png",
   },
   "dragon-majesty": {
@@ -708,7 +708,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 78,
     releaseDate: "2018-09-07",
-    logo: "/series/sun-moon/dragon-majesty/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/dragon-majesty/symbol.png",
   },
   "lost-thunder": {
@@ -717,7 +717,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 240,
     releaseDate: "2018-11-02",
-    logo: "/series/sun-moon/lost-thunder/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/lost-thunder/symbol.png",
   },
   "team-up": {
@@ -726,7 +726,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 196,
     releaseDate: "2019-02-01",
-    logo: "/series/sun-moon/team-up/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/team-up/symbol.png",
   },
   "detective-pikachu": {
@@ -735,7 +735,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 18,
     releaseDate: "2019-04-05",
-    logo: "/series/sun-moon/detective-pikachu/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/detective-pikachu/symbol.png",
   },
   "unbroken-bonds": {
@@ -744,7 +744,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 234,
     releaseDate: "2019-05-03",
-    logo: "/series/sun-moon/unbroken-bonds/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/unbroken-bonds/symbol.png",
   },
   "unified-minds": {
@@ -753,7 +753,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 258,
     releaseDate: "2019-08-02",
-    logo: "/series/sun-moon/unified-minds/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/unified-minds/symbol.png",
   },
   "hidden-fates": {
@@ -762,7 +762,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 69,
     releaseDate: "2019-08-23",
-    logo: "/series/sun-moon/hidden-fates/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/hidden-fates/symbol.png",
   },
   "cosmic-eclipse": {
@@ -771,7 +771,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 271,
     releaseDate: "2019-11-01",
-    logo: "/series/sun-moon/cosmic-eclipse/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/cosmic-eclipse/symbol.png",
   },
   "rebel-clash": {
@@ -1032,7 +1032,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sword-shield",
     totalCards: 216,
     releaseDate: "2020-02-07",
-    logo: "/series/sword-shield/sword-shield/logo.png",
+    logo: "/series/sword-shield/Sword & Shield1.png",
     symbol: "/series/sword-shield/sword-shield/symbol.png",
   },
   "black-star-promos": {
@@ -1050,7 +1050,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 173,
     releaseDate: "2017-02-03",
-    logo: "/series/sun-moon/sun-moon/logo.png",
+    logo: "/series/sun-moon/sun and moon.png",
     symbol: "/series/sun-moon/sun-moon/symbol.png",
   },
   "mega-evolution": {
