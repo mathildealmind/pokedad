@@ -15,7 +15,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "base-series",
     totalCards: 64,
     releaseDate: "1999/06/16",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/base-series/jungle/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "fossil": {
@@ -24,7 +24,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "base-series",
     totalCards: 62,
     releaseDate: "1999/10/10",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/base-series/fossil/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "base-set-2": {
@@ -33,7 +33,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "base-series",
     totalCards: 130,
     releaseDate: "2000/02/24",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/base-series/Pokemon-Base-Set.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "team-rocket": {
@@ -42,7 +42,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "base-series",
     totalCards: 83,
     releaseDate: "2000/04/24",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/base-series/team-rocket/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "legendary-collection": {
@@ -429,7 +429,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 115,
     releaseDate: "2011/04/25",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/BW1_Logo_EN.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "emerging-powers": {
@@ -438,7 +438,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 98,
     releaseDate: "2011/08/31",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/emerging-powers/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "noble-victories": {
@@ -447,7 +447,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 102,
     releaseDate: "2011/11/16",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/noble-victories/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "next-destinies": {
@@ -456,7 +456,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 103,
     releaseDate: "2012/02/08",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/next-destinies/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "dark-explorers": {
@@ -465,7 +465,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 111,
     releaseDate: "2012/05/09",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/dark-explorers/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "dragons-exalted": {
@@ -474,7 +474,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 128,
     releaseDate: "2012/08/15",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/dragons-exalted/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "dragon-vault": {
@@ -483,7 +483,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 21,
     releaseDate: "2012/10/05",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/dragon-vault/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "boundaries-crossed": {
@@ -492,7 +492,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 153,
     releaseDate: "2012/11/07",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/boundaries-crossed/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "plasma-storm": {
@@ -501,7 +501,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 138,
     releaseDate: "2013/02/06",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/plasma-storm/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "plasma-freeze": {
@@ -510,7 +510,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 122,
     releaseDate: "2013/05/08",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/plasma-freeze/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "plasma-blast": {
@@ -519,7 +519,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 105,
     releaseDate: "2013/08/14",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/plasma-blast/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "legendary-treasures": {
@@ -528,7 +528,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "black-white",
     totalCards: 140,
     releaseDate: "2013/11/06",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/black-white/legendary-treasures/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "xy-base": {
