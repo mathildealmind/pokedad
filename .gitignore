@@ -40,6 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# local scanned images and import staging
+/scans/
+/uploads/
+
 # generated local backups and temporary import reports
 /backups/
 *.old.ts
