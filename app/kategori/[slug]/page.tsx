@@ -38,6 +38,25 @@ function isSecretCard(cardNumber: string): boolean {
   return Number(numberMatch[1]) > Number(numberMatch[2]);
 }
 
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+
+function hasProductPhoto(card: PokemonCard): boolean {
+  const images = [
+    card.imageFront,
+    card.imageBack,
+    ...(card.variants ?? []).flatMap((variant) => [
+      variant.imageFront,
+      variant.imageBack,
+    ]),
+  ];
+
+  return images.some(
+    (image) =>
+      Boolean(image?.trim()) &&
+      image !== SOLD_OUT_IMAGE
+  );
+}
+
 function belongsToCategory(
   card: PokemonCard,
   categorySlug: string
@@ -116,8 +135,10 @@ export default async function CategoryPage({ params }: Props) {
     notFound();
   }
 
-  const categoryCards = cards.filter((card) =>
-    belongsToCategory(card, slug)
+  const categoryCards = cards.filter(
+    (card) =>
+      hasProductPhoto(card) &&
+      belongsToCategory(card, slug)
   );
 
   return (
@@ -137,8 +158,11 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {categoryCards.map((card) => (
-            <CardCard key={card.id} card={card} />
+          {categoryCards.map((card, index) => (
+            <CardCard
+              key={`${card.series}-${card.set}-${card.slug}-${index}`}
+              card={card}
+            />
           ))}
         </div>
       )}
