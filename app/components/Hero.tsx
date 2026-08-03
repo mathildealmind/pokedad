@@ -1,0 +1,497 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import {
+  TouchEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { getPokemonType } from "@/app/data/getPokemonType";
+import ProductCard from "./ProductCard";
+
+type HeroCard = {
+  id: number;
+  name: string;
+  slug: string;
+  set: string;
+  cardNumber: string;
+  price: number;
+  imageFront: string;
+  description?: string;
+  pokemonType?: string;
+};
+
+type FeaturedCard = {
+  id: number;
+  slug: string;
+  name: string;
+  set?: string;
+  cardNumber?: string;
+  price: number;
+  originalPrice?: number | null;
+  imageFront?: string;
+  isNew?: boolean;
+  onSale?: boolean;
+  stock?: number;
+};
+
+type HeroProps = {
+  cards: HeroCard[];
+  featuredCards?: FeaturedCard[];
+  description?: string;
+};
+
+type TypeTheme = {
+  button: string;
+  dot: string;
+  shadowRgb: string;
+};
+
+const SLIDE_INTERVAL = 4000;
+const FADE_OUT_DURATION = 300;
+
+const DEFAULT_THEME: TypeTheme = {
+  button:
+    "bg-gradient-to-r from-neutral-800 to-black text-white hover:from-neutral-700 hover:to-neutral-900",
+  dot: "bg-neutral-800",
+  shadowRgb: "82, 82, 82",
+};
+
+const TYPE_THEMES: Record<string, TypeTheme> = {
+  Grass: {
+    button:
+      "bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:from-green-500 hover:to-emerald-500",
+    dot: "bg-green-600",
+    shadowRgb: "22, 163, 74",
+  },
+
+  Fire: {
+    button:
+      "bg-gradient-to-r from-orange-600 to-red-500 text-white hover:from-orange-500 hover:to-red-400",
+    dot: "bg-orange-600",
+    shadowRgb: "234, 88, 12",
+  },
+
+  Water: {
+    button:
+      "bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-500 hover:to-cyan-400",
+    dot: "bg-blue-600",
+    shadowRgb: "37, 99, 235",
+  },
+
+  Lightning: {
+    button:
+      "bg-gradient-to-r from-amber-500 to-yellow-400 text-neutral-950 hover:from-amber-400 hover:to-yellow-300",
+    dot: "bg-amber-500",
+    shadowRgb: "245, 158, 11",
+  },
+
+  Psychic: {
+    button:
+      "bg-gradient-to-r from-purple-600 to-fuchsia-500 text-white hover:from-purple-500 hover:to-fuchsia-400",
+    dot: "bg-purple-600",
+    shadowRgb: "147, 51, 234",
+  },
+
+  Fighting: {
+    button:
+      "bg-gradient-to-r from-amber-700 to-orange-700 text-white hover:from-amber-600 hover:to-orange-600",
+    dot: "bg-amber-700",
+    shadowRgb: "180, 83, 9",
+  },
+
+  Darkness: {
+    button:
+      "bg-gradient-to-r from-slate-800 to-neutral-950 text-white hover:from-slate-700 hover:to-neutral-800",
+    dot: "bg-slate-800",
+    shadowRgb: "51, 65, 85",
+  },
+
+  Metal: {
+    button:
+      "bg-gradient-to-r from-slate-500 to-zinc-600 text-white hover:from-slate-400 hover:to-zinc-500",
+    dot: "bg-slate-600",
+    shadowRgb: "100, 116, 139",
+  },
+
+  Dragon: {
+    button:
+      "bg-gradient-to-r from-indigo-600 to-violet-600 text-white hover:from-indigo-500 hover:to-violet-500",
+    dot: "bg-indigo-600",
+    shadowRgb: "79, 70, 229",
+  },
+
+  Fairy: {
+    button:
+      "bg-gradient-to-r from-pink-500 to-rose-500 text-white hover:from-pink-400 hover:to-rose-400",
+    dot: "bg-pink-500",
+    shadowRgb: "236, 72, 153",
+  },
+
+  Colorless: {
+    button:
+      "bg-gradient-to-r from-stone-600 to-neutral-700 text-white hover:from-stone-500 hover:to-neutral-600",
+    dot: "bg-stone-600",
+    shadowRgb: "87, 83, 78",
+  },
+};
+
+export default function Hero({
+  cards,
+  featuredCards = [],
+  description = "Find sjældne Pokémon-kort til samlingen. Vi udvælger nøje hvert kort, så du altid får kvalitet og flotte samleobjekter.",
+}: HeroProps) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isTransitioning, setIsTransitioning] =
+    useState(false);
+
+  const touchStartX = useRef<number | null>(null);
+  const transitionTimer = useRef<number | null>(null);
+
+  const cardCount = cards.length;
+
+  const changeSlide = useCallback(
+    (nextIndex: number) => {
+      if (
+        cardCount <= 1 ||
+        nextIndex === activeIndex ||
+        isTransitioning
+      ) {
+        return;
+      }
+
+      if (transitionTimer.current !== null) {
+        window.clearTimeout(transitionTimer.current);
+      }
+
+      setIsTransitioning(true);
+      setIsVisible(false);
+
+      transitionTimer.current = window.setTimeout(() => {
+        setActiveIndex(nextIndex);
+
+        window.requestAnimationFrame(() => {
+          setIsVisible(true);
+          setIsTransitioning(false);
+        });
+      }, FADE_OUT_DURATION);
+    },
+    [activeIndex, cardCount, isTransitioning],
+  );
+
+  useEffect(() => {
+    if (cardCount <= 1 || isTransitioning) {
+      return;
+    }
+
+    const autoSlideTimer = window.setTimeout(() => {
+      const nextIndex =
+        activeIndex === cardCount - 1
+          ? 0
+          : activeIndex + 1;
+
+      changeSlide(nextIndex);
+    }, SLIDE_INTERVAL);
+
+    return () => {
+      window.clearTimeout(autoSlideTimer);
+    };
+  }, [
+    activeIndex,
+    cardCount,
+    changeSlide,
+    isTransitioning,
+  ]);
+
+  useEffect(() => {
+    if (activeIndex >= cardCount && cardCount > 0) {
+      setActiveIndex(0);
+    }
+  }, [activeIndex, cardCount]);
+
+  useEffect(() => {
+    return () => {
+      if (transitionTimer.current !== null) {
+        window.clearTimeout(transitionTimer.current);
+      }
+    };
+  }, []);
+
+  if (cardCount === 0) {
+    return null;
+  }
+
+  const activeCard = cards[activeIndex];
+
+  const detectedPokemonType = getPokemonType(
+    activeCard.set,
+    activeCard.cardNumber,
+  );
+
+  const pokemonType =
+    activeCard.pokemonType ?? detectedPokemonType;
+
+  const theme = pokemonType
+    ? TYPE_THEMES[pokemonType] ?? DEFAULT_THEME
+    : DEFAULT_THEME;
+
+  const heroShadow = [
+    `0 24px 65px -28px rgba(${theme.shadowRgb}, 0.34)`,
+    `0 0 55px -30px rgba(${theme.shadowRgb}, 0.42)`,
+    "0 18px 45px -28px rgba(0, 0, 0, 0.22)",
+  ].join(", ");
+
+  function showPreviousCard() {
+    const previousIndex =
+      activeIndex === 0
+        ? cardCount - 1
+        : activeIndex - 1;
+
+    changeSlide(previousIndex);
+  }
+
+  function showNextCard() {
+    const nextIndex =
+      activeIndex === cardCount - 1
+        ? 0
+        : activeIndex + 1;
+
+    changeSlide(nextIndex);
+  }
+
+  function handleTouchStart(
+    event: TouchEvent<HTMLElement>,
+  ) {
+    touchStartX.current =
+      event.touches[0]?.clientX ?? null;
+  }
+
+  function handleTouchEnd(
+    event: TouchEvent<HTMLElement>,
+  ) {
+    if (touchStartX.current === null) {
+      return;
+    }
+
+    const touchEndX =
+      event.changedTouches[0]?.clientX ??
+      touchStartX.current;
+
+    const distance =
+      touchStartX.current - touchEndX;
+
+    if (Math.abs(distance) >= 50) {
+      if (distance > 0) {
+        showNextCard();
+      } else {
+        showPreviousCard();
+      }
+    }
+
+    touchStartX.current = null;
+  }
+
+  return (
+    <section
+      className="mx-auto mt-8 max-w-7xl px-4 sm:px-6 lg:mt-12 lg:px-8"
+      aria-label="Fremhævede Pokémon-kort"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      <div
+        className={[
+          "relative overflow-hidden rounded-3xl",
+          "bg-gradient-to-br from-neutral-50 via-white to-neutral-100",
+          "transition-[box-shadow] duration-700 ease-in-out",
+        ].join(" ")}
+        style={{
+          boxShadow: heroShadow,
+        }}
+      >
+        <div className="relative">
+          {cardCount > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={showPreviousCard}
+                disabled={isTransitioning}
+                aria-label="Vis forrige fremhævede kort"
+                className={[
+  "absolute left-3 top-1/2 z-20 hidden",
+  "sm:left-5 lg:left-8",
+                  "h-12 w-12 -translate-y-1/2 items-center justify-center",
+                  "rounded-full border border-black/5",
+                  "bg-white/90 text-2xl text-neutral-700",
+                  "shadow-lg backdrop-blur",
+                  "transition-all duration-300",
+                  "hover:scale-110 hover:bg-white",
+                  "disabled:cursor-default disabled:opacity-60",
+                  "sm:flex lg:left-6",
+                ].join(" ")}
+              >
+                ‹
+              </button>
+
+              <button
+                type="button"
+                onClick={showNextCard}
+                disabled={isTransitioning}
+                aria-label="Vis næste fremhævede kort"
+                className={[
+                  "absolute right-3 top-1/2 z-20 hidden",
+                  "h-12 w-12 -translate-y-1/2 items-center justify-center",
+                  "rounded-full border border-black/5",
+                  "bg-white/90 text-2xl text-neutral-700",
+                  "shadow-lg backdrop-blur",
+                  "transition-all duration-300",
+                  "hover:scale-110 hover:bg-white",
+                  "disabled:cursor-default disabled:opacity-60",
+                  "sm:flex lg:right-6",
+                ].join(" ")}
+              >
+                ›
+              </button>
+            </>
+          )}
+
+          <div
+            className={[
+              "relative z-10 grid items-center gap-8",
+              "px-6 py-4 sm:px-10 sm:py-6 lg:grid-cols-2 lg:gap-12 lg:px-16 lg:py-8",
+              "transition-all duration-500",
+              "ease-[cubic-bezier(0.22,1,0.36,1)]",
+              "motion-reduce:transform-none",
+              "motion-reduce:transition-none",
+              isVisible
+                ? "translate-y-0 scale-100 opacity-100"
+                : "translate-y-3 scale-[0.985] opacity-0",
+            ].join(" ")}
+          >
+            <div className="order-1 flex justify-center lg:order-2">
+              <div className="relative h-[400px] w-[300px] sm:h-[500px] sm:w-[360px] lg:h-[540px] lg:w-[390px]">
+                <Image
+                  key={activeCard.imageFront}
+                  src={activeCard.imageFront}
+                  alt={activeCard.name}
+                  fill
+                  sizes="(max-width: 640px) 245px, 300px"
+                  className={[
+                    "object-contain drop-shadow-2xl scale-110",
+                    "transition-transform duration-700 ease-out",
+                    "hover:scale-[1.15]",
+                  ].join(" ")}
+                  priority
+                />
+              </div>
+            </div>
+
+            <div className="order-2 text-center lg:order-1 lg:pl-12 lg:text-left">
+              <span className="inline-flex items-center rounded-full bg-white/75 px-4 py-2 text-sm font-semibold text-neutral-800 shadow-sm backdrop-blur sm:text-base">
+                ⭐ Fremhævet kort
+              </span>
+
+              <h1 className="mt-6 text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+                {activeCard.name}
+              </h1>
+
+              <p className="mt-4 text-lg text-gray-500 sm:text-xl">
+                {activeCard.set} • {activeCard.cardNumber}
+              </p>
+
+              <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-gray-600 sm:text-lg lg:mx-0">
+                {activeCard.description ?? description}
+              </p>
+
+              <p className="mt-8 text-4xl font-bold sm:mt-10">
+                {activeCard.price.toLocaleString("da-DK")} kr.
+              </p>
+
+              <Link
+                href={`/kort/${activeCard.slug}`}
+                className={[
+                  "mt-8 inline-flex items-center justify-center",
+                  "rounded-xl px-8 py-4 font-semibold shadow-lg",
+                  "transition-all duration-300",
+                  "hover:-translate-y-0.5 hover:shadow-xl",
+                  "active:translate-y-0",
+                  theme.button,
+                ].join(" ")}
+              >
+                Se kortet
+
+                <span
+                  aria-hidden="true"
+                  className="ml-2 text-xl"
+                >
+                  →
+                </span>
+              </Link>
+            </div>
+          </div>
+
+          {cardCount > 1 && (
+            <div className="relative z-20 flex items-center justify-center gap-2 pb-7 sm:pb-9">
+              {cards.map((card, index) => {
+                const isActive = index === activeIndex;
+
+                return (
+                  <button
+                    key={card.id}
+                    type="button"
+                    onClick={() => changeSlide(index)}
+                    disabled={
+                      isActive || isTransitioning
+                    }
+                    aria-label={`Vis ${card.name}`}
+                    aria-current={
+                      isActive ? "true" : undefined
+                    }
+                    className={[
+                      "h-2.5 rounded-full",
+                      "transition-all duration-500 ease-out",
+                      "disabled:cursor-default",
+                      isActive
+                        ? `w-8 ${theme.dot}`
+                        : "w-2.5 bg-neutral-300 hover:bg-neutral-400",
+                    ].join(" ")}
+                  />
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {featuredCards.length > 0 && (
+          <div className="border-t border-neutral-200/80 bg-white/60 px-6 py-10 sm:px-10 lg:px-12 lg:py-12">
+            <h2 className="mb-8 text-3xl font-black sm:text-4xl">
+              ⭐ Fremhævede kort
+            </h2>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {featuredCards.map((card) => (
+                <ProductCard
+                  key={card.id}
+                  id={card.id}
+                  slug={card.slug}
+                  name={card.name}
+                  set={card.set}
+                  cardNumber={card.cardNumber}
+                  price={card.price}
+                  originalPrice={card.originalPrice}
+                  imageFront={card.imageFront}
+                  isNew={card.isNew}
+                  onSale={card.onSale}
+                  stock={card.stock}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,458 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f7f5;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Fjern denne blok hvis du ikke ønsker dark mode */
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+*/
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f7f7f5;
+  color: #171717;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================================
+   Fælles finish-effekter
+   Virker automatisk på knapper med data-finish.
+   ========================================================= */
+
+button[data-finish="Holo"],
+button[data-finish="Reverse Holo"],
+button[data-finish="Cosmos Holo"] {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+button[data-finish="Holo"] > *,
+button[data-finish="Reverse Holo"] > *,
+button[data-finish="Cosmos Holo"] > * {
+  position: relative;
+  z-index: 10;
+}
+
+/* =========================================================
+   Holo
+   Bred elliptisk refleksion, der glider roligt over knappen
+   ========================================================= */
+
+button[data-finish="Holo"]::before {
+  content: "";
+  position: absolute;
+
+  top: -95%;
+  left: -75%;
+
+  width: 85%;
+  height: 290%;
+
+  z-index: 2;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.58) 0%,
+      rgba(220, 242, 255, 0.34) 24%,
+      rgba(255, 225, 245, 0.2) 43%,
+      rgba(255, 255, 255, 0.08) 62%,
+      transparent 76%
+    );
+
+  filter: blur(7px);
+  mix-blend-mode: screen;
+  opacity: 0;
+
+  transform:
+    translateX(-30%)
+    rotate(12deg);
+
+  animation:
+    holo-ellipse-reflection 5s linear infinite;
+}
+
+button[data-finish="Holo"]::after {
+  content: none;
+}
+
+@keyframes holo-ellipse-reflection {
+  0% {
+    transform:
+      translateX(-30%)
+      rotate(12deg);
+
+    opacity: 0.90;
+  }
+
+  100% {
+    transform:
+      translateX(280%)
+      rotate(12deg);
+
+    opacity: 0.52;
+  }
+}
+
+/* =========================================================
+   Reverse Holo
+   Holografisk folie-effekt.
+   ========================================================= */
+
+button[data-finish="Reverse Holo"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+
+ background:
+  radial-gradient(
+    ellipse at center,
+
+    rgba(255,255,255,.92) 0%,
+    rgba(255,255,255,.82) 10%,
+    rgba(220,245,255,.55) 22%,
+    rgba(255,210,245,.38) 38%,
+    rgba(180,240,255,.22) 55%,
+    rgba(255,255,255,.08) 70%,
+    transparent 84%
+  );
+
+  background-size:
+    100% 100%,
+    34px 34px,
+    47px 47px,
+    59px 59px,
+    73px 73px;
+
+  opacity: 0.70;
+  mix-blend-mode: screen;
+
+  animation:
+    reverse-holo-texture 9s linear infinite;
+}
+
+button[data-finish="Reverse Holo"]::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  z-index: 2;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
+    conic-gradient(
+      from 210deg at 50% 50%,
+      rgba(255, 60, 130, 0.42),
+      rgba(255, 220, 70, 0.5),
+      rgba(75, 255, 190, 0.45),
+      rgba(65, 185, 255, 0.52),
+      rgba(175, 95, 255, 0.46),
+      rgba(255, 60, 130, 0.42)
+    ),
+    linear-gradient(
+      115deg,
+      transparent 22%,
+      rgba(255, 255, 255, 0.16) 36%,
+      rgba(255, 255, 255, 0.55) 49%,
+      rgba(170, 230, 255, 0.22) 58%,
+      transparent 74%
+    );
+
+  background-size:
+    180% 180%,
+    220% 100%;
+
+  background-position:
+    0% 45%,
+    120% 0;
+
+  filter:
+    saturate(1.25)
+    contrast(1.08)
+    blur(2px);
+
+  mix-blend-mode: screen;
+  opacity: 0.38;
+
+  transform:
+    rotate(-4deg)
+    scale(1.08);
+
+  animation:
+    reverse-holo-foil 6.5s ease-in-out infinite alternate;
+}
+
+@keyframes reverse-holo-texture {
+  from {
+    background-position:
+      0 0,
+      0 0,
+      8px 12px,
+      16px 5px,
+      22px 18px;
+  }
+
+  to {
+    background-position:
+      70px 45px,
+      42px 58px,
+      -38px 50px,
+      48px -36px,
+      -52px -44px;
+  }
+}
+
+@keyframes reverse-holo-foil {
+  0% {
+    background-position:
+      0% 45%,
+      120% 0;
+
+    transform:
+      rotate(-4deg)
+      scale(1.08);
+
+    opacity: 0.50;
+  }
+
+  50% {
+    background-position:
+      100% 55%,
+      -20% 0;
+
+    transform:
+      rotate(4deg)
+      scale(1.12);
+
+    opacity: 0.30;
+  }
+
+  100% {
+    background-position:
+      0% 45%,
+      120% 0;
+
+    transform:
+      rotate(-4deg)
+      scale(1.08);
+
+    opacity: 0.90;
+  }
+}
+
+/* =========================================================
+   Cosmos Holo
+   Store holo-cirkler, små glimmerprikker og roligt farveskær.
+   ========================================================= */
+
+button[data-finish="Cosmos Holo"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 11% 24%,
+      rgba(255, 255, 255, 0.84) 0 2px,
+      rgba(114, 220, 255, 0.62) 3px,
+      transparent 8px
+    ),
+    radial-gradient(
+      circle at 27% 72%,
+      rgba(255, 245, 173, 0.84) 0 3px,
+      rgba(255, 132, 82, 0.58) 4px,
+      transparent 10px
+    ),
+    radial-gradient(
+      circle at 48% 34%,
+      rgba(255, 255, 255, 0.8) 0 1px,
+      rgba(255, 107, 207, 0.57) 2px,
+      transparent 6px
+    ),
+    radial-gradient(
+      circle at 69% 72%,
+      rgba(222, 255, 255, 0.84) 0 3px,
+      rgba(59, 233, 255, 0.62) 4px,
+      transparent 11px
+    ),
+    radial-gradient(
+      circle at 88% 29%,
+      rgba(255, 255, 204, 0.84) 0 2px,
+      rgba(125, 255, 145, 0.6) 3px,
+      transparent 9px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.64) 0 0.8px,
+      transparent 1.8px
+    ),
+    radial-gradient(
+      circle,
+      rgba(97, 230, 255, 0.56) 0 0.8px,
+      transparent 1.8px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 207, 72, 0.6) 0 0.9px,
+      transparent 1.9px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 104, 205, 0.55) 0 0.8px,
+      transparent 1.8px
+    );
+
+  background-size:
+    205px 145px,
+    255px 185px,
+    190px 160px,
+    275px 195px,
+    230px 175px,
+    22px 22px,
+    30px 30px,
+    38px 38px,
+    46px 46px;
+
+  background-position:
+    0 0,
+    35px 8px,
+    12px 17px,
+    70px 22px,
+    18px 35px,
+    0 0,
+    8px 11px,
+    17px 5px,
+    25px 19px;
+
+  opacity: 0.62;
+  mix-blend-mode: screen;
+
+  animation:
+    cosmos-holo-particles 14s linear infinite;
+}
+
+button[data-finish="Cosmos Holo"]::after {
+  content: "";
+  position: absolute;
+  inset: -45%;
+  z-index: 2;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      112deg,
+      transparent 8%,
+      rgba(255, 65, 125, 0.16) 22%,
+      rgba(255, 221, 77, 0.18) 36%,
+      rgba(88, 255, 184, 0.15) 50%,
+      rgba(66, 188, 255, 0.19) 65%,
+      rgba(182, 107, 255, 0.16) 79%,
+      transparent 93%
+    ),
+    linear-gradient(
+      110deg,
+      transparent 24%,
+      rgba(255, 255, 255, 0.03) 39%,
+      rgba(255, 255, 255, 0.34) 49%,
+      rgba(153, 230, 255, 0.14) 54%,
+      transparent 67%
+    );
+
+  background-size:
+    230% 100%,
+    260% 100%;
+
+  opacity: 0.38;
+  mix-blend-mode: color-dodge;
+
+  animation:
+    cosmos-holo-rainbow 9s ease-in-out infinite;
+}
+
+@keyframes cosmos-holo-particles {
+  from {
+    background-position:
+      0 0,
+      35px 8px,
+      12px 17px,
+      70px 22px,
+      18px 35px,
+      0 0,
+      8px 11px,
+      17px 5px,
+      25px 19px;
+  }
+
+  to {
+    background-position:
+      66px 34px,
+      -55px 48px,
+      74px -28px,
+      -63px -40px,
+      51px -52px,
+      66px 92px,
+      -81px 106px,
+      95px -55px,
+      -63px -84px;
+  }
+}
+
+@keyframes cosmos-holo-rainbow {
+  0%,
+  30% {
+    background-position:
+      125% 0,
+      145% 0;
+  }
+
+  62%,
+  100% {
+    background-position:
+      -25% 0,
+      -110% 0;
+  }
+}
+
+/* =========================================================
+   Tilgængelighed
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  button[data-finish="Holo"]::before,
+  button[data-finish="Reverse Holo"]::before,
+  button[data-finish="Reverse Holo"]::after,
+  button[data-finish="Cosmos Holo"]::before,
+  button[data-finish="Cosmos Holo"]::after {
+    animation: none;
+  }
+}
