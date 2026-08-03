@@ -123,7 +123,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "e-card",
     totalCards: 182,
     releaseDate: "2003/01/15",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/e-card/aquapolis/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "skyridge": {
@@ -132,7 +132,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "e-card",
     totalCards: 182,
     releaseDate: "2003/05/12",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/e-card/aquapolis/Skyridge/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "ruby-sapphire": {
@@ -141,7 +141,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 109,
     releaseDate: "2003/07/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/ruby-sapphire/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "sandstorm": {
@@ -150,7 +150,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 100,
     releaseDate: "2003/09/18",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/sandstorm/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "dragon": {
@@ -159,7 +159,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 100,
     releaseDate: "2003/11/24",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/dragon/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "magma-vs-aqua": {
@@ -168,7 +168,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 97,
     releaseDate: "2004/03/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/magma-vs-aqua/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "hidden-legends": {
@@ -177,7 +177,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 102,
     releaseDate: "2004/06/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/hidden-legends/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "firered-leafgreen": {
@@ -186,7 +186,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 116,
     releaseDate: "2004/09/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/firered-leafgreen/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "team-rocket-returns": {
@@ -195,7 +195,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 111,
     releaseDate: "2004/11/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/team-rocket-returns/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "deoxys": {
@@ -204,7 +204,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 108,
     releaseDate: "2005/02/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/deoxys/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "emerald": {
@@ -213,7 +213,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 107,
     releaseDate: "2005/05/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/emerald/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "unseen-forces": {
@@ -222,7 +222,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 145,
     releaseDate: "2005/08/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/unseen-forces/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "delta-species": {
@@ -231,7 +231,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 114,
     releaseDate: "2005/10/31",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/delta-species/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "legend-maker": {
@@ -240,7 +240,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 93,
     releaseDate: "2006/02/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/legend-maker/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "holon-phantoms": {
@@ -249,7 +249,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 111,
     releaseDate: "2006/05/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/holon-phantoms/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "crystal-guardians": {
@@ -258,7 +258,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 100,
     releaseDate: "2006/08/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/crystal-guardians/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "dragon-frontiers": {
@@ -267,7 +267,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 101,
     releaseDate: "2006/11/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/dragon-frontiers/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "power-keepers": {
@@ -276,7 +276,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "ex-series",
     totalCards: 108,
     releaseDate: "2007/02/02",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/ex-series/power-keepers/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "diamond-pearl-base": {
@@ -294,7 +294,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "diamond-pearl",
     totalCards: 124,
     releaseDate: "2007/08/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/diamond-pearl/mysterious-treasures/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "secret-wonders": {
@@ -303,7 +303,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "diamond-pearl",
     totalCards: 132,
     releaseDate: "2007/11/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/diamond-pearl/secret-wonders/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "great-encounters": {
@@ -312,7 +312,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "diamond-pearl",
     totalCards: 106,
     releaseDate: "2008/02/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/diamond-pearl/great-encounters/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "majestic-dawn": {
@@ -321,7 +321,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "diamond-pearl",
     totalCards: 100,
     releaseDate: "2008/05/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/diamond-pearl/majestic-dawn/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "legends-awakened": {
@@ -330,7 +330,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "diamond-pearl",
     totalCards: 146,
     releaseDate: "2008/08/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/diamond-pearl/legends-awakened/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "stormfront": {
@@ -339,7 +339,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "diamond-pearl",
     totalCards: 106,
     releaseDate: "2008/11/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/diamond-pearl/stormfront/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "platinum-base": {
