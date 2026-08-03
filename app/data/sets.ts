@@ -60,7 +60,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "gym-series",
     totalCards: 132,
     releaseDate: "2000/08/14",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/gym-series/gym-heroes/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "gym-challenge": {
@@ -69,7 +69,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "gym-series",
     totalCards: 132,
     releaseDate: "2000/10/16",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/gym-series/gym-challenge/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "neo-genesis": {
@@ -78,7 +78,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "neo-series",
     totalCards: 111,
     releaseDate: "2000/12/16",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/neo-series/neo-genesis/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "neo-discovery": {
@@ -87,7 +87,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "neo-series",
     totalCards: 75,
     releaseDate: "2001/06/01",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/neo-series/neo-discovery/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "neo-revelation": {
@@ -96,7 +96,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "neo-series",
     totalCards: 66,
     releaseDate: "2001/09/21",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/neo-series/neo-revelation/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "neo-destiny": {
@@ -105,7 +105,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "neo-series",
     totalCards: 113,
     releaseDate: "2002/02/28",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/neo-series/neo-destiny/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "expedition-base-set": {
@@ -348,7 +348,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "platinum",
     totalCards: 133,
     releaseDate: "2009/02/11",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/platinum/base/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "rising-rivals": {
@@ -357,7 +357,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "platinum",
     totalCards: 120,
     releaseDate: "2009/05/16",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/platinum/rising-rivals/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "supreme-victors": {
@@ -366,7 +366,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "platinum",
     totalCards: 153,
     releaseDate: "2009/08/19",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/platinum/supreme-victors/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "arceus": {
@@ -375,7 +375,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "platinum",
     totalCards: 111,
     releaseDate: "2009/11/04",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/platinum/arceus/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "heartgold-soulsilver-base": {
@@ -384,7 +384,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "heartgold-soulsilver",
     totalCards: 124,
     releaseDate: "2010-02-10",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/heartgold-soulsilver/base/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "unleashed": {
@@ -393,7 +393,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "heartgold-soulsilver",
     totalCards: 96,
     releaseDate: "2010-05-12",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/heartgold-soulsilver/unleashed/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "undaunted": {
@@ -402,7 +402,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "heartgold-soulsilver",
     totalCards: 91,
     releaseDate: "2010-08-18",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/heartgold-soulsilver/undaunted/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "triumphant": {
@@ -411,7 +411,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "heartgold-soulsilver",
     totalCards: 103,
     releaseDate: "2010-11-03",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/heartgold-soulsilver/triumphant/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "call-of-legends": {
@@ -420,7 +420,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "heartgold-soulsilver",
     totalCards: 106,
     releaseDate: "2011-02-09",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/heartgold-soulsilver/call-of-legends/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "black-white-base": {
@@ -546,7 +546,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 110,
     releaseDate: "2014/05/07",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/flashfire/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "furious-fists": {
@@ -555,7 +555,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 114,
     releaseDate: "2014/08/13",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/furious-fists/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "phantom-forces": {
@@ -564,7 +564,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 124,
     releaseDate: "2014/11/05",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/phantom-forces/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "primal-clash": {
@@ -573,7 +573,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 164,
     releaseDate: "2015/02/04",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/primal-clash/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "roaring-skies": {
@@ -582,7 +582,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 112,
     releaseDate: "2015/05/06",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/roaring-skies/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "ancient-origins": {
@@ -591,7 +591,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 100,
     releaseDate: "2015/08/12",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/ancient-origins/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "breakthrough": {
@@ -600,7 +600,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 165,
     releaseDate: "2015/11/04",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/breakthrough/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "breakpoint": {
@@ -609,7 +609,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 126,
     releaseDate: "2016/02/03",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/breakpoint/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "generations": {
@@ -618,7 +618,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 117,
     releaseDate: "2016/02/22",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/generations/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "fates-collide": {
@@ -627,7 +627,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 129,
     releaseDate: "2016/05/02",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/fates-collide/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "steam-siege": {
@@ -636,7 +636,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 116,
     releaseDate: "2016/08/03",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/steam-siege/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "evolutions": {
@@ -645,7 +645,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "xy",
     totalCards: 113,
     releaseDate: "2016/11/02",
-    logo: "/placeholders/udsolgt.png",
+    logo: "/series/xy/evolutions/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "guardians-rising": {
@@ -654,7 +654,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 180,
     releaseDate: "2017-05-05",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/guardians-rising/logo.png",
     symbol: "/series/sun-moon/guardians-rising/symbol.png",
   },
   "burning-shadows": {
@@ -663,7 +663,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 169,
     releaseDate: "2017-08-04",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/burning-shadows/logo.png",
     symbol: "/series/sun-moon/burning-shadows/symbol.png",
   },
   "crimson-invasion": {
@@ -672,7 +672,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 126,
     releaseDate: "2017-11-03",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/crimson-invasion/logo.png",
     symbol: "/series/sun-moon/crimson-invasion/symbol.png",
   },
   "ultra-prism": {
@@ -681,7 +681,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 173,
     releaseDate: "2018-02-02",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/ultra-prism/logo.png",
     symbol: "/series/sun-moon/ultra-prism/symbol.png",
   },
   "forbidden-light": {
@@ -690,7 +690,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 146,
     releaseDate: "2018-05-04",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/forbidden-light/logo.png",
     symbol: "/series/sun-moon/forbidden-light/symbol.png",
   },
   "celestial-storm": {
@@ -699,7 +699,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 183,
     releaseDate: "2018-08-03",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/celestial-storm/logo.png",
     symbol: "/series/sun-moon/celestial-storm/symbol.png",
   },
   "dragon-majesty": {
@@ -708,7 +708,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 78,
     releaseDate: "2018-09-07",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/dragon-majesty/logo.png",
     symbol: "/series/sun-moon/dragon-majesty/symbol.png",
   },
   "lost-thunder": {
@@ -717,7 +717,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 240,
     releaseDate: "2018-11-02",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/lost-thunder/logo.png",
     symbol: "/series/sun-moon/lost-thunder/symbol.png",
   },
   "team-up": {
@@ -726,7 +726,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 196,
     releaseDate: "2019-02-01",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/team-up/logo.png",
     symbol: "/series/sun-moon/team-up/symbol.png",
   },
   "detective-pikachu": {
@@ -735,7 +735,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 18,
     releaseDate: "2019-04-05",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/detective-pikachu/logo.png",
     symbol: "/series/sun-moon/detective-pikachu/symbol.png",
   },
   "unbroken-bonds": {
@@ -744,7 +744,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 234,
     releaseDate: "2019-05-03",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/unbroken-bonds/logo.png",
     symbol: "/series/sun-moon/unbroken-bonds/symbol.png",
   },
   "unified-minds": {
@@ -753,7 +753,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 258,
     releaseDate: "2019-08-02",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/unified-minds/logo.png",
     symbol: "/series/sun-moon/unified-minds/symbol.png",
   },
   "hidden-fates": {
@@ -762,7 +762,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 69,
     releaseDate: "2019-08-23",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/hidden-fates/logo.png",
     symbol: "/series/sun-moon/hidden-fates/symbol.png",
   },
   "cosmic-eclipse": {
@@ -771,7 +771,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "sun-moon",
     totalCards: 271,
     releaseDate: "2019-11-01",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/cosmic-eclipse/logo.png",
     symbol: "/series/sun-moon/cosmic-eclipse/symbol.png",
   },
   "rebel-clash": {
@@ -1059,7 +1059,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "mega-evolution",
     totalCards: 132,
     releaseDate: "2025-09-26",
-    logo: "/series/mega-evolution/mega evolution.png",
+    logo: "/series/mega-evolution/mega-evolution/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "phantasmal-flames": {
@@ -1068,7 +1068,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "mega-evolution",
     totalCards: 94,
     releaseDate: "2025-11-14",
-    logo: "/series/mega-evolution/mega evolution.png",
+    logo: "/series/mega-evolution/phantasmal-flames/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "ascended-heroes": {
@@ -1077,7 +1077,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "mega-evolution",
     totalCards: 217,
     releaseDate: "2026-01-30",
-    logo: "/series/mega-evolution/mega evolution.png",
+    logo: "/series/mega-evolution/ascended-heroes/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "perfect-order": {
@@ -1086,7 +1086,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "mega-evolution",
     totalCards: 88,
     releaseDate: "2026-03-27",
-    logo: "/series/mega-evolution/mega evolution.png",
+    logo: "/series/mega-evolution/perfect-order/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "chaos-rising": {
@@ -1095,7 +1095,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "mega-evolution",
     totalCards: 122,
     releaseDate: "2026-05-22",
-    logo: "/series/mega-evolution/mega evolution.png",
+    logo: "/series/mega-evolution/chaos-rising/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
   "pitch-black": {
@@ -1104,7 +1104,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "mega-evolution",
     totalCards: 83,
     releaseDate: "2026-07-17",
-    logo: "/series/mega-evolution/mega evolution.png",
+    logo: "/series/mega-evolution/pitch-black/logo.png",
     symbol: "/placeholders/udsolgt.png",
   },
 };
