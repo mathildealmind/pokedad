@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PokéDad
 
-## Getting Started
+PokéDad er en Next.js-webshop til Pokémon-samlekort.
 
-First, run the development server:
+## Kom godt i gang
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Åbn derefter [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Projektstruktur
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/page.tsx` – forsiden
+- `app/components/` – genbrugelige UI-komponenter
+- `app/context/` – kurv og favoritter
+- `app/data/cards.ts` – samler alle kortsæt i ét kortkatalog
+- `app/data/sets.ts` – metadata for serier og sæt
+- `app/data/<serie>/` – kortdata opdelt efter serie og sæt
+- `app/serie/[slug]/` – seriesider
+- `app/set/[slug]/` – sætsider
+- `app/kort/[slug]/` – produktsider
+- `app/kategori/[slug]/` – automatiske kortkategorier
+- `public/logo/` – PokéDad-logo
+- `public/series/` – serie-, sæt- og kortbilleder
+- `public/placeholders/` – billeder til kort uden produktfoto
 
-## Learn More
+## Arbejdsgang for kortdata
 
-To learn more about Next.js, take a look at the following resources:
+1. Tilføj eller opdater kortet i den relevante fil under `app/data/<serie>/`.
+2. Læg kortbilleder i den tilsvarende mappe under `public/series/<serie>/<sæt>/`.
+3. Kontrollér, at sættet er registreret i `app/data/sets.ts`.
+4. Importér et nyt dataarkiv i `app/data/cards.ts`.
+5. Kør `npm run dev` og kontrollér serie-, sæt-, produkt- og kategorisider.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Genererede backups og midlertidige importfiler ligger kun lokalt og versionsstyres ikke.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Kontrol
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```

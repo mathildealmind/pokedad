@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated local backups and temporary import reports
+/backups/
+*.old.ts
+*.backup.txt
+*-filenames.txt
