@@ -7,8 +7,6 @@ const IMAGE_EXTENSIONS = new Set([
   ".jpg",
   ".jpeg",
   ".webp",
-  ".tif",
-  ".tiff",
 ]);
 
 type Finish = "normal" | "holo" | "reverse-holo";
@@ -334,7 +332,11 @@ async function main(): Promise<void> {
       .extname(backSource)
       .toLowerCase();
 
-    const baseName = `${card.number}-${card.slug}${suffix}`;
+    const numberSuffix = `-${card.number.toLowerCase()}`;
+    const cleanSlug = card.slug.toLowerCase().endsWith(numberSuffix)
+      ? card.slug.slice(0, -numberSuffix.length)
+      : card.slug;
+    const baseName = `${card.number}-${cleanSlug}${suffix}`;
 
     return [
       {
