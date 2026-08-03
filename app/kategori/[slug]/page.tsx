@@ -3,6 +3,12 @@ import { notFound } from "next/navigation";
 import CardCard from "../../components/CardCard";
 import { cards } from "../../data/cards";
 import { categories } from "../../data/categories";
+import { getCardFinishes } from "../../data/card-utils";
+import {
+  CardFinish,
+  CardRarity,
+  type PokemonCard,
+} from "../../data/types";
 
 type Props = {
   params: Promise<{
@@ -22,10 +28,64 @@ const EEVEE_EVOLUTIONS = [
   "sylveon",
 ];
 
-function belongsToCategory(cardName: string, categorySlug: string): boolean {
-  const normalizedName = cardName.toLowerCase();
+function isSecretCard(cardNumber: string): boolean {
+  const numberMatch = cardNumber.match(/(\d+)\s*\/\s*(\d+)/);
+
+  if (!numberMatch) {
+    return false;
+  }
+
+  return Number(numberMatch[1]) > Number(numberMatch[2]);
+}
+
+function belongsToCategory(
+  card: PokemonCard,
+  categorySlug: string
+): boolean {
+  const normalizedName = card.name.toLowerCase();
 
   switch (categorySlug) {
+    case "ultra-double-rares":
+      return (
+        card.rarity === CardRarity.UltraRare ||
+        card.rarity === CardRarity.DoubleRare
+      );
+
+    case "vmax-vstar":
+      return (
+        normalizedName.includes("vmax") ||
+        normalizedName.includes("vstar")
+      );
+
+    case "illustration-rares":
+      return (
+        card.rarity === CardRarity.IllustrationRare ||
+        card.rarity === CardRarity.SpecialIllustrationRare
+      );
+
+    case "secret-rares":
+      return (
+        isSecretCard(card.cardNumber) ||
+        card.rarity === CardRarity.HyperRare ||
+        card.rarity === CardRarity.BlackWhiteRare
+      );
+
+    case "promos":
+      return (
+        card.rarity === CardRarity.Promo ||
+        card.set.includes("promo")
+      );
+
+    case "holo-rares":
+      return getCardFinishes(card).some((finish) =>
+        [
+          CardFinish.Holo,
+          CardFinish.CosmosHolo,
+          CardFinish.PokeBallHolo,
+          CardFinish.MasterBallHolo,
+        ].includes(finish)
+      );
+
     case "charizard":
       return normalizedName.includes("charizard");
 
@@ -57,7 +117,7 @@ export default async function CategoryPage({ params }: Props) {
   }
 
   const categoryCards = cards.filter((card) =>
-    belongsToCategory(card.name, slug)
+    belongsToCategory(card, slug)
   );
 
   return (
