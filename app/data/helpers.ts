@@ -49,6 +49,9 @@ export function getCardsBySet(setSlug: string) {
 
 function getSeriesImage(series: string): string {
   switch (series) {
+    case "mega-evolution":
+      return "/series/mega-evolution/mega evolution.png";
+
     case "scarlet-violet":
       return "/series/scarlet-violet/logo.png";
 
@@ -95,6 +98,9 @@ function getSeriesImage(series: string): string {
 
 function formatSeriesName(slug: string): string {
   switch (slug) {
+    case "mega-evolution":
+      return "Mega Evolution";
+
     case "scarlet-violet":
       return "Scarlet & Violet";
 

@@ -5,6 +5,11 @@ import { getSeries } from "@/app/data/helpers";
 
 const allSeries = [
   {
+    slug: "mega-evolution",
+    name: "Mega Evolution",
+    logo: "/series/mega-evolution/mega evolution.png",
+  },
+  {
     slug: "base-series",
     name: "Base Series",
     logo: "/series/base-series/Pokemon-Base-Set.png",
