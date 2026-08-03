@@ -372,7 +372,7 @@ export default function Hero({
             ].join(" ")}
           >
             <div className="order-1 flex justify-center lg:order-2">
-              <div className="relative h-[400px] w-[300px] sm:h-[500px] sm:w-[360px] lg:h-[540px] lg:w-[390px]">
+              <div className="relative h-[400px] w-[300px] sm:h-[500px] sm:w-[360px] lg:h-[460px] lg:w-[332px]">
                 <Image
                   key={activeCard.imageFront}
                   src={activeCard.imageFront}
