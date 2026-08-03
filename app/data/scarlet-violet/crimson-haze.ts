@@ -1236,8 +1236,8 @@ export const crimsonHaze: PokemonCard[] = [
   },
   {
     id: 820073,
-    slug: "heliolisk-073",
-    name: "Heliolisk",
+    slug: "cinccino-ex-073",
+    name: "Cinccino ex",
     series: "scarlet-violet",
     set: "crimson-haze",
     cardNumber: "073/066",
