@@ -43,3 +43,76 @@ Genererede backups og midlertidige importfiler ligger kun lokalt og versionsstyr
 npm run lint
 npm run build
 ```
+
+## Automatisk klargøring af scanninger
+
+Du behøver ikke længere omdøbe hvert billede manuelt.
+
+### 1. Scan i denne rækkefølge
+
+1. Første korts forside
+2. Første korts bagside
+3. Andet korts forside
+4. Andet korts bagside
+5. Fortsæt på samme måde
+
+Gem billederne som PNG, JPG eller WebP i:
+
+```text
+scans/<serie>/<sæt>/
+```
+
+Eksempel:
+
+```text
+scans/scarlet-violet/paldea-evolved/
+```
+
+Scannerens egne filnavne må gerne være `Scan 1.png`, `Scan 2.png` osv.
+
+### 2. Se navnene, før noget ændres
+
+Hvis scanningerne starter med kort 84:
+
+```bash
+npm run prepare:scans -- scarlet-violet paldea-evolved --start 84
+```
+
+Hvis kortene ikke følger efter hinanden:
+
+```bash
+npm run prepare:scans -- scarlet-violet paldea-evolved --cards 84,87,91
+```
+
+Tilføj finish, når det er nødvendigt:
+
+```bash
+npm run prepare:scans -- scarlet-violet paldea-evolved --start 84 --finish holo
+npm run prepare:scans -- scarlet-violet paldea-evolved --start 84 --finish reverse-holo
+```
+
+Den første kørsel er kun en sikker forhåndsvisning.
+
+### 3. Kopiér og omdøb automatisk
+
+Når listen ser rigtig ud, kør den samme kommando med `--apply`:
+
+```bash
+npm run prepare:scans -- scarlet-violet paldea-evolved --start 84 --apply
+```
+
+De korrekt navngivne filer bliver lagt i:
+
+```text
+uploads/<serie>/<sæt>/
+```
+
+Eksisterende filer bliver aldrig overskrevet automatisk.
+
+### 4. Importér billederne på hjemmesiden
+
+```bash
+npm run import:images -- scarlet-violet paldea-evolved
+```
+
+Importen kobler billederne til de eksisterende kortdata og kopierer dem til den rigtige mappe under `public/series/`.

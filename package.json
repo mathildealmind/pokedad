@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "prepare:scans": "tsx scripts/prepare-scans.ts",
     "import:images": "tsx scripts/import-images.ts",
     "import:all": "tsx scripts/import-all.ts",
     "import:all:dry": "tsx scripts/import-all.ts --dry-run",
