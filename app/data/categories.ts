@@ -27,20 +27,4 @@ export const categories = [
     name: "Holo Rares",
     href: "/kategori/holo-rares",
   },
-  {
-    name: "Pikachu Singles",
-    href: "/kategori/pikachu",
-  },
-  {
-    name: "Eeveelution Singles",
-    href: "/kategori/eeveelution",
-  },
-  {
-    name: "Charizard Singles",
-    href: "/kategori/charizard",
-  },
-  {
-    name: "Gengar Singles",
-    href: "/kategori/gengar",
-  },
 ];
