@@ -111,7 +111,7 @@ import { steamSiege } from "./xy/steam-siege";
 
 import type { PokemonCard } from "./types";
 
-export const cards: PokemonCard[] = [
+const rawCards: PokemonCard[] = [
   ...baseSet2,
   ...fossil,
   ...jungle,
@@ -223,5 +223,30 @@ export const cards: PokemonCard[] = [
   ...roaringSkies,
   ...steamSiege,
 ];
+
+const slugOccurrences = rawCards.reduce<Record<string, number>>(
+  (occurrences, card) => {
+    occurrences[card.slug] = (occurrences[card.slug] ?? 0) + 1;
+    return occurrences;
+  },
+  {}
+);
+
+/*
+ * Kortnavne og kortnumre kan være ens i forskellige sæt.
+ * Gør kun dublerede slugs unikke, så et kort altid åbner
+ * den korrekte produktside uden at ændre eksisterende,
+ * unikke links.
+ */
+export const cards: PokemonCard[] = rawCards.map((card) => {
+  if (slugOccurrences[card.slug] === 1) {
+    return card;
+  }
+
+  return {
+    ...card,
+    slug: `${card.set ?? "kort"}-${card.slug}`,
+  };
+});
 
 export default cards;
