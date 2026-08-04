@@ -125,14 +125,14 @@ Den anbefalede arbejdsgang er at gemme billederne direkte i:
 uploads/<serie>/<sæt>/
 ```
 
-Kortnavnet skal ikke skrives i filnavnet. Brug kun kortnummer, eventuel finish og side:
+Kortnavnet skal ikke skrives i filnavnet. Forsiden bruger kun kortnummeret. Bagsiden får `-back`, og finish skrives kun på Holo og Reverse Holo:
 
 ```text
-001-front.png
+001.png
 001-back.png
-002-reverse-front.png
-002-reverse-back.png
-003-holo-front.png
+002-reverse-holo.png
+002-reverse-holo-back.png
+003-holo.png
 003-holo-back.png
 ```
 
