@@ -116,3 +116,38 @@ npm run import:images -- scarlet-violet paldea-evolved
 ```
 
 Importen kobler billederne til de eksisterende kortdata og kopierer dem til den rigtige mappe under `public/series/`.
+
+## Enkel import direkte fra uploads
+
+Den anbefalede arbejdsgang er at gemme billederne direkte i:
+
+```text
+uploads/<serie>/<sæt>/
+```
+
+Kortnavnet skal ikke skrives i filnavnet. Brug kun kortnummer, eventuel finish og side:
+
+```text
+001-front.png
+001-back.png
+002-reverse-front.png
+002-reverse-back.png
+003-holo-front.png
+003-holo-back.png
+```
+
+Normal er standard og skrives derfor ikke i filnavnet. `reverse` betyder Reverse Holo.
+
+Normale, Holo og Reverse Holo må gerne ligge blandet i samme mappe. Importér dem samlet med:
+
+```bash
+npm run import:images -- <serie> <sæt>
+```
+
+Eksempel:
+
+```bash
+npm run import:images -- mega-evolution chaos-rising
+```
+
+Importen finder selv kortets navn i datafilen, kontrollerer at hvert kort har både forside og bagside, kopierer billederne og opdaterer lager og varianter.
