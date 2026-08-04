@@ -48,6 +48,7 @@ import { unleashed } from "./heartgold-soulsilver/unleashed";
 import { undaunted } from "./heartgold-soulsilver/undaunted";
 import { triumphant } from "./heartgold-soulsilver/triumphant";
 import { callOfLegends } from "./heartgold-soulsilver/call-of-legends";
+import { chaosRising } from "./mega-evolution/chaos-rising";
 import { neoDestiny } from "./neo-series/neo-destiny";
 import { neoDiscovery } from "./neo-series/neo-discovery";
 import { neoGenesis } from "./neo-series/neo-genesis";
@@ -161,6 +162,7 @@ export const cards: PokemonCard[] = [
   ...undaunted,
   ...triumphant,
   ...callOfLegends,
+  ...chaosRising,
   ...neoDestiny,
   ...neoDiscovery,
   ...neoGenesis,
