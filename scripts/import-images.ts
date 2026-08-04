@@ -16,16 +16,18 @@ import path from "node:path";
 // ✅ laver backup af den valgte datafil før ændringer
 // ✅ stopper før ændringer, hvis filerne ikke kan valideres
 //
-// Filnavne skal følge denne struktur:
+// Enkle filnavne kan bruges direkte:
 //
-// 084-tinkatuff-reverse-holo.png
-// 084-tinkatuff-reverse-holo-back.png
+// 001-front.png
+// 001-back.png
 //
-// 063-zebstrika.png
-// 063-zebstrika-back.png
+// 002-reverse-front.png
+// 002-reverse-back.png
 //
-// 018-wo-chien-holo.png
-// 018-wo-chien-holo-back.png
+// 003-holo-front.png
+// 003-holo-back.png
+//
+// De tidligere fulde filnavne understøttes stadig.
 // ============================================================
 
 const PROJECT_ROOT = process.cwd();
@@ -285,6 +287,40 @@ function parseImageFileName(
     extension
   );
 
+  /*
+   * Kortnavnet findes allerede i datafilen. Derfor er det nok
+   * at skrive kortnummer, eventuel finish og side:
+   *
+   * 001-front.png / 001-back.png
+   * 002-reverse-front.png / 002-reverse-back.png
+   * 003-holo-front.png / 003-holo-back.png
+   */
+  const shorthandMatch = baseName.match(
+    /^(\d{1,3})(?:-(reverse-holo|reverse|holo))?-(front|back)$/i
+  );
+
+  if (shorthandMatch) {
+    const finishToken =
+      shorthandMatch[2]?.toLowerCase();
+
+    const finish: FinishName =
+      finishToken === "reverse" ||
+      finishToken === "reverse-holo"
+        ? "ReverseHolo"
+        : finishToken === "holo"
+          ? "Holo"
+          : "Normal";
+
+    return {
+      sourcePath,
+      relativePath,
+      cardNumber: shorthandMatch[1].padStart(3, "0"),
+      imageSlug: "",
+      finish,
+      side: shorthandMatch[3].toLowerCase() as ImageSide,
+    };
+  }
+
   let workingName = baseName;
 
   let side: ImageSide = "front";
@@ -337,8 +373,11 @@ function parseImageFileName(
       [
         `Ugyldigt filnavn: ${relativePath}`,
         "",
-        "Forventet eksempel:",
-        "084-tinkatuff-reverse-holo.png",
+        "Forventede eksempler:",
+        "001-front.png",
+        "001-back.png",
+        "002-reverse-front.png",
+        "002-reverse-back.png",
       ].join("\n")
     );
   }
@@ -974,8 +1013,9 @@ function updateCardData(
         item.pair.front.imageSlug;
 
       if (
+        actualSlug &&
         actualSlug.toLowerCase() !==
-        expectedSlug.toLowerCase()
+          expectedSlug.toLowerCase()
       ) {
         warnings.push(
           [
