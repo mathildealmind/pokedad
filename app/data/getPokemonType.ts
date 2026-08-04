@@ -1,4 +1,5 @@
 import { PokemonType } from "@/app/data/types";
+import { getPokemonTypeFromName } from "@/app/data/pokemonNameTypes";
 
 type PokemonTypeRange = {
   from: number;
@@ -145,7 +146,8 @@ function getCardNumber(
 export function getPokemonType(
   set?: string,
   cardNumber?: string,
-  fallbackType?: PokemonType
+  fallbackType?: PokemonType,
+  pokemonName?: string
 ): PokemonType | undefined {
   if (fallbackType) {
     return fallbackType;
@@ -161,14 +163,14 @@ export function getPokemonType(
     !normalizedSet ||
     numericCardNumber === null
   ) {
-    return undefined;
+    return getPokemonTypeFromName(pokemonName);
   }
 
   const typeRanges =
     SET_TYPE_RANGES[normalizedSet];
 
   if (!typeRanges) {
-    return undefined;
+    return getPokemonTypeFromName(pokemonName);
   }
 
   const matchingRange =
@@ -178,5 +180,8 @@ export function getPokemonType(
         numericCardNumber <= range.to
     );
 
-  return matchingRange?.type;
+  return (
+    matchingRange?.type ??
+    getPokemonTypeFromName(pokemonName)
+  );
 }
