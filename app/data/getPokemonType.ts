@@ -7,6 +7,35 @@ type PokemonTypeRange = {
 };
 
 const SET_TYPE_RANGES: Record<string, PokemonTypeRange[]> = {
+  "chaos-rising": [
+    { from: 1, to: 7, type: PokemonType.Grass },
+    { from: 8, to: 15, type: PokemonType.Fire },
+    { from: 16, to: 26, type: PokemonType.Water },
+    { from: 27, to: 30, type: PokemonType.Lightning },
+    { from: 31, to: 42, type: PokemonType.Psychic },
+    { from: 43, to: 48, type: PokemonType.Fighting },
+    { from: 49, to: 58, type: PokemonType.Darkness },
+    { from: 59, to: 65, type: PokemonType.Metal },
+    { from: 66, to: 68, type: PokemonType.Dragon },
+    { from: 69, to: 73, type: PokemonType.Colorless },
+    { from: 87, to: 87, type: PokemonType.Grass },
+    { from: 88, to: 89, type: PokemonType.Water },
+    { from: 90, to: 90, type: PokemonType.Lightning },
+    { from: 91, to: 91, type: PokemonType.Psychic },
+    { from: 92, to: 92, type: PokemonType.Fighting },
+    { from: 93, to: 93, type: PokemonType.Darkness },
+    { from: 94, to: 94, type: PokemonType.Metal },
+    { from: 95, to: 95, type: PokemonType.Dragon },
+    { from: 96, to: 97, type: PokemonType.Colorless },
+    { from: 98, to: 98, type: PokemonType.Grass },
+    { from: 99, to: 99, type: PokemonType.Fire },
+    { from: 100, to: 100, type: PokemonType.Water },
+    { from: 101, to: 102, type: PokemonType.Psychic },
+    { from: 103, to: 103, type: PokemonType.Metal },
+    { from: 104, to: 104, type: PokemonType.Dragon },
+    { from: 105, to: 105, type: PokemonType.Colorless },
+  ],
+
   "paradox-rift": [
     {
       from: 1,
