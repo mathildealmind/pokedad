@@ -265,9 +265,11 @@ function finishEnum(
 function getImageExpression(
   relativePath: string
 ): string {
-  return `\`\${IMAGE_BASE}/${toPosixPath(
-    relativePath
-  )}\``;
+  return JSON.stringify(
+    `${IMAGE_BASE}/${toPosixPath(
+      relativePath
+    )}`
+  );
 }
 
 // ============================================================
@@ -291,12 +293,14 @@ function parseImageFileName(
    * Kortnavnet findes allerede i datafilen. Derfor er det nok
    * at skrive kortnummer, eventuel finish og side:
    *
-   * 001-front.png / 001-back.png
-   * 002-reverse-front.png / 002-reverse-back.png
-   * 003-holo-front.png / 003-holo-back.png
+   * 001.png / 001-back.png
+   * 002-reverse-holo.png / 002-reverse-holo-back.png
+   * 003-holo.png / 003-holo-back.png
+   *
+   * "-front" understøttes også, men er ikke nødvendigt.
    */
   const shorthandMatch = baseName.match(
-    /^(\d{1,3})(?:-(reverse-holo|reverse|holo))?-(front|back)$/i
+    /^(\d{1,3})(?:-(reverse-holo|reverse|holo))?(?:-(front|back))?$/i
   );
 
   if (shorthandMatch) {
@@ -317,7 +321,9 @@ function parseImageFileName(
       cardNumber: shorthandMatch[1].padStart(3, "0"),
       imageSlug: "",
       finish,
-      side: shorthandMatch[3].toLowerCase() as ImageSide,
+      side: (
+        shorthandMatch[3]?.toLowerCase() ?? "front"
+      ) as ImageSide,
     };
   }
 
