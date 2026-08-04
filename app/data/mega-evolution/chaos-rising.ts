@@ -2082,7 +2082,7 @@ export const chaosRising: PokemonCard[] = [
     imageFront: SOLD_OUT_IMAGE,
     imageBack: SOLD_OUT_IMAGE,
     dateAdded: "2026-08-04",
-  }
+  },
 ];
 
 export default chaosRising;
