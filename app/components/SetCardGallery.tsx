@@ -105,7 +105,7 @@ export default function SetCardGallery({
   const [rarity, setRarity] = useState("Alle");
   const [finish, setFinish] = useState("Alle");
   const [stock, setStock] = useState("Alle");
-  const [sort, setSort] = useState("Lager først");
+  const [sort, setSort] = useState("Kortnummer");
 
   const availableRarities = useMemo(() => {
     return Array.from(
@@ -236,7 +236,7 @@ export default function SetCardGallery({
     setRarity("Alle");
     setFinish("Alle");
     setStock("Alle");
-    setSort("Lager først");
+    setSort("Kortnummer");
   }
 
   return (
