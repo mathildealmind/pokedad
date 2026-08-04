@@ -18,13 +18,13 @@ import path from "node:path";
 //
 // Enkle filnavne kan bruges direkte:
 //
-// 001-front.png
+// 001.png
 // 001-back.png
 //
-// 002-reverse-front.png
-// 002-reverse-back.png
+// 002-reverse-holo.png
+// 002-reverse-holo-back.png
 //
-// 003-holo-front.png
+// 003-holo.png
 // 003-holo-back.png
 //
 // De tidligere fulde filnavne understøttes stadig.
@@ -380,10 +380,10 @@ function parseImageFileName(
         `Ugyldigt filnavn: ${relativePath}`,
         "",
         "Forventede eksempler:",
-        "001-front.png",
+        "001.png",
         "001-back.png",
-        "002-reverse-front.png",
-        "002-reverse-back.png",
+        "002-reverse-holo.png",
+        "002-reverse-holo-back.png",
       ].join("\n")
     );
   }
