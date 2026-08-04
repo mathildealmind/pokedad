@@ -212,7 +212,8 @@ export default function ProductOptions({ card }: Props) {
   const resolvedPokemonType = getPokemonType(
     card.set,
     card.cardNumber,
-    card.pokemonType
+    card.pokemonType,
+    card.name
   );
 
   const typeTheme = resolvedPokemonType
