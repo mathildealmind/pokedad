@@ -16,6 +16,10 @@ export const categories = [
     href: "/kategori/illustration-rares",
   },
   {
+    name: "Special Illustration Rares",
+    href: "/kategori/special-illustration-rares",
+  },
+  {
     name: "Secret Rares",
     href: "/kategori/secret-rares",
   },
