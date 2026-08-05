@@ -75,10 +75,10 @@ function belongsToCategory(
       );
 
     case "illustration-rares":
-      return (
-        card.rarity === CardRarity.IllustrationRare ||
-        card.rarity === CardRarity.SpecialIllustrationRare
-      );
+      return card.rarity === CardRarity.IllustrationRare;
+
+    case "special-illustration-rares":
+      return card.rarity === CardRarity.SpecialIllustrationRare;
 
     case "secret-rares":
       return (
