@@ -11,6 +11,7 @@ export default function Home() {
   const featuredHeroCardSlugs = [
     "durant-ex-215",
     "magnezone-vstar-057",
+    "entei-promo-34",
   ];
 
   const featuredHeroCards = cards
