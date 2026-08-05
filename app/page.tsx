@@ -4,12 +4,20 @@ import { cards } from "./data/cards";
 
 export default function Home() {
   /*
-   * Alle kort med featured: true vises direkte
-   * inde i Hero-slideren.
+   * Disse kort vises i Hero-slideren.
+   * Slugs bruges, så priser og øvrige kortdata fortsat
+   * hentes direkte fra kortenes egne datafiler.
    */
+  const featuredHeroCardSlugs = [
+    "durant-ex-215",
+    "magnezone-vstar-057",
+    "entei-promo-34",
+  ];
+
   const featuredHeroCards = cards
-    .filter((card) => card.featured)
-    .slice(0, 6)
+    .filter((card) =>
+      featuredHeroCardSlugs.includes(card.slug)
+    )
     .map((card) => ({
       id: card.id,
       slug: card.slug,
