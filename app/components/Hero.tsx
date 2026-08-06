@@ -184,28 +184,23 @@ export default function Hero({
   );
 
   useEffect(() => {
-    if (cardCount <= 1 || isTransitioning) {
+    if (cardCount <= 1) {
       return;
     }
 
-    const autoSlideTimer = window.setTimeout(() => {
-      const nextIndex =
-        activeIndex === cardCount - 1
+    const autoSlideTimer = window.setInterval(() => {
+      setActiveIndex((currentIndex) =>
+        currentIndex === cardCount - 1
           ? 0
-          : activeIndex + 1;
-
-      changeSlide(nextIndex);
+          : currentIndex + 1,
+      );
+      setIsVisible(true);
     }, SLIDE_INTERVAL);
 
     return () => {
-      window.clearTimeout(autoSlideTimer);
+      window.clearInterval(autoSlideTimer);
     };
-  }, [
-    activeIndex,
-    cardCount,
-    changeSlide,
-    isTransitioning,
-  ]);
+  }, [cardCount]);
 
   useEffect(() => {
     if (activeIndex >= cardCount && cardCount > 0) {
@@ -313,6 +308,17 @@ export default function Hero({
         }}
       >
         <div className="relative">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 transition-all duration-700"
+            style={{
+              background: [
+                `radial-gradient(circle at 18% 45%, rgba(${theme.shadowRgb}, 0.28), transparent 42%)`,
+                `radial-gradient(circle at 82% 55%, rgba(${theme.shadowRgb}, 0.14), transparent 38%)`,
+              ].join(", "),
+            }}
+          />
+
           {cardCount > 1 && (
             <>
               <button

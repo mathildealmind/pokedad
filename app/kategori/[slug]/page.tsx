@@ -140,8 +140,8 @@ export default async function CategoryPage({ params }: Props) {
   );
 
   return (
-    <main className="mx-auto max-w-7xl px-6 py-12">
-      <h1 className="text-4xl font-bold">{category.name}</h1>
+    <main className="mx-auto max-w-7xl px-3 py-8 sm:px-6 sm:py-12">
+      <h1 className="text-3xl font-bold sm:text-4xl">{category.name}</h1>
 
       <p className="mt-2 text-gray-600">
         {categoryCards.length}{" "}
@@ -155,7 +155,7 @@ export default async function CategoryPage({ params }: Props) {
           </p>
         </div>
       ) : (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-7 grid grid-cols-3 gap-2 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
           {categoryCards.map((card, index) => (
             <CardCard
               key={`${card.series}-${card.set}-${card.slug}-${index}`}
