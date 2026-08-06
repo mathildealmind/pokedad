@@ -148,6 +148,9 @@ export default function Hero({
   const [isVisible, setIsVisible] = useState(true);
   const [isTransitioning, setIsTransitioning] =
     useState(false);
+  const [slideDirection, setSlideDirection] = useState<
+    "next" | "previous"
+  >("next");
 
   const touchStartX = useRef<number | null>(null);
   const transitionTimer = useRef<number | null>(null);
@@ -155,7 +158,10 @@ export default function Hero({
   const cardCount = cards.length;
 
   const changeSlide = useCallback(
-    (nextIndex: number) => {
+    (
+      nextIndex: number,
+      direction: "next" | "previous" = "next",
+    ) => {
       if (
         cardCount <= 1 ||
         nextIndex === activeIndex ||
@@ -168,6 +174,7 @@ export default function Hero({
         window.clearTimeout(transitionTimer.current);
       }
 
+      setSlideDirection(direction);
       setIsTransitioning(true);
       setIsVisible(false);
 
@@ -184,23 +191,28 @@ export default function Hero({
   );
 
   useEffect(() => {
-    if (cardCount <= 1) {
+    if (cardCount <= 1 || isTransitioning) {
       return;
     }
 
-    const autoSlideTimer = window.setInterval(() => {
-      setActiveIndex((currentIndex) =>
-        currentIndex === cardCount - 1
+    const autoSlideTimer = window.setTimeout(() => {
+      const nextIndex =
+        activeIndex === cardCount - 1
           ? 0
-          : currentIndex + 1,
-      );
-      setIsVisible(true);
+          : activeIndex + 1;
+
+      changeSlide(nextIndex, "next");
     }, SLIDE_INTERVAL);
 
     return () => {
-      window.clearInterval(autoSlideTimer);
+      window.clearTimeout(autoSlideTimer);
     };
-  }, [cardCount]);
+  }, [
+    activeIndex,
+    cardCount,
+    changeSlide,
+    isTransitioning,
+  ]);
 
   useEffect(() => {
     if (activeIndex >= cardCount && cardCount > 0) {
@@ -246,7 +258,7 @@ export default function Hero({
         ? cardCount - 1
         : activeIndex - 1;
 
-    changeSlide(previousIndex);
+    changeSlide(previousIndex, "previous");
   }
 
   function showNextCard() {
@@ -255,7 +267,7 @@ export default function Hero({
         ? 0
         : activeIndex + 1;
 
-    changeSlide(nextIndex);
+    changeSlide(nextIndex, "next");
   }
 
   function handleTouchStart(
@@ -373,8 +385,10 @@ export default function Hero({
               "motion-reduce:transform-none",
               "motion-reduce:transition-none",
               isVisible
-                ? "translate-y-0 scale-100 opacity-100"
-                : "translate-y-3 scale-[0.985] opacity-0",
+                ? "translate-x-0 translate-y-0 scale-100 opacity-100"
+                : slideDirection === "next"
+                  ? "translate-x-8 scale-[0.985] opacity-0 lg:translate-x-16"
+                  : "-translate-x-8 scale-[0.985] opacity-0 lg:-translate-x-16",
             ].join(" ")}
           >
             <div className="order-1 flex justify-center lg:order-2">
