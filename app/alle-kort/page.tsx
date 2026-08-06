@@ -94,7 +94,7 @@ export default function AllCardsPage() {
         Vælg en Pokémon-serie for at se alle tilgængelige sæt.
       </p>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-10 grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
         {allSeries.map((item) => {
           const matchingSeries = registeredSeries.find(
             (series) => series.slug === item.slug
@@ -106,9 +106,9 @@ export default function AllCardsPage() {
             <Link
               key={item.slug}
               href={`/serie/${item.slug}`}
-              className="flex min-h-[320px] flex-col rounded-2xl border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              className="flex min-h-[190px] flex-col rounded-xl border bg-white p-2 shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:min-h-[320px] sm:rounded-2xl sm:p-6"
             >
-              <div className="relative mb-6 h-24 w-full">
+              <div className="relative mb-2 h-14 w-full sm:mb-6 sm:h-24">
                 <Image
                   src={item.logo}
                   alt={item.name}
@@ -117,16 +117,16 @@ export default function AllCardsPage() {
                 />
               </div>
 
-              <h2 className="text-2xl font-bold">
+              <h2 className="text-xs font-bold sm:text-2xl">
                 {item.name}
               </h2>
 
-              <p className="mt-4 text-sm text-gray-500">
+              <p className="mt-2 text-[10px] text-gray-500 sm:mt-4 sm:text-sm">
                 {numberOfSets} sæt
               </p>
 
-              <div className="mt-auto pt-6">
-                <span className="font-semibold text-red-600">
+              <div className="mt-auto pt-2 sm:pt-6">
+                <span className="text-[10px] font-semibold text-red-600 sm:text-base">
                   Se serien →
                 </span>
               </div>

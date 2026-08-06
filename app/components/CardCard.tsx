@@ -206,9 +206,9 @@ export default function CardCard({ card }: Props) {
       }`}
     >
       {/* Billede */}
-      <div className="relative h-48 bg-gray-100 sm:h-72">
+      <div className="relative h-32 bg-gray-100 sm:h-72">
         {/* Favorit */}
-        <div className="absolute right-3 top-3 z-20">
+        <div className="absolute right-1 top-1 z-20 sm:right-3 sm:top-3">
           <FavoriteButton
             id={card.id}
             slug={card.slug}
@@ -235,21 +235,21 @@ export default function CardCard({ card }: Props) {
         />
 
         {/* Statusbadges */}
-        <div className="absolute left-3 top-3 flex flex-col gap-2">
+        <div className="absolute left-1 top-1 flex flex-col gap-1 sm:left-3 sm:top-3 sm:gap-2">
           {isSoldOut && (
-            <span className="rounded-full bg-gray-700 px-3 py-1 text-xs font-bold text-white">
+            <span className="rounded-full bg-gray-700 px-1.5 py-0.5 text-[8px] font-bold text-white sm:px-3 sm:py-1 sm:text-xs">
               UDSOLGT
             </span>
           )}
 
           {!isSoldOut && card.onSale && (
-            <span className="rounded-full bg-red-600 px-3 py-1 text-xs font-bold text-white">
+            <span className="rounded-full bg-red-600 px-1.5 py-0.5 text-[8px] font-bold text-white sm:px-3 sm:py-1 sm:text-xs">
               -{discount}%
             </span>
           )}
 
           {!isSoldOut && card.isNew && (
-            <span className="rounded-full bg-green-600 px-3 py-1 text-xs font-bold text-white">
+            <span className="rounded-full bg-green-600 px-1.5 py-0.5 text-[8px] font-bold text-white sm:px-3 sm:py-1 sm:text-xs">
               NY
             </span>
           )}
@@ -257,7 +257,7 @@ export default function CardCard({ card }: Props) {
       </div>
 
       {/* Information */}
-      <div className="p-3 sm:p-5">
+      <div className="p-2 sm:p-5">
         <h2
           className={`line-clamp-1 text-sm font-bold sm:text-lg ${
             isSoldOut ? "text-gray-500" : ""
@@ -272,21 +272,21 @@ export default function CardCard({ card }: Props) {
           </p>
         )}
 
-        <p className="mt-3 text-sm text-gray-500">
+        <p className="mt-2 text-[9px] text-gray-500 sm:mt-3 sm:text-sm">
           {card.rarity}
         </p>
 
-        <p className="text-sm text-gray-500">
+        <p className="text-[9px] text-gray-500 sm:text-sm">
           {card.condition}
         </p>
 
         {/* Finish-badges */}
         {availableFinishes.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-1.5">
+          <div className="mt-2 flex flex-wrap gap-1 sm:mt-4 sm:gap-1.5">
             {availableFinishes.map((finishName) => (
               <span
                 key={finishName}
-                className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[11px] font-bold leading-none shadow-sm ${getFinishBadgeClass(
+                className={`inline-flex items-center rounded-full border px-1.5 py-0.5 text-[8px] font-bold leading-none shadow-sm sm:px-2.5 sm:py-1 sm:text-[11px] ${getFinishBadgeClass(
                   finishName
                 )}`}
               >
@@ -318,19 +318,19 @@ export default function CardCard({ card }: Props) {
         </div>
 
         {/* Lager */}
-        <div className="mt-5 flex items-center justify-between">
+        <div className="mt-2 flex flex-col items-start gap-1 sm:mt-5 sm:flex-row sm:items-center sm:justify-between">
           {!isSoldOut ? (
-            <span className="text-sm font-semibold text-green-600">
+            <span className="text-[9px] font-semibold text-green-600 sm:text-sm">
               {totalStock} på lager
             </span>
           ) : (
-            <span className="text-sm font-semibold text-gray-500">
+            <span className="text-[9px] font-semibold text-gray-500 sm:text-sm">
               Udsolgt
             </span>
           )}
 
           <span
-            className={`font-semibold transition ${
+            className={`text-[9px] font-semibold transition sm:text-base ${
               isSoldOut
                 ? "text-gray-400"
                 : "text-red-600 group-hover:translate-x-1"

@@ -141,14 +141,6 @@ export default function Navbar() {
                 <SearchBar />
 
                 <div className="mt-6 flex flex-col gap-5 text-lg">
-                  <Link href="/">Forside</Link>
-                  <Link href="/nye-kort">Nye kort</Link>
-                  <Link href="/favoritter">Favoritter ❤️</Link>
-                  <Link href="/om-os">Om os</Link>
-                  <Link href="/kontakt">Kontakt</Link>
-
-                  <hr />
-
                   <h3 className="font-bold">Shop</h3>
 
                   {categories.map((category) => (
@@ -160,6 +152,14 @@ export default function Navbar() {
                       {category.name}
                     </Link>
                   ))}
+
+                  <hr />
+
+                  <Link href="/">Forside</Link>
+                  <Link href="/nye-kort">Nye kort</Link>
+                  <Link href="/favoritter">Favoritter ❤️</Link>
+                  <Link href="/om-os">Om os</Link>
+                  <Link href="/kontakt">Kontakt</Link>
                 </div>
               </div>
             </div>
