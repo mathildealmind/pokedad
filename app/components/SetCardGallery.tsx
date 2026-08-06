@@ -368,7 +368,7 @@ export default function SetCardGallery({
 
       {/* Kort */}
       {filteredCards.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
           {filteredCards.map((card, index) => (
             <CardCard
               key={`${card.set}-${card.slug}-${card.cardNumber}-${index}`}
