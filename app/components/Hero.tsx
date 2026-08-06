@@ -360,8 +360,8 @@ export default function Hero({
 
           <div
             className={[
-              "relative z-10 grid items-center gap-4 sm:gap-8",
-              "px-4 py-4 sm:px-10 sm:py-6 lg:grid-cols-2 lg:gap-12 lg:px-16 lg:py-8",
+              "relative z-10 grid grid-cols-[112px_minmax(0,1fr)] items-center gap-4 sm:grid-cols-[220px_minmax(0,1fr)] sm:gap-8",
+              "px-4 py-5 sm:px-10 sm:py-8 lg:grid-cols-2 lg:gap-12 lg:px-16 lg:py-8",
               "transition-all duration-500",
               "ease-[cubic-bezier(0.22,1,0.36,1)]",
               "motion-reduce:transform-none",
@@ -372,49 +372,49 @@ export default function Hero({
             ].join(" ")}
           >
             <div className="order-1 flex justify-center lg:order-2">
-              <div className="relative h-[280px] w-[220px] sm:h-[500px] sm:w-[360px] lg:h-[460px] lg:w-[332px]">
+              <div className="relative h-[170px] w-[112px] sm:h-[320px] sm:w-[220px] lg:h-[460px] lg:w-[332px]">
                 <Image
                   key={activeCard.imageFront}
                   src={activeCard.imageFront}
                   alt={activeCard.name}
                   fill
-                  sizes="(max-width: 640px) 245px, 300px"
+                  sizes="(max-width: 640px) 112px, (max-width: 1024px) 220px, 332px"
                   className={[
-                    "object-contain drop-shadow-2xl sm:scale-110",
+                    "object-contain drop-shadow-xl lg:scale-110 lg:drop-shadow-2xl",
                     "transition-transform duration-700 ease-out",
-                    "hover:scale-[1.15]",
+                    "lg:hover:scale-[1.15]",
                   ].join(" ")}
                   priority
                 />
               </div>
             </div>
 
-            <div className="order-2 text-center lg:order-1 lg:pl-12 lg:text-left">
-              <span className="inline-flex items-center rounded-full bg-white/75 px-4 py-2 text-sm font-semibold text-neutral-800 shadow-sm backdrop-blur sm:text-base">
+            <div className="order-2 min-w-0 text-left lg:order-1 lg:pl-12">
+              <span className="inline-flex items-center rounded-full bg-white/75 px-2 py-1 text-[10px] font-semibold text-neutral-800 shadow-sm backdrop-blur sm:px-4 sm:py-2 sm:text-base">
                 ⭐ Fremhævet kort
               </span>
 
-              <h1 className="mt-6 text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mt-3 line-clamp-2 text-xl font-black leading-tight sm:mt-6 sm:text-4xl lg:text-6xl">
                 {activeCard.name}
               </h1>
 
-              <p className="mt-4 text-lg text-gray-500 sm:text-xl">
+              <p className="mt-2 line-clamp-2 text-xs text-gray-500 sm:mt-4 sm:text-lg lg:text-xl">
                 {activeCard.set} • {activeCard.cardNumber}
               </p>
 
-              <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-gray-600 sm:text-lg lg:mx-0">
+              <p className="mt-6 hidden max-w-xl text-base leading-relaxed text-gray-600 sm:block sm:text-lg">
                 {activeCard.description ?? description}
               </p>
 
-              <p className="mt-8 text-4xl font-bold sm:mt-10">
+              <p className="mt-3 text-lg font-bold sm:mt-8 sm:text-3xl lg:mt-10 lg:text-4xl">
                 {activeCard.price.toLocaleString("da-DK")} kr.
               </p>
 
               <Link
                 href={`/kort/${activeCard.slug}`}
                 className={[
-                  "mt-8 inline-flex items-center justify-center",
-                  "rounded-xl px-8 py-4 font-semibold shadow-lg",
+                  "mt-3 inline-flex items-center justify-center sm:mt-8",
+                  "rounded-lg px-3 py-2 text-xs font-semibold shadow-lg sm:rounded-xl sm:px-8 sm:py-4 sm:text-base",
                   "transition-all duration-300",
                   "hover:-translate-y-0.5 hover:shadow-xl",
                   "active:translate-y-0",
@@ -425,7 +425,7 @@ export default function Hero({
 
                 <span
                   aria-hidden="true"
-                  className="ml-2 text-xl"
+                  className="ml-1 text-base sm:ml-2 sm:text-xl"
                 >
                   →
                 </span>
@@ -434,7 +434,7 @@ export default function Hero({
           </div>
 
           {cardCount > 1 && (
-            <div className="relative z-20 flex items-center justify-center gap-2 pb-7 sm:pb-9">
+            <div className="relative z-20 flex items-center justify-center gap-2 pb-4 sm:pb-9">
               {cards.map((card, index) => {
                 const isActive = index === activeIndex;
 
@@ -466,12 +466,12 @@ export default function Hero({
         </div>
 
         {featuredCards.length > 0 && (
-          <div className="border-t border-neutral-200/80 bg-white/60 px-6 py-10 sm:px-10 lg:px-12 lg:py-12">
-            <h2 className="mb-8 text-3xl font-black sm:text-4xl">
+          <div className="border-t border-neutral-200/80 bg-white/60 px-3 py-6 sm:px-10 sm:py-10 lg:px-12 lg:py-12">
+            <h2 className="mb-4 text-xl font-black sm:mb-8 sm:text-4xl">
               ⭐ Fremhævede kort
             </h2>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
               {featuredCards.map((card) => (
                 <ProductCard
                   key={`${card.set}-${card.slug}-${card.cardNumber}`}
