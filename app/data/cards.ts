@@ -95,6 +95,7 @@ import { championsPath } from "./sword-shield/champions-path";
 import { lostOrigin } from "./sword-shield/lost-origin";
 import { pokemonGo } from "./sword-shield/pokemon-go";
 import { shiningFates } from "./sword-shield/shining-fates";
+import { silverTempest } from "./sword-shield/silver-tempest";
 import { ancientOrigins } from "./xy/ancient-origins";
 import { xyBase } from "./xy/base";
 import { breakpoint } from "./xy/breakpoint";
@@ -209,6 +210,7 @@ const rawCards: PokemonCard[] = [
   ...lostOrigin,
   ...pokemonGo,
   ...shiningFates,
+  ...silverTempest,
   ...ancientOrigins,
   ...xyBase,
   ...breakpoint,
