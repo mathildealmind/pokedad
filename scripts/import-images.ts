@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
@@ -182,6 +183,7 @@ type ImageSide = "front" | "back";
 type ImageFile = {
   sourcePath: string;
   relativePath: string;
+  contentVersion: string;
   cardNumber: string;
   imageSlug: string;
   finish: FinishName;
@@ -263,12 +265,13 @@ function finishEnum(
 }
 
 function getImageExpression(
-  relativePath: string
+  relativePath: string,
+  contentVersion: string
 ): string {
   return JSON.stringify(
     `${IMAGE_BASE}/${toPosixPath(
       relativePath
-    )}`
+    )}?v=${contentVersion}`
   );
 }
 
@@ -278,7 +281,8 @@ function getImageExpression(
 
 function parseImageFileName(
   sourcePath: string,
-  relativePath: string
+  relativePath: string,
+  contentVersion: string
 ): ImageFile {
   const extension = path
     .extname(relativePath)
@@ -318,6 +322,7 @@ function parseImageFileName(
     return {
       sourcePath,
       relativePath,
+      contentVersion,
       cardNumber: shorthandMatch[1].padStart(3, "0"),
       imageSlug: "",
       finish,
@@ -391,6 +396,7 @@ function parseImageFileName(
   return {
     sourcePath,
     relativePath,
+    contentVersion,
     cardNumber: match[1],
     imageSlug: match[2],
     finish,
@@ -451,10 +457,16 @@ async function findImageFiles(
       fullPath
     );
 
+    const contentVersion = createHash("sha256")
+      .update(await fs.readFile(fullPath))
+      .digest("hex")
+      .slice(0, 12);
+
     imageFiles.push(
       parseImageFileName(
         fullPath,
-        relativePath
+        relativePath,
+        contentVersion
       )
     );
   }
@@ -827,10 +839,12 @@ function buildVariantsLines(
       "        price: 0,",
       "        stock: 1,",
       `        imageFront: ${getImageExpression(
-        item.pair.front.relativePath
+        item.pair.front.relativePath,
+        item.pair.front.contentVersion
       )},`,
       `        imageBack: ${getImageExpression(
-        item.pair.back.relativePath
+        item.pair.back.relativePath,
+        item.pair.back.contentVersion
       )},`,
       "      },"
     );
@@ -1073,7 +1087,8 @@ function updateCardData(
       updatedLines,
       "imageFront",
       getImageExpression(
-        primary.pair.front.relativePath
+        primary.pair.front.relativePath,
+        primary.pair.front.contentVersion
       )
     );
 
@@ -1081,7 +1096,8 @@ function updateCardData(
       updatedLines,
       "imageBack",
       getImageExpression(
-        primary.pair.back.relativePath
+        primary.pair.back.relativePath,
+        primary.pair.back.contentVersion
       )
     );
 
