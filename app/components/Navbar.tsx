@@ -134,13 +134,14 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMenuOpen((current) => !current)}
-            className="text-3xl"
+            className="relative z-[70] flex h-11 w-11 touch-manipulation items-center justify-center text-3xl"
             aria-label={
               menuOpen
                 ? "Luk mobilmenu"
                 : "Åbn mobilmenu"
             }
             aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             {menuOpen ? "✕" : "☰"}
           </button>
@@ -149,7 +150,10 @@ export default function Navbar() {
 
       {/* Mobilmenu */}
       {menuOpen && (
-        <div className="border-t bg-white lg:hidden">
+        <div
+          id="mobile-menu"
+          className="fixed inset-x-0 top-20 z-[60] max-h-[calc(100dvh-5rem)] overflow-y-auto border-t bg-white shadow-xl lg:hidden"
+        >
           <div className="p-5">
             <SearchBar />
 

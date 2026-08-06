@@ -235,10 +235,10 @@ export default function NyeKortPage() {
 
         {/* Kort */}
         {filteredCards.length > 0 ? (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
             {filteredCards.map((card) => (
               <ProductCard
-                key={card.id}
+                key={`${card.set}-${card.slug}-${card.cardNumber}`}
                 id={card.id}
                 slug={card.slug}
                 name={card.name}

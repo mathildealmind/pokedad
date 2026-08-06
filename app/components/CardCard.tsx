@@ -206,7 +206,7 @@ export default function CardCard({ card }: Props) {
       }`}
     >
       {/* Billede */}
-      <div className="relative h-72 bg-gray-100">
+      <div className="relative h-48 bg-gray-100 sm:h-72">
         {/* Favorit */}
         <div className="absolute right-3 top-3 z-20">
           <FavoriteButton
@@ -257,9 +257,9 @@ export default function CardCard({ card }: Props) {
       </div>
 
       {/* Information */}
-      <div className="p-5">
+      <div className="p-3 sm:p-5">
         <h2
-          className={`line-clamp-1 text-lg font-bold ${
+          className={`line-clamp-1 text-sm font-bold sm:text-lg ${
             isSoldOut ? "text-gray-500" : ""
           }`}
         >
@@ -267,7 +267,7 @@ export default function CardCard({ card }: Props) {
         </h2>
 
         {resolvedSubtitle && (
-          <p className="mt-1 line-clamp-1 text-sm text-gray-500">
+          <p className="mt-1 line-clamp-1 text-[11px] text-gray-500 sm:text-sm">
             {resolvedSubtitle}
           </p>
         )}
@@ -297,10 +297,10 @@ export default function CardCard({ card }: Props) {
         )}
 
         {/* Pris */}
-        <div className="mt-5">
+        <div className="mt-3 sm:mt-5">
           <div className="flex items-end gap-2">
             <span
-              className={`text-2xl font-bold ${
+              className={`text-lg font-bold sm:text-2xl ${
                 isSoldOut ? "text-gray-500" : ""
               }`}
             >

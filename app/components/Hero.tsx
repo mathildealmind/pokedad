@@ -360,8 +360,8 @@ export default function Hero({
 
           <div
             className={[
-              "relative z-10 grid items-center gap-8",
-              "px-6 py-4 sm:px-10 sm:py-6 lg:grid-cols-2 lg:gap-12 lg:px-16 lg:py-8",
+              "relative z-10 grid items-center gap-4 sm:gap-8",
+              "px-4 py-4 sm:px-10 sm:py-6 lg:grid-cols-2 lg:gap-12 lg:px-16 lg:py-8",
               "transition-all duration-500",
               "ease-[cubic-bezier(0.22,1,0.36,1)]",
               "motion-reduce:transform-none",
@@ -372,7 +372,7 @@ export default function Hero({
             ].join(" ")}
           >
             <div className="order-1 flex justify-center lg:order-2">
-              <div className="relative h-[400px] w-[300px] sm:h-[500px] sm:w-[360px] lg:h-[460px] lg:w-[332px]">
+              <div className="relative h-[280px] w-[220px] sm:h-[500px] sm:w-[360px] lg:h-[460px] lg:w-[332px]">
                 <Image
                   key={activeCard.imageFront}
                   src={activeCard.imageFront}
@@ -380,7 +380,7 @@ export default function Hero({
                   fill
                   sizes="(max-width: 640px) 245px, 300px"
                   className={[
-                    "object-contain drop-shadow-2xl scale-110",
+                    "object-contain drop-shadow-2xl sm:scale-110",
                     "transition-transform duration-700 ease-out",
                     "hover:scale-[1.15]",
                   ].join(" ")}
@@ -440,7 +440,7 @@ export default function Hero({
 
                 return (
                   <button
-                    key={card.id}
+                    key={`${card.set}-${card.slug}-${card.cardNumber}`}
                     type="button"
                     onClick={() => changeSlide(index)}
                     disabled={
@@ -474,7 +474,7 @@ export default function Hero({
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {featuredCards.map((card) => (
                 <ProductCard
-                  key={card.id}
+                  key={`${card.set}-${card.slug}-${card.cardNumber}`}
                   id={card.id}
                   slug={card.slug}
                   name={card.name}
