@@ -22,7 +22,7 @@ export default async function ProductPage({
     <main className="min-h-screen bg-[#F7F7F5]">
       <div className="mx-auto max-w-7xl px-8 py-12">
 
-        <BackButton />
+        <BackButton href={`/set/${card.set}`} />
 
         <div className="mt-8 rounded-3xl bg-white p-12 shadow-sm">
           <ProductOptions card={card} />

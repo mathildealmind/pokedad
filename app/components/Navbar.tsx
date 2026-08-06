@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CartButton from "./CartButton";
@@ -10,15 +9,12 @@ import { useFavorites } from "@/app/context/FavoritesContext";
 
 export default function Navbar() {
   const { favorites } = useFavorites();
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
           href="/"
-          onClick={() => setMenuOpen(false)}
           aria-label="Gå til PokéDad-forsiden"
           className="flex shrink-0 items-center transition-opacity hover:opacity-80"
         >
@@ -131,88 +127,45 @@ export default function Navbar() {
 
           <CartButton />
 
-          <button
-            type="button"
-            onClick={() => setMenuOpen((current) => !current)}
-            className="relative z-[70] flex h-11 w-11 touch-manipulation items-center justify-center text-3xl"
-            aria-label={
-              menuOpen
-                ? "Luk mobilmenu"
-                : "Åbn mobilmenu"
-            }
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-          >
-            {menuOpen ? "✕" : "☰"}
-          </button>
+          <details className="group">
+            <summary
+              className="relative z-[70] flex h-11 w-11 cursor-pointer touch-manipulation list-none items-center justify-center text-3xl [&::-webkit-details-marker]:hidden"
+              aria-label="Åbn mobilmenu"
+            >
+              <span className="group-open:hidden" aria-hidden="true">☰</span>
+              <span className="hidden group-open:inline" aria-hidden="true">✕</span>
+            </summary>
+
+            <div className="fixed inset-x-0 top-20 z-[60] max-h-[calc(100dvh-5rem)] overflow-y-auto border-t bg-white shadow-xl">
+              <div className="p-5">
+                <SearchBar />
+
+                <div className="mt-6 flex flex-col gap-5 text-lg">
+                  <Link href="/">Forside</Link>
+                  <Link href="/nye-kort">Nye kort</Link>
+                  <Link href="/favoritter">Favoritter ❤️</Link>
+                  <Link href="/om-os">Om os</Link>
+                  <Link href="/kontakt">Kontakt</Link>
+
+                  <hr />
+
+                  <h3 className="font-bold">Shop</h3>
+
+                  {categories.map((category) => (
+                    <Link
+                      key={category.href}
+                      href={category.href}
+                      className="text-gray-600"
+                    >
+                      {category.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
-
-      {/* Mobilmenu */}
-      {menuOpen && (
-        <div
-          id="mobile-menu"
-          className="fixed inset-x-0 top-20 z-[60] max-h-[calc(100dvh-5rem)] overflow-y-auto border-t bg-white shadow-xl lg:hidden"
-        >
-          <div className="p-5">
-            <SearchBar />
-
-            <div className="mt-6 flex flex-col gap-5 text-lg">
-              <Link
-                href="/"
-                onClick={() => setMenuOpen(false)}
-              >
-                Forside
-              </Link>
-
-              <Link
-                href="/nye-kort"
-                onClick={() => setMenuOpen(false)}
-              >
-                Nye kort
-              </Link>
-
-              <Link
-                href="/favoritter"
-                onClick={() => setMenuOpen(false)}
-              >
-                Favoritter ❤️
-              </Link>
-
-              <Link
-                href="/om-os"
-                onClick={() => setMenuOpen(false)}
-              >
-                Om os
-              </Link>
-
-              <Link
-                href="/kontakt"
-                onClick={() => setMenuOpen(false)}
-              >
-                Kontakt
-              </Link>
-
-              <hr />
-
-              <h3 className="font-bold">
-                Shop
-              </h3>
-
-              {categories.map((category) => (
-                <Link
-                  key={category.href}
-                  href={category.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-gray-600"
-                >
-                  {category.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
