@@ -194,14 +194,14 @@ export default function ProductCard({
       className="block h-full"
     >
       <div
-        className={`group relative flex h-full cursor-pointer flex-col rounded-3xl bg-white p-6 shadow-sm transition-all duration-300 ${
+        className={`group relative flex h-full cursor-pointer flex-col rounded-2xl bg-white p-3 sm:rounded-3xl sm:p-6 shadow-sm transition-all duration-300 ${
           isSoldOut
             ? "opacity-55 hover:opacity-70"
             : "hover:shadow-xl"
         }`}
       >
         {/* Favorit */}
-        <div className="absolute right-4 top-4 z-20">
+        <div className="absolute right-2 top-2 z-20 sm:right-4 sm:top-4">
           <FavoriteButton
             id={id}
             slug={slug}
@@ -273,7 +273,7 @@ export default function ProductCard({
         </div>
 
         <h3
-          className={`mt-6 text-xl font-bold ${
+          className={`mt-3 text-sm font-bold sm:mt-6 sm:text-xl ${
             isSoldOut
               ? "text-gray-600"
               : ""
@@ -284,7 +284,7 @@ export default function ProductCard({
 
         {cardDetails && (
           <p
-            className={`mt-2 text-sm ${
+            className={`mt-1 text-[11px] sm:mt-2 sm:text-sm ${
               isSoldOut
                 ? "text-gray-400"
                 : "text-gray-500"
@@ -325,7 +325,7 @@ export default function ProductCard({
             )}
 
           <p
-            className={`text-3xl font-bold ${
+            className={`text-xl font-bold sm:text-3xl ${
               isSoldOut
                 ? "text-gray-500"
                 : ""
