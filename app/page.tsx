@@ -65,7 +65,7 @@ export default function Home() {
           ✨ Nyeste kort
         </h2>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-3 gap-2 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
           {newestCards.map((card) => (
             <ProductCard
               key={`${card.set}-${card.slug}-${card.cardNumber}`}
