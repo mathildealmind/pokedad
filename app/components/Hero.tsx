@@ -392,18 +392,14 @@ export default function Hero({
             ].join(" ")}
           >
             <div className="order-1 flex justify-center lg:order-2">
-              <div className="relative h-[170px] w-[112px] sm:h-[320px] sm:w-[220px] lg:h-[460px] lg:w-[332px]">
+              <div className="relative h-[160px] w-[105px] overflow-hidden rounded-xl shadow-lg sm:h-[285px] sm:w-[196px] sm:rounded-2xl lg:h-[380px] lg:w-[274px] lg:shadow-xl">
                 <Image
                   key={activeCard.imageFront}
                   src={activeCard.imageFront}
                   alt={activeCard.name}
                   fill
-                  sizes="(max-width: 640px) 112px, (max-width: 1024px) 220px, 332px"
-                  className={[
-                    "object-contain drop-shadow-xl lg:scale-110 lg:drop-shadow-2xl",
-                    "transition-transform duration-700 ease-out",
-                    "lg:hover:scale-[1.15]",
-                  ].join(" ")}
+                  sizes="(max-width: 640px) 105px, (max-width: 1024px) 196px, 274px"
+                  className="object-contain"
                   priority
                 />
               </div>
