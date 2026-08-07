@@ -50,7 +50,7 @@ export function getCardsBySet(setSlug: string) {
 function getSeriesImage(series: string): string {
   switch (series) {
     case "mega-evolution":
-      return "/series/mega-evolution/mega evolution.png";
+      return "/series/mega-evolution/mega evolution.webp";
 
     case "scarlet-violet":
       return "/series/scarlet-violet/logo.png";
@@ -80,16 +80,16 @@ function getSeriesImage(series: string): string {
       return "/series/e-card/logo.png";
 
     case "neo-series":
-      return "/series/neo-series/neo_en.png";
+      return "/series/neo-series/neo_en.webp";
 
     case "gym-series":
-      return "/series/gym-series/gym_en.png";
+      return "/series/gym-series/gym_en.webp";
 
     case "base-series":
-      return "/series/base-series/Pokemon-Base-Set.png";
+      return "/series/base-series/Pokemon-Base-Set.webp";
 
     case "legendary":
-      return "/series/legendary/legendaryCollection.png";
+      return "/series/legendary/legendaryCollection.webp";
 
     default:
       return "/series/pokemon.png";

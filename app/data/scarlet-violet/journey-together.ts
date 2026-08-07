@@ -7,7 +7,7 @@ import {
 } from "../types";
 
 const IMAGE_BASE = "/series/scarlet-violet/journey-together";
-const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 
 export const journeyTogether: PokemonCard[] = [
   {
@@ -1893,8 +1893,8 @@ export const journeyTogether: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/scarlet-violet/journey-together/111-hops-zacian-ex.png",
-    imageBack: "/series/scarlet-violet/journey-together/111-hops-zacian-ex-back.png",
+    imageFront: "/series/scarlet-violet/journey-together/111-hops-zacian-ex.webp",
+    imageBack: "/series/scarlet-violet/journey-together/111-hops-zacian-ex-back.webp",
     dateAdded: "2026-07-31",
   },
   {

@@ -6,7 +6,7 @@ import {
   CardRarity,
 } from "../types";
 
-const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 const IMAGE_BASE = "/series/scarlet-violet/twilight-masquerade";
 
 export const twilightMasquerade: PokemonCard[] = [
@@ -2590,8 +2590,8 @@ export const twilightMasquerade: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/scarlet-violet/twilight-masquerade/152-hyper-aroma-ace-spec.png",
-    imageBack: "/series/scarlet-violet/twilight-masquerade/152-hyper-aroma-ace-spec-back.png",
+    imageFront: "/series/scarlet-violet/twilight-masquerade/152-hyper-aroma-ace-spec.webp",
+    imageBack: "/series/scarlet-violet/twilight-masquerade/152-hyper-aroma-ace-spec-back.webp",
     dateAdded: "2026-07-31",
   },
   {
@@ -2777,8 +2777,8 @@ export const twilightMasquerade: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/scarlet-violet/twilight-masquerade/163-secret-box-ace-spec.png",
-    imageBack: "/series/scarlet-violet/twilight-masquerade/163-secret-box-ace-spec-back.png",
+    imageFront: "/series/scarlet-violet/twilight-masquerade/163-secret-box-ace-spec.webp",
+    imageBack: "/series/scarlet-violet/twilight-masquerade/163-secret-box-ace-spec-back.webp",
     dateAdded: "2026-07-31",
   },
   {

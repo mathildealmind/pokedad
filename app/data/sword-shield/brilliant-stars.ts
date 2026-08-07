@@ -7,7 +7,7 @@ import {
   PokemonType,
 } from "../types";
 
-const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 const IMAGE_BASE = "/series/sword-shield/brilliant-stars";
 
 export const brilliantStars: PokemonCard[] = [
@@ -1177,8 +1177,8 @@ export const brilliantStars: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/brilliant-stars/065-whimsicott-vstar-holo.png",
-    imageBack: "/series/sword-shield/brilliant-stars/065-whimsicott-vstar-holo-back.png",
+    imageFront: "/series/sword-shield/brilliant-stars/065-whimsicott-vstar-holo.webp",
+    imageBack: "/series/sword-shield/brilliant-stars/065-whimsicott-vstar-holo-back.webp",
     dateAdded: "2026-08-02",
   },
   {

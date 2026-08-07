@@ -59,7 +59,7 @@ export const blackStarPromos: PokemonCard[] = [
     stock: 0,
 
     imageFront:
-      "/series/sword-shield/black-star-promos/entei-promo-34.png",
+      "/series/sword-shield/black-star-promos/entei-promo-34.webp",
     imageBack:
       "/series/sword-shield/black-star-promos/entei-promo-34 back.png",
 

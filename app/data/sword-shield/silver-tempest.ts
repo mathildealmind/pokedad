@@ -7,7 +7,7 @@ import {
   PokemonType,
 } from "../types";
 
-const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 
 export const silverTempest: PokemonCard[] = [
   {
@@ -168,8 +168,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/009.png",
-    imageBack: "/series/sword-shield/silver-tempest/009-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/009.webp",
+    imageBack: "/series/sword-shield/silver-tempest/009-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -186,8 +186,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/010.png",
-    imageBack: "/series/sword-shield/silver-tempest/010-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/010.webp",
+    imageBack: "/series/sword-shield/silver-tempest/010-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -348,8 +348,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/019.png",
-    imageBack: "/series/sword-shield/silver-tempest/019-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/019.webp",
+    imageBack: "/series/sword-shield/silver-tempest/019-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -474,8 +474,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/026.png",
-    imageBack: "/series/sword-shield/silver-tempest/026-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/026.webp",
+    imageBack: "/series/sword-shield/silver-tempest/026-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -672,8 +672,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/037.png",
-    imageBack: "/series/sword-shield/silver-tempest/037-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/037.webp",
+    imageBack: "/series/sword-shield/silver-tempest/037-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -744,8 +744,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/041.png",
-    imageBack: "/series/sword-shield/silver-tempest/041-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/041.webp",
+    imageBack: "/series/sword-shield/silver-tempest/041-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -1104,8 +1104,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/061-reverse-holo.png",
-    imageBack: "/series/sword-shield/silver-tempest/061-reverse-holo-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/061-reverse-holo.webp",
+    imageBack: "/series/sword-shield/silver-tempest/061-reverse-holo-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -1248,8 +1248,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/069.png",
-    imageBack: "/series/sword-shield/silver-tempest/069-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/069.webp",
+    imageBack: "/series/sword-shield/silver-tempest/069-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -1338,8 +1338,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/074.png",
-    imageBack: "/series/sword-shield/silver-tempest/074-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/074.webp",
+    imageBack: "/series/sword-shield/silver-tempest/074-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -1464,8 +1464,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/081.png",
-    imageBack: "/series/sword-shield/silver-tempest/081-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/081.webp",
+    imageBack: "/series/sword-shield/silver-tempest/081-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -1536,8 +1536,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/085.png",
-    imageBack: "/series/sword-shield/silver-tempest/085-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/085.webp",
+    imageBack: "/series/sword-shield/silver-tempest/085-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -1752,8 +1752,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/097-holo.png",
-    imageBack: "/series/sword-shield/silver-tempest/097-holo-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/097-holo.webp",
+    imageBack: "/series/sword-shield/silver-tempest/097-holo-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -1788,8 +1788,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/099.png",
-    imageBack: "/series/sword-shield/silver-tempest/099-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/099.webp",
+    imageBack: "/series/sword-shield/silver-tempest/099-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -1986,8 +1986,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/110.png",
-    imageBack: "/series/sword-shield/silver-tempest/110-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/110.webp",
+    imageBack: "/series/sword-shield/silver-tempest/110-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -2094,8 +2094,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/116.png",
-    imageBack: "/series/sword-shield/silver-tempest/116-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/116.webp",
+    imageBack: "/series/sword-shield/silver-tempest/116-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -2130,8 +2130,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/118.png",
-    imageBack: "/series/sword-shield/silver-tempest/118-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/118.webp",
+    imageBack: "/series/sword-shield/silver-tempest/118-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -2184,8 +2184,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/121.png",
-    imageBack: "/series/sword-shield/silver-tempest/121-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/121.webp",
+    imageBack: "/series/sword-shield/silver-tempest/121-back.webp",
     dateAdded: "2026-08-06",
   },
   {
@@ -2220,8 +2220,8 @@ export const silverTempest: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: "/series/sword-shield/silver-tempest/123.png",
-    imageBack: "/series/sword-shield/silver-tempest/123-back.png",
+    imageFront: "/series/sword-shield/silver-tempest/123.webp",
+    imageBack: "/series/sword-shield/silver-tempest/123-back.webp",
     dateAdded: "2026-08-06",
   },
   {

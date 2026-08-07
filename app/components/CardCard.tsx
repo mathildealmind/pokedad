@@ -50,7 +50,7 @@ type Props = {
   card: Card;
 };
 
-const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 
 const FINISH_ORDER = [
   "Normal",
