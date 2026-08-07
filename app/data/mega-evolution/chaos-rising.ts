@@ -7,6 +7,7 @@ import {
 } from "../types";
 
 const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const IMAGE_BASE = "/series/mega-evolution/chaos-rising";
 
 export const chaosRising: PokemonCard[] = [
   {
