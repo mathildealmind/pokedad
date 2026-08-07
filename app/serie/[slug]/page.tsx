@@ -63,6 +63,12 @@ export default async function SeriesPage({ params }: Props) {
               {set.totalCards} kort
             </p>
 
+            <p className="mt-1 text-[10px] text-gray-500 sm:text-sm">
+              Udgivet {new Date(
+                set.releaseDate.replaceAll("/", "-")
+              ).toLocaleDateString("da-DK")}
+            </p>
+
             <p className="mt-2 text-[10px] font-semibold text-red-600 sm:mt-4 sm:text-base">
               Se kort →
             </p>

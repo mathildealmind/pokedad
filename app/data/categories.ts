@@ -31,4 +31,12 @@ export const categories = [
     name: "Holo Rares",
     href: "/kategori/holo-rares",
   },
+  {
+    name: "Pikachu",
+    href: "/kategori/pikachu",
+  },
+  {
+    name: "Eeveelutions",
+    href: "/kategori/eeveelution",
+  },
 ];
