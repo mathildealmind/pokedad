@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import CartButton from "./CartButton";
 import SearchBar from "./SearchBar";
 import { categories } from "../data/categories";
@@ -9,24 +10,47 @@ import { useFavorites } from "@/app/context/FavoritesContext";
 
 export default function Navbar() {
   const { favorites } = useFavorites();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) {
+      return;
+    }
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [mobileMenuOpen]);
+
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <Link
-          href="/"
-          aria-label="Gå til PokéDad-forsiden"
-          className="flex shrink-0 items-center transition-opacity hover:opacity-80"
-        >
-          <Image
-            src="/logo/pokedad-logo.webp"
-            alt="PokéDad"
-            width={1124}
-            height={249}
-            priority
-            className="h-auto w-[150px] object-contain sm:w-[180px] lg:w-[190px]"
-          />
-        </Link>
+    <>
+      <header className="sticky top-0 z-50 bg-white shadow-sm">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
+          {/* Logo */}
+          <Link
+            href="/"
+            aria-label="Gå til PokéDad-forsiden"
+            className="flex shrink-0 items-center transition-opacity hover:opacity-80"
+          >
+            <Image
+              src="/logo/pokedad-logo.webp"
+              alt="PokéDad"
+              width={1124}
+              height={249}
+              priority
+              className="h-auto w-[150px] object-contain sm:w-[180px] lg:w-[190px]"
+            />
+          </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden shrink-0 items-center gap-8 font-medium lg:flex">
@@ -127,45 +151,68 @@ export default function Navbar() {
 
           <CartButton />
 
-          <details className="group">
-            <summary
-              className="relative z-[70] flex h-11 w-11 cursor-pointer touch-manipulation list-none items-center justify-center text-3xl [&::-webkit-details-marker]:hidden"
-              aria-label="Åbn mobilmenu"
-            >
-              <span className="group-open:hidden" aria-hidden="true">☰</span>
-              <span className="hidden group-open:inline" aria-hidden="true">✕</span>
-            </summary>
-
-            <div className="fixed inset-x-0 top-20 z-[60] max-h-[calc(100dvh-5rem)] overflow-y-auto border-t bg-white shadow-xl">
-              <div className="p-5">
-                <SearchBar />
-
-                <div className="mt-6 flex flex-col gap-5 text-lg">
-                  <h3 className="font-bold">Shop</h3>
-
-                  {categories.map((category) => (
-                    <Link
-                      key={category.href}
-                      href={category.href}
-                      className="text-gray-600"
-                    >
-                      {category.name}
-                    </Link>
-                  ))}
-
-                  <hr />
-
-                  <Link href="/">Forside</Link>
-                  <Link href="/nye-kort">Nye kort</Link>
-                  <Link href="/favoritter">Favoritter ❤️</Link>
-                  <Link href="/om-os">Om os</Link>
-                  <Link href="/kontakt">Kontakt</Link>
-                </div>
-              </div>
-            </div>
-          </details>
+          <button
+            type="button"
+            className="relative z-[70] flex h-11 w-11 touch-manipulation items-center justify-center text-3xl"
+            aria-label={mobileMenuOpen ? "Luk mobilmenu" : "Åbn mobilmenu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+          >
+            <span aria-hidden="true">{mobileMenuOpen ? "✕" : "☰"}</span>
+          </button>
         </div>
-      </div>
-    </header>
+        </div>
+      </header>
+
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 top-20 z-40 bg-black/20 lg:hidden"
+          onClick={closeMobileMenu}
+        >
+          <nav
+            id="mobile-navigation"
+            aria-label="Mobilnavigation"
+            className="max-h-[calc(100dvh-5rem)] overflow-y-auto border-t bg-white p-5 shadow-xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <SearchBar />
+
+            <div className="mt-6 flex flex-col gap-5 text-lg">
+              <h3 className="font-bold">Shop</h3>
+
+              {categories.map((category) => (
+                <Link
+                  key={category.href}
+                  href={category.href}
+                  className="text-gray-600"
+                  onClick={closeMobileMenu}
+                >
+                  {category.name}
+                </Link>
+              ))}
+
+              <hr />
+
+              <Link href="/" onClick={closeMobileMenu}>
+                Forside
+              </Link>
+              <Link href="/nye-kort" onClick={closeMobileMenu}>
+                Nye kort
+              </Link>
+              <Link href="/favoritter" onClick={closeMobileMenu}>
+                Favoritter ❤️
+              </Link>
+              <Link href="/om-os" onClick={closeMobileMenu}>
+                Om os
+              </Link>
+              <Link href="/kontakt" onClick={closeMobileMenu}>
+                Kontakt
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
+    </>
   );
 }
