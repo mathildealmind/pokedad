@@ -11,12 +11,16 @@
     "import:images": "tsx scripts/import-images.ts",
     "import:all": "tsx scripts/import-all.ts",
     "import:all:dry": "tsx scripts/import-all.ts --dry-run",
+    "convert:webp:dry": "tsx scripts/convert-images-to-webp.ts --dry-run",
+    "convert:webp": "tsx scripts/convert-images-to-webp.ts",
+    "convert:webp:cleanup": "tsx scripts/convert-images-to-webp.ts --delete-originals",
     "generate:heartgold-soulsilver": "tsx scripts/generate-heartgold-soulsilver.ts"
   },
   "dependencies": {
     "next": "16.2.12",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
