@@ -392,26 +392,16 @@ export default function Hero({
             ].join(" ")}
           >
             <div className="order-1 flex justify-center lg:order-2">
-              <div
-                className={[
-                  "flex items-center justify-center",
-                  "h-[174px] w-[122px] p-2 sm:h-[310px] sm:w-[224px] sm:p-3 lg:h-[410px] lg:w-[304px] lg:p-4",
-                  "rounded-2xl bg-gradient-to-br from-white via-slate-50 to-slate-100",
-                  "border border-white/90 ring-1 ring-black/[0.06]",
-                  "shadow-[0_22px_55px_-28px_rgba(15,23,42,0.55)]",
-                ].join(" ")}
-              >
-                <div className="relative h-full w-full overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/[0.05] sm:rounded-2xl">
-                  <Image
-                    key={activeCard.imageFront}
-                    src={activeCard.imageFront}
-                    alt={activeCard.name}
-                    fill
-                    sizes="(max-width: 640px) 106px, (max-width: 1024px) 200px, 272px"
-                    className="object-contain"
-                    priority
-                  />
-                </div>
+              <div className="relative h-[160px] w-[112px] overflow-hidden rounded-xl shadow-[0_18px_40px_-20px_rgba(15,23,42,0.55)] sm:h-[285px] sm:w-[200px] sm:rounded-2xl lg:h-[365px] lg:w-[256px]">
+                <Image
+                  key={activeCard.imageFront}
+                  src={activeCard.imageFront}
+                  alt={activeCard.name}
+                  fill
+                  sizes="(max-width: 640px) 112px, (max-width: 1024px) 200px, 256px"
+                  className="object-cover object-top"
+                  priority
+                />
               </div>
             </div>
 
