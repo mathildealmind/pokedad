@@ -95,7 +95,7 @@ export default function AllCardsPage() {
       </p>
 
       <div className="mt-10 grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-        {allSeries.map((item) => {
+        {[...allSeries].reverse().map((item) => {
           const matchingSeries = registeredSeries.find(
             (series) => series.slug === item.slug
           );

@@ -23,8 +23,10 @@ export function getSeries(): Series[] {
     slug,
     name: formatSeriesName(slug),
     image: getSeriesImage(slug),
-    sets: setList.sort((a, b) =>
-      a.name.localeCompare(b.name, "da")
+    sets: setList.sort(
+      (a, b) =>
+        parseReleaseDate(b.releaseDate) -
+        parseReleaseDate(a.releaseDate)
     ),
   }));
 }
@@ -36,7 +38,11 @@ export function getSeriesBySlug(slug: string): Series | undefined {
 export function getSetsBySeries(seriesSlug: string): PokemonSet[] {
   return Object.values(sets)
     .filter((set) => set.series === seriesSlug)
-    .sort((a, b) => a.name.localeCompare(b.name, "da"));
+    .sort(
+      (a, b) =>
+        parseReleaseDate(b.releaseDate) -
+        parseReleaseDate(a.releaseDate)
+    );
 }
 
 export function getSet(slug: string): PokemonSet | undefined {
@@ -45,6 +51,10 @@ export function getSet(slug: string): PokemonSet | undefined {
 
 export function getCardsBySet(setSlug: string) {
   return cards.filter((card) => card.set === setSlug);
+}
+
+function parseReleaseDate(releaseDate: string): number {
+  return new Date(releaseDate.replaceAll("/", "-")).getTime();
 }
 
 function getSeriesImage(series: string): string {
