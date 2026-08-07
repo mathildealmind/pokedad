@@ -5,24 +5,24 @@ import { getSeries } from "@/app/data/helpers";
 
 const allSeries = [
   {
-    slug: "mega-evolution",
-    name: "Mega Evolution",
-    logo: "/series/mega-evolution/mega evolution.png",
-  },
-  {
     slug: "base-series",
     name: "Base Series",
     logo: "/series/base-series/Pokemon-Base-Set.png",
   },
   {
-    slug: "black-white",
-    name: "Black & White",
-    logo: "/series/black-white/BW1_Logo_EN.png",
+    slug: "gym-series",
+    name: "Gym Series",
+    logo: "/series/gym-series/gym_en.png",
   },
   {
-    slug: "diamond-pearl",
-    name: "Diamond & Pearl",
-    logo: "/series/diamond-pearl/DP1_Logo_EN.png",
+    slug: "neo-series",
+    name: "Neo Series",
+    logo: "/series/neo-series/neo_en.png",
+  },
+  {
+    slug: "legendary",
+    name: "Legendary Collection",
+    logo: "/series/legendary/legendaryCollection.png",
   },
   {
     slug: "e-card",
@@ -35,24 +35,9 @@ const allSeries = [
     logo: "/series/ex-series/ex.jpg",
   },
   {
-    slug: "gym-series",
-    name: "Gym Series",
-    logo: "/series/gym-series/gym_en.png",
-  },
-  {
-    slug: "heartgold-soulsilver",
-    name: "HeartGold & SoulSilver",
-    logo: "/series/heartgold-soulsilver/HS1_Logo_EN.png",
-  },
-  {
-    slug: "legendary",
-    name: "Legendary Collection",
-    logo: "/series/legendary/legendaryCollection.png",
-  },
-  {
-    slug: "neo-series",
-    name: "Neo Series",
-    logo: "/series/neo-series/neo_en.png",
+    slug: "diamond-pearl",
+    name: "Diamond & Pearl",
+    logo: "/series/diamond-pearl/DP1_Logo_EN.png",
   },
   {
     slug: "platinum",
@@ -60,9 +45,19 @@ const allSeries = [
     logo: "/series/platinum/PL1_Logo_EN.png",
   },
   {
-    slug: "scarlet-violet",
-    name: "Scarlet & Violet",
-    logo: "/series/scarlet-violet/scarlet and violet.png",
+    slug: "heartgold-soulsilver",
+    name: "HeartGold & SoulSilver",
+    logo: "/series/heartgold-soulsilver/HS1_Logo_EN.png",
+  },
+  {
+    slug: "black-white",
+    name: "Black & White",
+    logo: "/series/black-white/BW1_Logo_EN.png",
+  },
+  {
+    slug: "xy",
+    name: "XY",
+    logo: "/series/xy/xy.png",
   },
   {
     slug: "sun-moon",
@@ -75,11 +70,16 @@ const allSeries = [
     logo: "/series/sword-shield/Sword & Shield1.png",
   },
   {
-    slug: "xy",
-    name: "XY",
-    logo: "/series/xy/xy.png",
+    slug: "scarlet-violet",
+    name: "Scarlet & Violet",
+    logo: "/series/scarlet-violet/scarlet and violet.png",
   },
-].sort((a, b) => a.name.localeCompare(b.name));
+  {
+    slug: "mega-evolution",
+    name: "Mega Evolution",
+    logo: "/series/mega-evolution/mega evolution.png",
+  },
+];
 
 export default function AllCardsPage() {
   const registeredSeries = getSeries();
