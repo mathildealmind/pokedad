@@ -7,27 +7,27 @@ const allSeries = [
   {
     slug: "base-series",
     name: "Base Series",
-    logo: "/series/base-series/Pokemon-Base-Set.png",
+    logo: "/series/base-series/Pokemon-Base-Set.webp",
   },
   {
     slug: "gym-series",
     name: "Gym Series",
-    logo: "/series/gym-series/gym_en.png",
+    logo: "/series/gym-series/gym_en.webp",
   },
   {
     slug: "neo-series",
     name: "Neo Series",
-    logo: "/series/neo-series/neo_en.png",
+    logo: "/series/neo-series/neo_en.webp",
   },
   {
     slug: "legendary",
     name: "Legendary Collection",
-    logo: "/series/legendary/legendaryCollection.png",
+    logo: "/series/legendary/legendaryCollection.webp",
   },
   {
     slug: "e-card",
     name: "e-Card",
-    logo: "/series/e-card/e reader.png",
+    logo: "/series/e-card/e reader.webp",
   },
   {
     slug: "ex-series",
@@ -37,47 +37,47 @@ const allSeries = [
   {
     slug: "diamond-pearl",
     name: "Diamond & Pearl",
-    logo: "/series/diamond-pearl/DP1_Logo_EN.png",
+    logo: "/series/diamond-pearl/DP1_Logo_EN.webp",
   },
   {
     slug: "platinum",
     name: "Platinum",
-    logo: "/series/platinum/PL1_Logo_EN.png",
+    logo: "/series/platinum/PL1_Logo_EN.webp",
   },
   {
     slug: "heartgold-soulsilver",
     name: "HeartGold & SoulSilver",
-    logo: "/series/heartgold-soulsilver/HS1_Logo_EN.png",
+    logo: "/series/heartgold-soulsilver/HS1_Logo_EN.webp",
   },
   {
     slug: "black-white",
     name: "Black & White",
-    logo: "/series/black-white/BW1_Logo_EN.png",
+    logo: "/series/black-white/BW1_Logo_EN.webp",
   },
   {
     slug: "xy",
     name: "XY",
-    logo: "/series/xy/xy.png",
+    logo: "/series/xy/xy.webp",
   },
   {
     slug: "sun-moon",
     name: "Sun & Moon",
-    logo: "/series/sun-moon/sun and moon.png",
+    logo: "/series/sun-moon/sun and moon.webp",
   },
   {
     slug: "sword-shield",
     name: "Sword & Shield",
-    logo: "/series/sword-shield/Sword & Shield1.png",
+    logo: "/series/sword-shield/Sword & Shield1.webp",
   },
   {
     slug: "scarlet-violet",
     name: "Scarlet & Violet",
-    logo: "/series/scarlet-violet/scarlet and violet.png",
+    logo: "/series/scarlet-violet/scarlet and violet.webp",
   },
   {
     slug: "mega-evolution",
     name: "Mega Evolution",
-    logo: "/series/mega-evolution/mega evolution.png",
+    logo: "/series/mega-evolution/mega evolution.webp",
   },
 ];
 

@@ -178,7 +178,7 @@ export default function SearchBar() {
             const resolvedImage =
               imageFront ||
               image ||
-              "/placeholders/udsolgt.png";
+              "/placeholders/udsolgt.webp";
 
             const subtitle =
               "subtitle" in card &&

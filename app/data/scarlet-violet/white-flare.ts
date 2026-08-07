@@ -6,7 +6,7 @@ import {
   CardRarity,
 } from "../types";
 
-const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 const IMAGE_BASE = "/series/scarlet-violet/white-flare";
 
 export const whiteFlare: PokemonCard[] = [

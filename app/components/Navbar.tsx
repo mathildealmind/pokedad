@@ -43,6 +43,7 @@ export default function Navbar() {
             className="flex shrink-0 items-center transition-opacity hover:opacity-80"
           >
             <Image
+              src="/logo/pokedad-logo.webp"
               src="/logo/pokedad-logo.png"
               alt="PokéDad"
               width={1124}

@@ -6,7 +6,7 @@ import {
   CardRarity,
 } from "../types";
 
-const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 
 export const blackBolt: PokemonCard[] = [
   {

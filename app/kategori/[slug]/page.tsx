@@ -38,7 +38,7 @@ function isSecretCard(cardNumber: string): boolean {
   return Number(numberMatch[1]) > Number(numberMatch[2]);
 }
 
-const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 
 function hasProductPhoto(card: PokemonCard): boolean {
   const images = [

@@ -7,7 +7,7 @@ import {
   PokemonType,
 } from "../types";
 
-const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 
 export const teamUp: PokemonCard[] = [
   {

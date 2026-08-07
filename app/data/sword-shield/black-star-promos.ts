@@ -54,12 +54,12 @@ export const blackStarPromos: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.NearMint,
 
-    price: 300,
+    price:45,
     originalPrice: null,
     stock: 0,
 
     imageFront:
-      "/series/sword-shield/black-star-promos/entei-promo-34.png",
+      "/series/sword-shield/black-star-promos/entei-promo-34.webp",
     imageBack:
       "/series/sword-shield/black-star-promos/entei-promo-34 back.png",
 

@@ -6,7 +6,7 @@ import {
   CardRarity,
 } from "../types";
 
-const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 const IMAGE_BASE = "/series/scarlet-violet/crimson-haze";
 
 export const crimsonHaze: PokemonCard[] = [
@@ -1247,8 +1247,8 @@ export const crimsonHaze: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: `${IMAGE_BASE}/073-cinccino-ex-holo.png`,
-    imageBack: `${IMAGE_BASE}/073-cinccino-ex-holo-back.png`,
+    imageFront: "/series/scarlet-violet/crimson-haze/073-cinccino-ex-holo.webp",
+    imageBack: "/series/scarlet-violet/crimson-haze/073-cinccino-ex-holo-back.webp",
     dateAdded: "2026-08-01",
   },
   {

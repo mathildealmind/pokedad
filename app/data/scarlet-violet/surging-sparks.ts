@@ -6,7 +6,7 @@ import {
   CardRarity,
 } from "../types";
 
-const SOLD_OUT_IMAGE = "/placeholders/udsolgt.png";
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 const IMAGE_BASE = "/series/scarlet-violet/surging-sparks";
 
 
@@ -3660,10 +3660,10 @@ export const surgingSparks: PokemonCard[] = [
     finish: CardFinish.Holo,
     language: CardLanguage.English,
     condition: CardCondition.Mint,
-    price: 0,
+    price: 30,
     stock: 1,
-    imageFront: `${IMAGE_BASE}/215-durant-ex-special-illustration-rare.png`,
-    imageBack: `${IMAGE_BASE}/215-durant-ex-special-illustration-rare-back.png`,
+    imageFront: "/series/scarlet-violet/surging-sparks/215-durant-ex-special-illustration-rare.webp",
+    imageBack: "/series/scarlet-violet/surging-sparks/215-durant-ex-special-illustration-rare-back.webp",
     dateAdded: "2026-07-31",
   },
   {
