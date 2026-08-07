@@ -1177,8 +1177,8 @@ export const brilliantStars: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: `${IMAGE_BASE}/065-whimsicott-vstar-holo.png`,
-    imageBack: `${IMAGE_BASE}/065-whimsicott-vstar-holo-back.png`,
+    imageFront: "/series/sword-shield/brilliant-stars/065-whimsicott-vstar-holo.png",
+    imageBack: "/series/sword-shield/brilliant-stars/065-whimsicott-vstar-holo-back.png",
     dateAdded: "2026-08-02",
   },
   {

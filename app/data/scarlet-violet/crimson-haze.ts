@@ -1247,8 +1247,8 @@ export const crimsonHaze: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: `${IMAGE_BASE}/073-cinccino-ex-holo.png`,
-    imageBack: `${IMAGE_BASE}/073-cinccino-ex-holo-back.png`,
+    imageFront: "/series/scarlet-violet/crimson-haze/073-cinccino-ex-holo.png",
+    imageBack: "/series/scarlet-violet/crimson-haze/073-cinccino-ex-holo-back.png",
     dateAdded: "2026-08-01",
   },
   {

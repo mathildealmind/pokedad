@@ -1031,10 +1031,10 @@ export const lostOrigin: PokemonCard[] = [
     pokemonType: PokemonType.Lightning,
     language: CardLanguage.English,
     condition: CardCondition.Mint,
-    price: 0,
+    price: 75,
     stock: 1,
-    imageFront: `${IMAGE_BASE}/057-magnezone-vstar.png`,
-    imageBack: `${IMAGE_BASE}/057-magnezone-vstar-back.png`,
+    imageFront: "/series/sword-shield/lost-origin/057-magnezone-vstar.png",
+    imageBack: "/series/sword-shield/lost-origin/057-magnezone-vstar-back.png",
     dateAdded: "2026-08-02",
   },
   {

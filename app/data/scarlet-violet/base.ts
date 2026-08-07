@@ -550,8 +550,8 @@ export const scarletVioletBase: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: `${IMAGE_BASE}/032-arcanine-ex-holo.png`,
-    imageBack: `${IMAGE_BASE}/032-arcanine-ex-holo-back.png`,
+    imageFront: "/series/scarlet-violet/base/032-arcanine-ex-holo.png",
+    imageBack: "/series/scarlet-violet/base/032-arcanine-ex-holo-back.png",
     dateAdded: "2026-08-01",
   },
   {
@@ -4392,8 +4392,8 @@ export const scarletVioletBase: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: `${IMAGE_BASE}/258-basic-fighting-energy-hyper-rare.png`,
-    imageBack: `${IMAGE_BASE}/258-basic-fighting-energy-hyper-rare-back.png`,
+    imageFront: "/series/scarlet-violet/base/258-basic-fighting-energy-hyper-rare.png",
+    imageBack: "/series/scarlet-violet/base/258-basic-fighting-energy-hyper-rare-back.png",
     dateAdded: "2026-08-01",
   },
 ];

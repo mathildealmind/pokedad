@@ -2590,8 +2590,8 @@ export const twilightMasquerade: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: `${IMAGE_BASE}/152-hyper-aroma-ace-spec.png`,
-    imageBack: `${IMAGE_BASE}/152-hyper-aroma-ace-spec-back.png`,
+    imageFront: "/series/scarlet-violet/twilight-masquerade/152-hyper-aroma-ace-spec.png",
+    imageBack: "/series/scarlet-violet/twilight-masquerade/152-hyper-aroma-ace-spec-back.png",
     dateAdded: "2026-07-31",
   },
   {
@@ -2777,8 +2777,8 @@ export const twilightMasquerade: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: `${IMAGE_BASE}/163-secret-box-ace-spec.png`,
-    imageBack: `${IMAGE_BASE}/163-secret-box-ace-spec-back.png`,
+    imageFront: "/series/scarlet-violet/twilight-masquerade/163-secret-box-ace-spec.png",
+    imageBack: "/series/scarlet-violet/twilight-masquerade/163-secret-box-ace-spec-back.png",
     dateAdded: "2026-07-31",
   },
   {

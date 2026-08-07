@@ -1893,8 +1893,8 @@ export const journeyTogether: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 0,
     stock: 1,
-    imageFront: `${IMAGE_BASE}/111-hops-zacian-ex.png`,
-    imageBack: `${IMAGE_BASE}/111-hops-zacian-ex-back.png`,
+    imageFront: "/series/scarlet-violet/journey-together/111-hops-zacian-ex.png",
+    imageBack: "/series/scarlet-violet/journey-together/111-hops-zacian-ex-back.png",
     dateAdded: "2026-07-31",
   },
   {

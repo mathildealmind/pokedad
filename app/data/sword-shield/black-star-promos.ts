@@ -54,7 +54,7 @@ export const blackStarPromos: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.NearMint,
 
-    price: 300,
+    price:45,
     originalPrice: null,
     stock: 0,
 
