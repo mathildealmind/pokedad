@@ -50,11 +50,16 @@ export default function NewsletterSignup() {
       aria-labelledby="newsletter-heading"
       className="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8"
     >
-      <div className="overflow-hidden rounded-3xl border-2 border-black bg-white p-5 shadow-[5px_5px_0_#111827] sm:p-8 lg:p-10">
-        <div className="grid min-w-0 items-center gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)] lg:gap-10">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-neutral-50 via-white to-neutral-100 p-5 shadow-[0_22px_55px_-32px_rgba(15,23,42,0.55)] sm:p-8 lg:p-10">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_45%,rgba(245,158,11,0.14),transparent_42%),radial-gradient(circle_at_82%_55%,rgba(245,158,11,0.08),transparent_38%)]"
+        />
+
+        <div className="relative z-10 grid min-w-0 items-center gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)] lg:gap-10">
           <div className="min-w-0">
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-black/65">
-              PokéDad-nyt
+            <p className="inline-flex items-center rounded-full bg-white/80 px-3 py-1.5 text-sm font-semibold text-neutral-800 shadow-sm backdrop-blur">
+              ✉️ PokéDad-nyt
             </p>
             <h2
               id="newsletter-heading"
@@ -88,12 +93,12 @@ export default function NewsletterSignup() {
                 }}
                 placeholder="Din e-mail"
                 aria-describedby="newsletter-consent newsletter-status"
-                className="min-w-0 flex-1 rounded-xl border-2 border-black bg-gray-50 px-4 py-3 text-base outline-none placeholder:text-gray-500 focus-visible:ring-4 focus-visible:ring-gray-300"
+                className="min-w-0 flex-1 rounded-xl border border-black/10 bg-white/90 px-4 py-3 text-base shadow-sm outline-none backdrop-blur placeholder:text-gray-500 focus-visible:border-black/30 focus-visible:ring-4 focus-visible:ring-amber-200/70"
               />
 
               <button
                 type="submit"
-                className="shrink-0 rounded-xl border-2 border-black bg-black px-6 py-3 font-bold text-white transition hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-gray-300 active:translate-y-px"
+                className="shrink-0 rounded-xl bg-black px-6 py-3 font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200 active:translate-y-0"
               >
                 Tilmeld
               </button>
