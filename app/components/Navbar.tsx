@@ -44,7 +44,6 @@ export default function Navbar() {
           >
             <Image
               src="/logo/pokedad-logo.webp"
-              src="/logo/pokedad-logo.png"
               alt="PokéDad"
               width={1124}
               height={249}
