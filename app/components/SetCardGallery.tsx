@@ -402,14 +402,11 @@ export default function SetCardGallery({
       {/* Kort */}
       {filteredCards.length > 0 ? (
         <div className="grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-          {visibleCards.map((card, index) => (
-            <div
-              key={`${card.set}-${card.slug}-${card.cardNumber}-${index}`}
-              className="catalog-card-enter h-full"
-              style={{ animationDelay: `${(index % 24) * 15}ms` }}
-            >
-              <CardCard card={card} />
-            </div>
+          {visibleCards.map((card) => (
+            <CardCard
+              key={`${card.id}-${card.set}-${card.slug}-${card.cardNumber}`}
+              card={card}
+            />
           ))}
         </div>
       ) : (

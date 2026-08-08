@@ -24,14 +24,11 @@ export default function ProgressiveCardGrid({
       <div
         className={`grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4 ${className}`}
       >
-        {visibleCards.map((card, index) => (
-          <div
+        {visibleCards.map((card) => (
+          <CardCard
             key={`${card.series}-${card.set}-${card.slug}-${card.cardNumber}`}
-            className="catalog-card-enter h-full"
-            style={{ animationDelay: `${(index % 24) * 15}ms` }}
-          >
-            <CardCard card={card} />
-          </div>
+            card={card}
+          />
         ))}
       </div>
 

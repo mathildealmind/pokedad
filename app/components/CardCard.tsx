@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { PokemonType } from "@/app/data/types";
+import CatalogCardReveal from "./CatalogCardReveal";
 import FavoriteButton from "./FavoriteButton";
 import TiltCard from "./TiltCard";
 
@@ -200,10 +201,13 @@ export default function CardCard({ card }: Props) {
       : 0;
 
   return (
-    <TiltCard className="h-full">
-      <Link
-        href={`/kort/${card.slug}`}
-        className={`group block h-full overflow-hidden rounded-2xl border border-gray-200 bg-white transition duration-300 ${
+    <CatalogCardReveal
+      revealKey={`${card.id}-${card.set}-${card.slug}-${card.cardNumber}`}
+    >
+      <TiltCard className="h-full">
+        <Link
+          href={`/kort/${card.slug}`}
+          className={`group block h-full overflow-hidden rounded-2xl border border-gray-200 bg-white transition duration-300 ${
         isSoldOut
           ? "opacity-[0.35] hover:opacity-[0.5]"
           : "hover:-translate-y-1 hover:shadow-xl"
@@ -346,7 +350,8 @@ export default function CardCard({ card }: Props) {
           </span>
         </div>
       </div>
-      </Link>
-    </TiltCard>
+        </Link>
+      </TiltCard>
+    </CatalogCardReveal>
   );
 }

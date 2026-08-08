@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { PokemonType } from "@/app/data/types";
+import CatalogCardReveal from "./CatalogCardReveal";
 import FavoriteButton from "./FavoriteButton";
 import TiltCard from "./TiltCard";
 
@@ -193,11 +194,14 @@ export default function ProductCard({
   });
 
   return (
-    <TiltCard className="h-full">
-      <Link
-        href={`/kort/${slug}`}
-        className="block h-full"
-      >
+    <CatalogCardReveal
+      revealKey={`${id}-${set}-${slug}-${cardNumber}`}
+    >
+      <TiltCard className="h-full">
+        <Link
+          href={`/kort/${slug}`}
+          className="block h-full"
+        >
       <div
         className={`group relative flex h-full cursor-pointer flex-col rounded-2xl bg-white p-3 sm:rounded-3xl sm:p-6 shadow-sm transition-all duration-300 ${
           isSoldOut
@@ -370,7 +374,8 @@ export default function ProductCard({
               : `${stock} på lager`}
         </p>
       </div>
-      </Link>
-    </TiltCard>
+        </Link>
+      </TiltCard>
+    </CatalogCardReveal>
   );
 }
