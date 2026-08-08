@@ -1,5 +1,6 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import sharp from "sharp";
 
 // ============================================================
 // PokéDad – sikker billedimport + automatisk kortopdatering
@@ -267,8 +268,19 @@ function getImageExpression(
 ): string {
   return JSON.stringify(
     `${IMAGE_BASE}/${toPosixPath(
-      relativePath
+      toWebpRelativePath(relativePath)
     )}`
+  );
+}
+
+function toWebpRelativePath(
+  relativePath: string
+): string {
+  const parsedPath = path.parse(relativePath);
+
+  return path.join(
+    parsedPath.dir,
+    `${parsedPath.name}.webp`
   );
 }
 
@@ -596,16 +608,22 @@ function validateAndGroupImages(
 }
 
 // ============================================================
-// Kopiér billeder uden at slette eksisterende filer
+// Konvertér scanninger direkte til WebP
 // ============================================================
 
 async function copyImage(
   image: ImageFile
 ): Promise<void> {
+  const webpRelativePath =
+    toWebpRelativePath(image.relativePath);
+
   const destinationPath = path.join(
     DESTINATION_DIRECTORY,
-    image.relativePath
+    webpRelativePath
   );
+
+  const temporaryPath =
+    `${destinationPath}.tmp`;
 
   await fs.mkdir(
     path.dirname(destinationPath),
@@ -614,10 +632,49 @@ async function copyImage(
     }
   );
 
-  await fs.copyFile(
-    image.sourcePath,
+  await sharp(image.sourcePath)
+    .rotate()
+    .resize({
+      width: 1600,
+      height: 1600,
+      fit: "inside",
+      withoutEnlargement: true,
+    })
+    .webp({
+      quality: 85,
+      alphaQuality: 100,
+      effort: 6,
+      smartSubsample: true,
+    })
+    .toFile(temporaryPath);
+
+  await fs.rename(
+    temporaryPath,
     destinationPath
   );
+}
+
+async function removeImportedSourceFiles(
+  images: ImageFile[]
+): Promise<number> {
+  let removedFiles = 0;
+
+  for (const image of images) {
+    try {
+      await fs.unlink(image.sourcePath);
+      removedFiles += 1;
+    } catch (error) {
+      console.warn(
+        `Kunne ikke fjerne ${image.relativePath} fra uploads: ${
+          error instanceof Error
+            ? error.message
+            : "Ukendt fejl."
+        }`
+      );
+    }
+  }
+
+  return removedFiles;
 }
 
 // ============================================================
@@ -1322,7 +1379,7 @@ async function importImages(): Promise<void> {
       await copyImage(image);
 
       result.copied.push(
-        image.relativePath
+        toWebpRelativePath(image.relativePath)
       );
     } catch (error) {
       result.failed.push({
@@ -1357,8 +1414,15 @@ async function importImages(): Promise<void> {
     updateResult.source
   );
 
+  const removedSourceFiles =
+    await removeImportedSourceFiles(imageFiles);
+
   console.log(
-    `Billeder kopieret: ${result.copied.length}`
+    `WebP-billeder oprettet: ${result.copied.length}`
+  );
+
+  console.log(
+    `PNG-filer fjernet fra uploads: ${removedSourceFiles}`
   );
 
   console.log(
