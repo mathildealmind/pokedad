@@ -123,7 +123,6 @@ export default function Footer() {
             <li>🚚 Hurtig levering</li>
             <li>🔒 Sikker betaling</li>
             <li>🇩🇰 Dansk webshop</li>
-            <li>✅ 100% ægte &amp; originalt</li>
             <li>🛡️ Verificeret af PokéDad</li>
           </ul>
         </div>
