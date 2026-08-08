@@ -1046,12 +1046,21 @@ export const sets: Record<string, PokemonSet> = {
   },
   "black-star-promos": {
     slug: "black-star-promos",
-    name: "Sword & Shield Black Star Promos",
+    name: "Sword & Shield Promos",
     series: "sword-shield",
     totalCards: 307,
     releaseDate: "2019-11-15",
     logo: "/series/sword-shield/black-star-promos/logo.webp",
     symbol: "/series/sword-shield/black-star-promos/symbol.png",
+  },
+  "promos": {
+    slug: "promos",
+    name: "Promos",
+    series: "promos",
+    totalCards: 1,
+    releaseDate: "2001-01-01",
+    logo: "/placeholders/udsolgt.webp",
+    symbol: "/placeholders/udsolgt.webp",
   },
   "sun-moon": {
     slug: "sun-moon",

@@ -57,6 +57,7 @@ import { arceus } from "./platinum/arceus";
 import { platinumBase } from "./platinum/base";
 import { risingRivals } from "./platinum/rising-rivals";
 import { supremeVictors } from "./platinum/supreme-victors";
+import { promos } from "./promos/promos";
 import { scarletVioletBase } from "./scarlet-violet/base";
 import { blackBolt } from "./scarlet-violet/black-bolt";
 import { crimsonHaze } from "./scarlet-violet/crimson-haze";
@@ -88,10 +89,12 @@ import { ultraPrism } from "./sun-moon/ultra-prism";
 import { unbrokenBonds } from "./sun-moon/unbroken-bonds";
 import { unifiedMinds } from "./sun-moon/unified-minds";
 import { swordShieldBase } from "./sword-shield/base";
+import { battleStyles } from "./sword-shield/battle-styles";
 import { blackStarPromos } from "./sword-shield/black-star-promos";
 import { brilliantStars } from "./sword-shield/brilliant-stars";
 import { celebrations } from "./sword-shield/celebrations";
 import { championsPath } from "./sword-shield/champions-path";
+import { darknessAblaze } from "./sword-shield/darkness-ablaze";
 import { lostOrigin } from "./sword-shield/lost-origin";
 import { pokemonGo } from "./sword-shield/pokemon-go";
 import { shiningFates } from "./sword-shield/shining-fates";
@@ -172,6 +175,7 @@ const rawCards: PokemonCard[] = [
   ...platinumBase,
   ...risingRivals,
   ...supremeVictors,
+  ...promos,
   ...scarletVioletBase,
   ...blackBolt,
   ...crimsonHaze,
@@ -203,10 +207,12 @@ const rawCards: PokemonCard[] = [
   ...unbrokenBonds,
   ...unifiedMinds,
   ...swordShieldBase,
+  ...battleStyles,
   ...blackStarPromos,
   ...brilliantStars,
   ...celebrations,
   ...championsPath,
+  ...darknessAblaze,
   ...lostOrigin,
   ...pokemonGo,
   ...shiningFates,
