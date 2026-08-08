@@ -106,6 +106,7 @@ export default function SetCardGallery({
   const [finish, setFinish] = useState("Alle");
   const [stock, setStock] = useState("Alle");
   const [sort, setSort] = useState("Lager først");
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const availableRarities = useMemo(() => {
     return Array.from(
@@ -242,8 +243,24 @@ export default function SetCardGallery({
   return (
     <>
       {/* Filtre */}
-      <div className="mb-8 rounded-3xl bg-white p-6 shadow-sm">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+      <button
+        type="button"
+        aria-expanded={filtersOpen}
+        aria-controls="set-card-filters"
+        onClick={() => setFiltersOpen((open) => !open)}
+        className="mb-3 flex w-full max-w-full items-center justify-between rounded-xl bg-white px-4 py-3 font-semibold shadow-sm md:hidden"
+      >
+        <span>Filtre</span>
+        <span aria-hidden="true">
+          {filtersOpen ? "−" : "+"}
+        </span>
+      </button>
+
+      <div
+        id="set-card-filters"
+        className={`${filtersOpen ? "block" : "hidden"} mb-8 min-w-0 max-w-full rounded-2xl bg-white p-4 shadow-sm md:block md:rounded-3xl md:p-6`}
+      >
+        <div className="grid min-w-0 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-5">
           <input
             type="search"
             placeholder="🔍 Søg i sættet..."
@@ -251,7 +268,7 @@ export default function SetCardGallery({
             onChange={(event) =>
               setSearch(event.target.value)
             }
-            className="rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
+            className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
           />
 
           <select
@@ -260,7 +277,7 @@ export default function SetCardGallery({
             onChange={(event) =>
               setRarity(event.target.value)
             }
-            className="rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
+            className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
           >
             <option value="Alle">
               Alle sjældenheder
@@ -284,7 +301,7 @@ export default function SetCardGallery({
             onChange={(event) =>
               setFinish(event.target.value)
             }
-            className="rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
+            className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
           >
             <option value="Alle">
               Alle finishes
@@ -308,7 +325,7 @@ export default function SetCardGallery({
             onChange={(event) =>
               setStock(event.target.value)
             }
-            className="rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
+            className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
           >
             <option value="Alle">
               Alle kort
@@ -327,7 +344,7 @@ export default function SetCardGallery({
             onChange={(event) =>
               setSort(event.target.value)
             }
-            className="rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
+            className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
           >
             <option value="Lager først">
               På lager først

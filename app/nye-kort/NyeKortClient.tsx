@@ -15,6 +15,7 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
   const [condition, setCondition] = useState("Alle");
   const [price, setPrice] = useState("Alle");
   const [sort, setSort] = useState("Nyeste først");
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const availableSeries = useMemo(() => {
     return Array.from(
@@ -139,21 +140,37 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
         </p>
 
         {/* Filtre */}
-        <div className="mt-10 rounded-3xl bg-white p-6 shadow-sm">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-6">
+        <button
+          type="button"
+          aria-expanded={filtersOpen}
+          aria-controls="new-card-filters"
+          onClick={() => setFiltersOpen((open) => !open)}
+          className="mt-8 flex w-full max-w-full items-center justify-between rounded-xl bg-white px-4 py-3 font-semibold shadow-sm md:hidden"
+        >
+          <span>Filtre</span>
+          <span aria-hidden="true">
+            {filtersOpen ? "−" : "+"}
+          </span>
+        </button>
+
+        <div
+          id="new-card-filters"
+          className={`${filtersOpen ? "block" : "hidden"} mt-3 min-w-0 max-w-full rounded-2xl bg-white p-4 shadow-sm md:mt-10 md:block md:rounded-3xl md:p-6`}
+        >
+          <div className="grid min-w-0 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-6">
             <input
               type="search"
               placeholder="🔍 Søg efter kort..."
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              className="rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
+              className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             />
 
             <select
               aria-label="Vælg serie"
               value={series}
               onChange={(event) => setSeries(event.target.value)}
-              className="rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
+              className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             >
               <option value="Alle">Alle serier</option>
 
@@ -168,7 +185,7 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
               aria-label="Vælg sjældenhed"
               value={rarity}
               onChange={(event) => setRarity(event.target.value)}
-              className="rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
+              className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             >
               <option value="Alle">Alle sjældenheder</option>
 
@@ -183,7 +200,7 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
               aria-label="Vælg stand"
               value={condition}
               onChange={(event) => setCondition(event.target.value)}
-              className="rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
+              className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             >
               <option value="Alle">Alle stande</option>
 
@@ -198,7 +215,7 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
               aria-label="Vælg pris"
               value={price}
               onChange={(event) => setPrice(event.target.value)}
-              className="rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
+              className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             >
               <option value="Alle">Alle priser</option>
               <option value="0-50">0–50 kr.</option>
@@ -211,7 +228,7 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
               aria-label="Sortér kort"
               value={sort}
               onChange={(event) => setSort(event.target.value)}
-              className="rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
+              className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             >
               <option value="Nyeste først">Nyeste først</option>
               <option value="Pris lav-høj">Pris lav-høj</option>
