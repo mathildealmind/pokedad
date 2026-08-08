@@ -13,9 +13,26 @@ export const FINISH_ORDER: CardFinish[] = [
   CardFinish.MasterBallHolo,
 ];
 
+export function getEffectiveVariantPrice(
+  cardPrice: number,
+  variantPrice: number
+): number {
+  if (variantPrice > 0) {
+    return variantPrice;
+  }
+
+  return cardPrice > 0 ? cardPrice : variantPrice;
+}
+
 export function getCardVariants(card: PokemonCard): CardVariant[] {
   if (card.variants && card.variants.length > 0) {
-    return card.variants;
+    return card.variants.map((variant) => ({
+      ...variant,
+      price: getEffectiveVariantPrice(
+        card.price,
+        variant.price
+      ),
+    }));
   }
 
   return [

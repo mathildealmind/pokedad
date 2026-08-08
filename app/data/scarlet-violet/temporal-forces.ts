@@ -46,14 +46,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/002.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/002-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/002-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/002-reverse-holo-back.webp",
@@ -334,14 +334,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/018.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/018-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/018-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/018-reverse-holo-back.webp",
@@ -758,14 +758,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/042.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/042-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/042-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/042-reverse-holo-back.webp",
@@ -1063,14 +1063,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/059.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/059-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/059-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/059-reverse-holo-back.webp",
@@ -1198,14 +1198,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/066.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/066-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/066-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/066-reverse-holo-back.webp",
@@ -1265,14 +1265,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/069.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/069-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/069-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/069-reverse-holo-back.webp",
@@ -1502,14 +1502,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/082.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/082-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/082-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/082-reverse-holo-back.webp",
@@ -1790,14 +1790,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/098.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/098-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/098-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/098-reverse-holo-back.webp",
@@ -1925,14 +1925,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/105.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/105-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/105-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/105-reverse-holo-back.webp",
@@ -2128,14 +2128,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/116.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/116-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/116-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/116-reverse-holo-back.webp",
@@ -2280,14 +2280,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/124.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/124-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/124-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/124-reverse-holo-back.webp",
@@ -2364,14 +2364,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/128.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/128-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/128-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/128-reverse-holo-back.webp",
@@ -2397,14 +2397,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/129-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/129-reverse-holo-back.webp",
       },
       {
         finish: CardFinish.Holo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/129-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/129-holo-back.webp",
@@ -2651,14 +2651,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/143.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/143-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/143-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/143-reverse-holo-back.webp",
@@ -2718,14 +2718,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/146.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/146-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/146-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/146-reverse-holo-back.webp",
@@ -2802,14 +2802,14 @@ export const temporalForces: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/150.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/150-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 5,
         stock: 1,
         imageFront: "/series/scarlet-violet/temporal-forces/150-reverse-holo.webp",
         imageBack: "/series/scarlet-violet/temporal-forces/150-reverse-holo-back.webp",
