@@ -46,14 +46,14 @@ export const chaosRising: PokemonCard[] = [
     variants: [
       {
         finish: CardFinish.Normal,
-        price: 0,
+        price: 44,
         stock: 1,
         imageFront: "/series/mega-evolution/chaos-rising/002-front.webp",
         imageBack: "/series/mega-evolution/chaos-rising/002-back.webp",
       },
       {
         finish: CardFinish.ReverseHolo,
-        price: 0,
+        price: 44,
         stock: 1,
         imageFront: "/series/mega-evolution/chaos-rising/002-reverse-front.webp",
         imageBack: "/series/mega-evolution/chaos-rising/002-reverse-back.webp",

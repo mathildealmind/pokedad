@@ -7,6 +7,7 @@ import type {
   PokemonCard,
   PokemonType,
 } from "@/app/data/types";
+import { getEffectiveVariantPrice } from "@/app/data/card-utils";
 import { getPokemonType } from "@/app/data/getPokemonType";
 import AddToCartButton from "@/app/components/AddToCartButton";
 import ImageZoom from "@/app/components/ImageZoom";
@@ -187,7 +188,13 @@ const TYPE_THEMES: Record<PokemonType, TypeTheme> = {
 export default function ProductOptions({ card }: Props) {
   const availableVariants = useMemo<CardVariant[]>(() => {
     if (card.variants && card.variants.length > 0) {
-      return card.variants;
+      return card.variants.map((variant) => ({
+        ...variant,
+        price: getEffectiveVariantPrice(
+          card.price,
+          variant.price
+        ),
+      }));
     }
 
     return [

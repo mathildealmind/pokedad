@@ -13,6 +13,7 @@ import sharp from "sharp";
 // ✅ sletter IKKE eksisterende billeder i public
 // ✅ opdaterer stock, finish, imageFront og imageBack
 // ✅ opretter variants, når samme kort findes i flere finishes
+// ✅ bevarer uploads som standard; --delete-source sletter efter import
 // ✅ ændrer kun kort, hvor der findes både forside og bagside
 // ✅ laver backup af den valgte datafil før ændringer
 // ✅ stopper før ændringer, hvis filerne ikke kan valideres
@@ -32,6 +33,13 @@ import sharp from "sharp";
 // ============================================================
 
 const PROJECT_ROOT = process.cwd();
+const DELETE_SOURCE_OPTION = "--delete-source";
+
+function shouldDeleteSourceFiles(): boolean {
+  return process.argv
+    .slice(2)
+    .includes(DELETE_SOURCE_OPTION);
+}
 
 type SetConfig = {
   slug: string;
@@ -49,7 +57,22 @@ async function directoryExists(directoryPath: string): Promise<boolean> {
 }
 
 async function resolveSetConfig(): Promise<SetConfig> {
-  const argumentsFromTerminal = process.argv.slice(2);
+  const rawArguments = process.argv.slice(2);
+  const unsupportedOptions = rawArguments.filter(
+    (argument) =>
+      argument.startsWith("--") &&
+      argument !== DELETE_SOURCE_OPTION
+  );
+
+  if (unsupportedOptions.length > 0) {
+    throw new Error(
+      `Ukendt valg: ${unsupportedOptions.join(", ")}`
+    );
+  }
+
+  const argumentsFromTerminal = rawArguments.filter(
+    (argument) => argument !== DELETE_SOURCE_OPTION
+  );
 
   if (argumentsFromTerminal.length === 0) {
     throw new Error(
@@ -60,6 +83,9 @@ async function resolveSetConfig(): Promise<SetConfig> {
         "npm run import:images -- scarlet-violet paldea-evolved",
         "npm run import:images -- scarlet-violet base",
         "npm run import:images -- sword-shield brilliant-stars",
+        "",
+        "Kildescanninger bevares som standard.",
+        "Tilføj --delete-source for at slette dem efter en vellykket import.",
       ].join("\n")
     );
   }
@@ -859,11 +885,56 @@ function replacePropertyLine(
 // Byg variants
 // ============================================================
 
+function getMainCardPrice(
+  lines: string[]
+): number {
+  const priceLine = lines.find((line) =>
+    /^    price:/.test(line)
+  );
+  const priceMatch = priceLine?.match(
+    /^    price:\s*(-?\d+(?:\.\d+)?),$/
+  );
+
+  if (!priceMatch) {
+    throw new Error(
+      "Kunne ikke læse kortets hovedpris."
+    );
+  }
+
+  return Number(priceMatch[1]);
+}
+
+function getExistingVariantPrices(
+  lines: string[]
+): Partial<Record<FinishName, number>> {
+  const prices: Partial<
+    Record<FinishName, number>
+  > = {};
+  const source = lines.join("\n");
+  const variantPattern =
+    /finish:\s*CardFinish\.(Normal|ReverseHolo|Holo),\s*\n\s*price:\s*(-?\d+(?:\.\d+)?),/g;
+
+  for (const match of source.matchAll(variantPattern)) {
+    const finish = match[1] as FinishName;
+    const price = Number(match[2]);
+
+    if (price > 0) {
+      prices[finish] = price;
+    }
+  }
+
+  return prices;
+}
+
 function buildVariantsLines(
   completeFinishes: {
     finish: FinishName;
     pair: Required<ImagePair>;
-  }[]
+  }[],
+  mainCardPrice: number,
+  existingVariantPrices: Partial<
+    Record<FinishName, number>
+  >
 ): string[] {
   if (completeFinishes.length <= 1) {
     return [];
@@ -876,12 +947,16 @@ function buildVariantsLines(
   for (
     const item of completeFinishes
   ) {
+    const price =
+      existingVariantPrices[item.finish] ??
+      mainCardPrice;
+
     lines.push(
       "      {",
       `        finish: ${finishEnum(
         item.finish
       )},`,
-      "        price: 0,",
+      `        price: ${price},`,
       "        stock: 1,",
       `        imageFront: ${getImageExpression(
         item.pair.front.relativePath
@@ -1111,6 +1186,11 @@ function updateCardData(
       );
     }
 
+    const mainCardPrice =
+      getMainCardPrice(block.lines);
+    const existingVariantPrices =
+      getExistingVariantPrices(block.lines);
+
     let updatedLines =
       removeVariants(block.lines);
 
@@ -1144,7 +1224,9 @@ function updateCardData(
 
     const variantsLines =
       buildVariantsLines(
-        completeFinishes
+        completeFinishes,
+        mainCardPrice,
+        existingVariantPrices
       );
 
     if (variantsLines.length > 0) {
@@ -1414,15 +1496,20 @@ async function importImages(): Promise<void> {
     updateResult.source
   );
 
-  const removedSourceFiles =
-    await removeImportedSourceFiles(imageFiles);
+  const deleteSourceFiles =
+    shouldDeleteSourceFiles();
+  const removedSourceFiles = deleteSourceFiles
+    ? await removeImportedSourceFiles(imageFiles)
+    : 0;
 
   console.log(
     `WebP-billeder oprettet: ${result.copied.length}`
   );
 
   console.log(
-    `PNG-filer fjernet fra uploads: ${removedSourceFiles}`
+    deleteSourceFiles
+      ? `Kildescanninger slettet: ${removedSourceFiles}`
+      : "Kildescanninger bevaret."
   );
 
   console.log(
