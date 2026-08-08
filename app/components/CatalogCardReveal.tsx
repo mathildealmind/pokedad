@@ -8,7 +8,6 @@ type Props = {
 };
 
 const revealedCards = new Set<string>();
-const STAGGER_DELAY_MS = 55;
 
 export default function CatalogCardReveal({
   children,
@@ -40,21 +39,6 @@ export default function CatalogCardReveal({
         if (!entry.isIntersecting) {
           return;
         }
-
-        const parent = card.parentElement;
-        const rowCards = parent
-          ? Array.from(parent.children).filter(
-              (sibling) =>
-                sibling instanceof HTMLElement &&
-                Math.abs(sibling.offsetTop - card.offsetTop) < 2
-            )
-          : [];
-        const columnIndex = Math.max(0, rowCards.indexOf(card));
-
-        card.style.setProperty(
-          "--catalog-reveal-delay",
-          `${columnIndex * STAGGER_DELAY_MS}ms`
-        );
 
         revealedCards.add(revealKey);
         observer.disconnect();
