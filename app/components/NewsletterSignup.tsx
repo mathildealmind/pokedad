@@ -47,7 +47,7 @@ export default function NewsletterSignup() {
 
   return (
     <section
-      aria-labelledby="newsletter-heading"
+      aria-label="PokéDad-nyt"
       className="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8"
     >
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-neutral-50 via-white to-neutral-100 p-5 shadow-[0_22px_55px_-32px_rgba(15,23,42,0.55)] sm:p-8 lg:p-10">
@@ -61,12 +61,6 @@ export default function NewsletterSignup() {
             <p className="inline-flex items-center rounded-full bg-white/80 px-3 py-1.5 text-sm font-semibold text-neutral-800 shadow-sm backdrop-blur">
               ✉️ PokéDad-nyt
             </p>
-            <h2
-              id="newsletter-heading"
-              className="mt-2 text-3xl font-black leading-tight text-gray-950 sm:text-4xl"
-            >
-              Få drops før alle andre
-            </h2>
             <p className="mt-3 max-w-xl text-base font-medium text-gray-600 sm:text-lg">
               Nye sæt, restocks &amp; tilbud direkte i indbakken.
             </p>
