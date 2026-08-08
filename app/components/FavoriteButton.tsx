@@ -14,6 +14,7 @@ type Props = {
   image: string;
   set: string;
   cardNumber: string;
+  pokemonType?: PokemonType;
 };
 
 type HeartTheme = {
@@ -98,11 +99,11 @@ const THEMES: Record<PokemonType, HeartTheme> = {
   },
 
   Dragon: {
-    color: "#6f5ec0",
-    background: "#f5f2ff",
-    activeBackground: "#e3dcff",
-    border: "#ccc2ff",
-    shadow: "rgba(111,94,192,.25)",
+    color: "#a16207",
+    background: "#fffbeb",
+    activeBackground: "#fef3c7",
+    border: "#fcd34d",
+    shadow: "rgba(161,98,7,.25)",
   },
 
   Fairy: {
@@ -114,11 +115,11 @@ const THEMES: Record<PokemonType, HeartTheme> = {
   },
 
   Colorless: {
-    color: "#8a8374",
-    background: "#faf9f5",
-    activeBackground: "#ece8df",
-    border: "#ddd6ca",
-    shadow: "rgba(138,131,116,.25)",
+    color: "#6b7280",
+    background: "#ffffff",
+    activeBackground: "#f3f4f6",
+    border: "#d1d5db",
+    shadow: "rgba(107,114,128,.25)",
   },
 };
 
@@ -130,15 +131,21 @@ export default function FavoriteButton({
   image,
   set,
   cardNumber,
+  pokemonType,
 }: Props) {
   const { toggleFavorite, isFavorite } = useFavorites();
 
   const favorite = isFavorite(id);
 
-  const pokemonType = getPokemonType(set, cardNumber);
+  const resolvedPokemonType = getPokemonType(
+    set,
+    cardNumber,
+    pokemonType,
+    name
+  );
 
-  const theme = pokemonType
-    ? THEMES[pokemonType]
+  const theme = resolvedPokemonType
+    ? THEMES[resolvedPokemonType]
     : DEFAULT_THEME;
 
   function handleClick(e: MouseEvent<HTMLButtonElement>) {
@@ -167,6 +174,7 @@ export default function FavoriteButton({
     <button
       type="button"
       onClick={handleClick}
+      aria-pressed={favorite}
       aria-label={
         favorite
           ? "Fjern fra favoritter"
@@ -175,9 +183,20 @@ export default function FavoriteButton({
       className="flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 hover:scale-110 active:scale-95"
       style={style}
     >
-      <span className="text-2xl leading-none">
-        {favorite ? "♥" : "♡"}
-      </span>
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        className="h-6 w-6"
+        fill={favorite ? "currentColor" : "none"}
+        stroke="currentColor"
+        strokeWidth="1.8"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"
+        />
+      </svg>
     </button>
   );
 }

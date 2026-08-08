@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import type { PokemonCard } from "../data/types";
+import { useProgressiveItems } from "../hooks/useProgressiveItems";
 
 type NyeKortClientProps = {
   cards: PokemonCard[];
@@ -28,19 +29,19 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
           )
       )
     ).sort((a, b) => a.localeCompare(b, "da"));
-  }, []);
+  }, [cards]);
 
   const availableRarities = useMemo(() => {
     return Array.from(
       new Set(cards.map((card) => String(card.rarity)))
     ).sort((a, b) => a.localeCompare(b, "da"));
-  }, []);
+  }, [cards]);
 
   const availableConditions = useMemo(() => {
     return Array.from(
       new Set(cards.map((card) => String(card.condition)))
     ).sort((a, b) => a.localeCompare(b, "da"));
-  }, []);
+  }, [cards]);
 
   const filteredCards = useMemo(() => {
     return [...cards]
@@ -113,7 +114,14 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
           }
         }
       });
-  }, [search, series, rarity, condition, price, sort]);
+  }, [cards, search, series, rarity, condition, price, sort]);
+
+  const {
+    loadMoreRef,
+    visibleItems: visibleCards,
+    visibleCount,
+    resetProgress,
+  } = useProgressiveItems(filteredCards);
 
   function resetFilters() {
     setSearch("");
@@ -122,6 +130,7 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
     setCondition("Alle");
     setPrice("Alle");
     setSort("Nyeste først");
+    resetProgress();
   }
 
   return (
@@ -162,14 +171,20 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
               type="search"
               placeholder="🔍 Søg efter kort..."
               value={search}
-              onChange={(event) => setSearch(event.target.value)}
+              onChange={(event) => {
+                setSearch(event.target.value);
+                resetProgress();
+              }}
               className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             />
 
             <select
               aria-label="Vælg serie"
               value={series}
-              onChange={(event) => setSeries(event.target.value)}
+              onChange={(event) => {
+                setSeries(event.target.value);
+                resetProgress();
+              }}
               className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             >
               <option value="Alle">Alle serier</option>
@@ -184,7 +199,10 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
             <select
               aria-label="Vælg sjældenhed"
               value={rarity}
-              onChange={(event) => setRarity(event.target.value)}
+              onChange={(event) => {
+                setRarity(event.target.value);
+                resetProgress();
+              }}
               className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             >
               <option value="Alle">Alle sjældenheder</option>
@@ -199,7 +217,10 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
             <select
               aria-label="Vælg stand"
               value={condition}
-              onChange={(event) => setCondition(event.target.value)}
+              onChange={(event) => {
+                setCondition(event.target.value);
+                resetProgress();
+              }}
               className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             >
               <option value="Alle">Alle stande</option>
@@ -214,7 +235,10 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
             <select
               aria-label="Vælg pris"
               value={price}
-              onChange={(event) => setPrice(event.target.value)}
+              onChange={(event) => {
+                setPrice(event.target.value);
+                resetProgress();
+              }}
               className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             >
               <option value="Alle">Alle priser</option>
@@ -227,7 +251,10 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
             <select
               aria-label="Sortér kort"
               value={sort}
-              onChange={(event) => setSort(event.target.value)}
+              onChange={(event) => {
+                setSort(event.target.value);
+                resetProgress();
+              }}
               className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
             >
               <option value="Nyeste først">Nyeste først</option>
@@ -257,23 +284,29 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
         {/* Kort */}
         {filteredCards.length > 0 ? (
           <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {filteredCards.map((card) => (
-              <ProductCard
+            {visibleCards.map((card, index) => (
+              <div
                 key={`${card.set}-${card.slug}-${card.cardNumber}`}
-                id={card.id}
-                slug={card.slug}
-                name={card.name}
-                set={card.set}
-                cardNumber={card.cardNumber}
-                price={card.price}
-                originalPrice={card.originalPrice}
-                imageFront={card.imageFront}
-                isNew={card.isNew}
-                onSale={card.onSale}
-                stock={card.stock}
-              finish={card.finish}
-              variants={card.variants}
-              />
+                className="catalog-card-enter h-full"
+                style={{ animationDelay: `${(index % 24) * 15}ms` }}
+              >
+                <ProductCard
+                  id={card.id}
+                  slug={card.slug}
+                  name={card.name}
+                  set={card.set}
+                  cardNumber={card.cardNumber}
+                  pokemonType={card.pokemonType}
+                  price={card.price}
+                  originalPrice={card.originalPrice}
+                  imageFront={card.imageFront}
+                  isNew={card.isNew}
+                  onSale={card.onSale}
+                  stock={card.stock}
+                  finish={card.finish}
+                  variants={card.variants}
+                />
+              </div>
             ))}
           </div>
         ) : (
@@ -298,6 +331,14 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
               Nulstil filtre
             </button>
           </div>
+        )}
+
+        {visibleCount < filteredCards.length && (
+          <div
+            ref={loadMoreRef}
+            className="h-px w-full"
+            aria-hidden="true"
+          />
         )}
       </section>
     </main>

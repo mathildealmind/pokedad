@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { PokemonType } from "@/app/data/types";
+import { useProgressiveItems } from "@/app/hooks/useProgressiveItems";
 import CardCard from "./CardCard";
 
 type CardVariant = {
@@ -18,6 +20,7 @@ type Card = {
   name: string;
   set?: string;
   cardNumber?: string;
+  pokemonType?: PokemonType;
 
   price: number;
   originalPrice?: number | null;
@@ -232,12 +235,20 @@ export default function SetCardGallery({
     sort,
   ]);
 
+  const {
+    loadMoreRef,
+    visibleItems: visibleCards,
+    visibleCount,
+    resetProgress,
+  } = useProgressiveItems(filteredCards);
+
   function resetFilters() {
     setSearch("");
     setRarity("Alle");
     setFinish("Alle");
     setStock("Alle");
     setSort("Lager først");
+    resetProgress();
   }
 
   return (
@@ -265,18 +276,20 @@ export default function SetCardGallery({
             type="search"
             placeholder="🔍 Søg i sættet..."
             value={search}
-            onChange={(event) =>
-              setSearch(event.target.value)
-            }
+            onChange={(event) => {
+              setSearch(event.target.value);
+              resetProgress();
+            }}
             className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
           />
 
           <select
             aria-label="Vælg sjældenhed"
             value={rarity}
-            onChange={(event) =>
-              setRarity(event.target.value)
-            }
+            onChange={(event) => {
+              setRarity(event.target.value);
+              resetProgress();
+            }}
             className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
           >
             <option value="Alle">
@@ -298,9 +311,10 @@ export default function SetCardGallery({
           <select
             aria-label="Vælg finish"
             value={finish}
-            onChange={(event) =>
-              setFinish(event.target.value)
-            }
+            onChange={(event) => {
+              setFinish(event.target.value);
+              resetProgress();
+            }}
             className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
           >
             <option value="Alle">
@@ -322,9 +336,10 @@ export default function SetCardGallery({
           <select
             aria-label="Vælg lagerstatus"
             value={stock}
-            onChange={(event) =>
-              setStock(event.target.value)
-            }
+            onChange={(event) => {
+              setStock(event.target.value);
+              resetProgress();
+            }}
             className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
           >
             <option value="Alle">
@@ -341,9 +356,10 @@ export default function SetCardGallery({
           <select
             aria-label="Sortér kort"
             value={sort}
-            onChange={(event) =>
-              setSort(event.target.value)
-            }
+            onChange={(event) => {
+              setSort(event.target.value);
+              resetProgress();
+            }}
             className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
           >
             <option value="Lager først">
@@ -386,11 +402,14 @@ export default function SetCardGallery({
       {/* Kort */}
       {filteredCards.length > 0 ? (
         <div className="grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-          {filteredCards.map((card, index) => (
-            <CardCard
+          {visibleCards.map((card, index) => (
+            <div
               key={`${card.set}-${card.slug}-${card.cardNumber}-${index}`}
-              card={card}
-            />
+              className="catalog-card-enter h-full"
+              style={{ animationDelay: `${(index % 24) * 15}ms` }}
+            >
+              <CardCard card={card} />
+            </div>
           ))}
         </div>
       ) : (
@@ -419,6 +438,14 @@ export default function SetCardGallery({
             Nulstil filtre
           </button>
         </div>
+      )}
+
+      {visibleCount < filteredCards.length && (
+        <div
+          ref={loadMoreRef}
+          className="h-px w-full"
+          aria-hidden="true"
+        />
       )}
     </>
   );

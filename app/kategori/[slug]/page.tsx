@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import CardCard from "../../components/CardCard";
+import ProgressiveCardGrid from "../../components/ProgressiveCardGrid";
 import { cards } from "../../data/cards";
 import { categories } from "../../data/categories";
 import { getCardFinishes } from "../../data/card-utils";
@@ -155,14 +155,10 @@ export default async function CategoryPage({ params }: Props) {
           </p>
         </div>
       ) : (
-        <div className="mt-7 grid grid-cols-3 gap-2 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-          {categoryCards.map((card, index) => (
-            <CardCard
-              key={`${card.series}-${card.set}-${card.slug}-${index}`}
-              card={card}
-            />
-          ))}
-        </div>
+        <ProgressiveCardGrid
+          cards={categoryCards}
+          className="mt-7 sm:mt-10"
+        />
       )}
     </main>
   );
