@@ -44,6 +44,49 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Rolig indgang og musevip for kort i produktkataloget. */
+@keyframes catalog-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.catalog-card-enter {
+  animation: catalog-card-enter 420ms ease-out both;
+}
+
+.catalog-card-tilt {
+  --card-tilt-x: 0deg;
+  --card-tilt-y: 0deg;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .catalog-card-tilt {
+    transform: perspective(1000px) rotateX(var(--card-tilt-x))
+      rotateY(var(--card-tilt-y));
+    transform-style: preserve-3d;
+    transition: transform 180ms ease-out;
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog-card-enter {
+    animation: none;
+  }
+
+  .catalog-card-tilt {
+    transform: none;
+    transition: none;
+  }
+}
+
 /* =========================================================
    Fælles finish-effekter
    Virker automatisk på knapper med data-finish.

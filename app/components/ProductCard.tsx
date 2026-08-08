@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { PokemonType } from "@/app/data/types";
 import FavoriteButton from "./FavoriteButton";
+import TiltCard from "./TiltCard";
 
 type FinishVariant = {
   finish?: string;
@@ -15,6 +17,7 @@ type ProductCardProps = {
   name: string;
   set?: string;
   cardNumber?: string;
+  pokemonType?: PokemonType;
   price: number;
   originalPrice?: number | null;
 
@@ -111,6 +114,7 @@ export default function ProductCard({
   name,
   set = "",
   cardNumber = "",
+  pokemonType,
   price,
   originalPrice = null,
   imageFront,
@@ -189,10 +193,11 @@ export default function ProductCard({
   });
 
   return (
-    <Link
-      href={`/kort/${slug}`}
-      className="block h-full"
-    >
+    <TiltCard className="h-full">
+      <Link
+        href={`/kort/${slug}`}
+        className="block h-full"
+      >
       <div
         className={`group relative flex h-full cursor-pointer flex-col rounded-2xl bg-white p-3 sm:rounded-3xl sm:p-6 shadow-sm transition-all duration-300 ${
           isSoldOut
@@ -210,6 +215,7 @@ export default function ProductCard({
             image={resolvedImage}
             set={set}
             cardNumber={cardNumber}
+            pokemonType={pokemonType}
           />
         </div>
 
@@ -364,6 +370,7 @@ export default function ProductCard({
               : `${stock} på lager`}
         </p>
       </div>
-    </Link>
+      </Link>
+    </TiltCard>
   );
 }

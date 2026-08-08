@@ -10,6 +10,7 @@ import {
   useState,
 } from "react";
 import { getPokemonType } from "@/app/data/getPokemonType";
+import type { PokemonType } from "@/app/data/types";
 import ProductCard from "./ProductCard";
 
 type HeroCard = {
@@ -30,6 +31,7 @@ type FeaturedCard = {
   name: string;
   set?: string;
   cardNumber?: string;
+  pokemonType?: PokemonType;
   price: number;
   originalPrice?: number | null;
   imageFront?: string;
@@ -216,7 +218,11 @@ export default function Hero({
 
   useEffect(() => {
     if (activeIndex >= cardCount && cardCount > 0) {
-      setActiveIndex(0);
+      const animationFrame = requestAnimationFrame(() => {
+        setActiveIndex(0);
+      });
+
+      return () => cancelAnimationFrame(animationFrame);
     }
   }, [activeIndex, cardCount]);
 
@@ -496,6 +502,7 @@ export default function Hero({
                   name={card.name}
                   set={card.set}
                   cardNumber={card.cardNumber}
+                  pokemonType={card.pokemonType}
                   price={card.price}
                   originalPrice={card.originalPrice}
                   imageFront={card.imageFront}

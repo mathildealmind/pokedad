@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ReviewBadge from "./ReviewBadge";
 
 const linkClassName =
   "transition-colors hover:text-black";
@@ -18,6 +19,8 @@ export default function Footer() {
             <br />
             Singles • Sæt • PSA • Tilbehør
           </p>
+
+          <ReviewBadge className="mt-4 w-fit max-w-full" />
         </div>
 
         {/* Hjælp & information */}
@@ -120,6 +123,8 @@ export default function Footer() {
             <li>🚚 Hurtig levering</li>
             <li>🔒 Sikker betaling</li>
             <li>🇩🇰 Dansk webshop</li>
+            <li>✅ 100% ægte &amp; originalt</li>
+            <li>🛡️ Verificeret af PokéDad</li>
           </ul>
         </div>
       </div>

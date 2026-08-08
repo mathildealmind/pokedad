@@ -1,4 +1,5 @@
 import Hero from "./components/Hero";
+import NewsletterSignup from "./components/NewsletterSignup";
 import ProductCard from "./components/ProductCard";
 import { cards } from "./data/cards";
 
@@ -61,7 +62,7 @@ export default function Home() {
       />
 
       <section className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="mb-8 text-4xl font-bold">
+        <h2 className="mb-8 text-[34px] font-bold sm:text-4xl">
           ✨ Nyeste kort
         </h2>
 
@@ -74,6 +75,7 @@ export default function Home() {
               name={card.name}
               set={card.set}
               cardNumber={card.cardNumber}
+              pokemonType={card.pokemonType}
               price={card.price}
               originalPrice={card.originalPrice}
               imageFront={card.imageFront}
@@ -86,6 +88,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <NewsletterSignup />
     </main>
   );
 }
