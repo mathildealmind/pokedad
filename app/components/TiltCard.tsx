@@ -12,7 +12,7 @@ type Props = {
   className?: string;
 };
 
-const MAX_TILT_DEGREES = 2;
+const MAX_TILT_DEGREES = 3;
 
 export default function TiltCard({ children, className = "" }: Props) {
   const cardRef = useRef<HTMLDivElement>(null);
