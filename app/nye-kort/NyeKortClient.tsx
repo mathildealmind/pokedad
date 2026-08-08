@@ -284,29 +284,24 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
         {/* Kort */}
         {filteredCards.length > 0 ? (
           <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {visibleCards.map((card, index) => (
-              <div
+            {visibleCards.map((card) => (
+              <ProductCard
                 key={`${card.set}-${card.slug}-${card.cardNumber}`}
-                className="catalog-card-enter h-full"
-                style={{ animationDelay: `${(index % 24) * 15}ms` }}
-              >
-                <ProductCard
-                  id={card.id}
-                  slug={card.slug}
-                  name={card.name}
-                  set={card.set}
-                  cardNumber={card.cardNumber}
-                  pokemonType={card.pokemonType}
-                  price={card.price}
-                  originalPrice={card.originalPrice}
-                  imageFront={card.imageFront}
-                  isNew={card.isNew}
-                  onSale={card.onSale}
-                  stock={card.stock}
-                  finish={card.finish}
-                  variants={card.variants}
-                />
-              </div>
+                id={card.id}
+                slug={card.slug}
+                name={card.name}
+                set={card.set}
+                cardNumber={card.cardNumber}
+                pokemonType={card.pokemonType}
+                price={card.price}
+                originalPrice={card.originalPrice}
+                imageFront={card.imageFront}
+                isNew={card.isNew}
+                onSale={card.onSale}
+                stock={card.stock}
+                finish={card.finish}
+                variants={card.variants}
+              />
             ))}
           </div>
         ) : (
