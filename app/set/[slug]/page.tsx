@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -74,6 +75,26 @@ export default async function SetPage({ params }: Props) {
       </div>
 
       <div className="mb-10">
+        {(set.slug === "temporal-forces" ||
+          set.slug === "celestial-storm") && (
+          <Image
+            src={set.logo}
+            alt={`${set.name} logo`}
+            width={
+              set.slug === "temporal-forces"
+                ? 566
+                : 645
+            }
+            height={
+              set.slug === "temporal-forces"
+                ? 210
+                : 310
+            }
+            priority
+            className="mb-6 h-auto w-full max-w-xl"
+          />
+        )}
+
         <h1 className="text-4xl font-bold">
           {set.name}
         </h1>

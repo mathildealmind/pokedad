@@ -924,7 +924,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "scarlet-violet",
     totalCards: 218,
     releaseDate: "2024-03-22",
-    logo: "/series/scarlet-violet/scarlet and violet.webp",
+    logo: "/series/scarlet-violet/temporal-forces/logo.webp",
     symbol: "/series/scarlet-violet/temporal-forces/symbol.png",
   },
   "paradox-rift": {
