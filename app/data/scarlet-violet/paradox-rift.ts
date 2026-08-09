@@ -2542,7 +2542,7 @@ export const paradoxRift: PokemonCard[] = [
     set: "paradox-rift",
     cardNumber: "144/182",
     rarity: CardRarity.Rare,
-    finish: CardFinish.CosmosHolo,
+    finish: CardFinish.Normal,
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 25,

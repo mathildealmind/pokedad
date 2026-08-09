@@ -627,6 +627,22 @@ export const chaosRising: PokemonCard[] = [
     imageFront: "/series/mega-evolution/chaos-rising/026.webp",
     imageBack: "/series/mega-evolution/chaos-rising/026-back.webp",
     dateAdded: "2026-08-04",
+    variants: [
+      {
+        finish: CardFinish.Normal,
+        price: 0,
+        stock: 1,
+        imageFront: "/series/mega-evolution/chaos-rising/026.webp",
+        imageBack: "/series/mega-evolution/chaos-rising/026-back.webp",
+      },
+      {
+        finish: CardFinish.ReverseHolo,
+        price: 0,
+        stock: 1,
+        imageFront: "/series/mega-evolution/chaos-rising/026-reverse-holo.webp",
+        imageBack: "/series/mega-evolution/chaos-rising/026-reverse-holo-back.webp",
+      },
+    ],
   },
   {
     id: 1400027,

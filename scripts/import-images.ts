@@ -476,6 +476,20 @@ async function findImageFiles(
       continue;
     }
 
+    const normalizedFileName =
+      entry.name.toLowerCase();
+
+    if (
+      normalizedFileName === "logo.pdf" ||
+      normalizedFileName === "logo.webp"
+    ) {
+      console.log(
+        `Springer sætlogo over: ${entry.name}`
+      );
+
+      continue;
+    }
+
     const extension = path
       .extname(entry.name)
       .toLowerCase();

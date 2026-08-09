@@ -74,6 +74,7 @@ import { paldeaEvolved } from "./scarlet-violet/paldea-evolved";
 import { paradoxRift } from "./scarlet-violet/paradox-rift";
 import { pokemon151 } from "./scarlet-violet/pokemon-151";
 import { prismaticEvolutions } from "./scarlet-violet/prismatic-evolutions";
+import { scarletVioletPromos } from "./scarlet-violet/scarlet-violet-promos";
 import { stellarCrown } from "./scarlet-violet/stellar-crown";
 import { surgingSparks } from "./scarlet-violet/surging-sparks";
 import { temporalForces } from "./scarlet-violet/temporal-forces";
@@ -198,6 +199,7 @@ const rawCards: PokemonCard[] = [
   ...paradoxRift,
   ...pokemon151,
   ...prismaticEvolutions,
+  ...scarletVioletPromos,
   ...stellarCrown,
   ...surgingSparks,
   ...temporalForces,

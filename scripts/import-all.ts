@@ -82,6 +82,16 @@ async function getImageCount(
       return false;
     }
 
+    const normalizedFileName =
+      entry.name.toLowerCase();
+
+    if (
+      normalizedFileName === "logo.pdf" ||
+      normalizedFileName === "logo.webp"
+    ) {
+      return false;
+    }
+
     return ALLOWED_IMAGE_EXTENSIONS.has(
       path.extname(entry.name).toLowerCase()
     );
