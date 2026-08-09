@@ -48,7 +48,12 @@ import { unleashed } from "./heartgold-soulsilver/unleashed";
 import { undaunted } from "./heartgold-soulsilver/undaunted";
 import { triumphant } from "./heartgold-soulsilver/triumphant";
 import { callOfLegends } from "./heartgold-soulsilver/call-of-legends";
+import { ascendedHeroes } from "./mega-evolution/ascended-heroes";
 import { chaosRising } from "./mega-evolution/chaos-rising";
+import { megaEvolution } from "./mega-evolution/mega-evolution";
+import { perfectOrder } from "./mega-evolution/perfect-order";
+import { phantasmalFlames } from "./mega-evolution/phantasmal-flames";
+import { pitchBlack } from "./mega-evolution/pitch-black";
 import { neoDestiny } from "./neo-series/neo-destiny";
 import { neoDiscovery } from "./neo-series/neo-discovery";
 import { neoGenesis } from "./neo-series/neo-genesis";
@@ -64,6 +69,7 @@ import { crimsonHaze } from "./scarlet-violet/crimson-haze";
 import { destinedRivals } from "./scarlet-violet/destined-rivals";
 import { journeyTogether } from "./scarlet-violet/journey-together";
 import { obsidianFlames } from "./scarlet-violet/obsidian-flames";
+import { paldeanFates } from "./scarlet-violet/paldean-fates";
 import { paldeaEvolved } from "./scarlet-violet/paldea-evolved";
 import { paradoxRift } from "./scarlet-violet/paradox-rift";
 import { pokemon151 } from "./scarlet-violet/pokemon-151";
@@ -166,7 +172,12 @@ const rawCards: PokemonCard[] = [
   ...undaunted,
   ...triumphant,
   ...callOfLegends,
+  ...ascendedHeroes,
   ...chaosRising,
+  ...megaEvolution,
+  ...perfectOrder,
+  ...phantasmalFlames,
+  ...pitchBlack,
   ...neoDestiny,
   ...neoDiscovery,
   ...neoGenesis,
@@ -182,6 +193,7 @@ const rawCards: PokemonCard[] = [
   ...destinedRivals,
   ...journeyTogether,
   ...obsidianFlames,
+  ...paldeanFates,
   ...paldeaEvolved,
   ...paradoxRift,
   ...pokemon151,
