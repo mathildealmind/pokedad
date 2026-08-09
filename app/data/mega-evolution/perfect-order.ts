@@ -1570,8 +1570,8 @@ export const perfectOrder: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 100,
     stock: 1,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    imageFront: "/series/mega-evolution/perfect-order/092.webp",
+    imageBack: "/series/mega-evolution/perfect-order/092-back.webp",
     dateAdded: "2026-08-09",
   },
   {
