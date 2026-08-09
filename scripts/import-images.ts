@@ -11,7 +11,7 @@ import sharp from "sharp";
 // ✅ importerer billeder fra det valgte sæt
 // ✅ beholder filnavne præcis som de er
 // ✅ sletter IKKE eksisterende billeder i public
-// ✅ opdaterer stock, finish, imageFront og imageBack
+// ✅ opdaterer stock, finish, standardpris, imageFront og imageBack
 // ✅ opretter variants, når samme kort findes i flere finishes
 // ✅ bevarer uploads som standard; --delete-source sletter efter import
 // ✅ ændrer kun kort, hvor der findes både forside og bagside
@@ -203,6 +203,13 @@ type FinishName =
   | "Normal"
   | "ReverseHolo"
   | "Holo";
+
+type CardPricingContext = {
+  name: string;
+  set: string;
+  cardNumber: string;
+  rarity: string;
+};
 
 type ImageSide = "front" | "back";
 
@@ -918,6 +925,140 @@ function getMainCardPrice(
   return Number(priceMatch[1]);
 }
 
+function getCardPricingContext(
+  lines: string[]
+): CardPricingContext {
+  const source = lines.join("\n");
+
+  const readString = (
+    property: string
+  ): string | undefined => {
+    const match = source.match(
+      new RegExp(
+        `${property}:\\s*("(?:\\\\.|[^"\\\\])*")`
+      )
+    );
+
+    return match
+      ? (JSON.parse(match[1]) as string)
+      : undefined;
+  };
+
+  const name = readString("name");
+  const set = readString("set");
+  const cardNumber = readString("cardNumber");
+  const rarity = source.match(
+    /rarity:\s*CardRarity\.([A-Za-z]+)/
+  )?.[1];
+
+  if (!name || !set || !cardNumber || !rarity) {
+    throw new Error(
+      "Kunne ikke læse kortets prisoplysninger."
+    );
+  }
+
+  return {
+    name,
+    set,
+    cardNumber,
+    rarity,
+  };
+}
+
+function isSecretCard(
+  context: CardPricingContext
+): boolean {
+  if (
+    context.rarity === "HyperRare" ||
+    context.rarity === "BlackWhiteRare"
+  ) {
+    return true;
+  }
+
+  const match = context.cardNumber.match(
+    /^(\d+)\/(\d+)$/
+  );
+
+  return (
+    Boolean(match) &&
+    Number(match?.[1]) > Number(match?.[2])
+  );
+}
+
+function isProtectedPricingCard(
+  context: CardPricingContext
+): boolean {
+  if (
+    context.rarity === "UltraRare" ||
+    context.rarity === "DoubleRare" ||
+    context.rarity === "IllustrationRare" ||
+    context.rarity ===
+      "SpecialIllustrationRare" ||
+    context.rarity === "Promo" ||
+    isSecretCard(context)
+  ) {
+    return true;
+  }
+
+  if (/promo/i.test(context.set)) {
+    return true;
+  }
+
+  if (/\bV(?:MAX|STAR)\b/i.test(context.name)) {
+    return true;
+  }
+
+  if (/\bPikachu\b/i.test(context.name)) {
+    return true;
+  }
+
+  if (
+    /\b(?:Eevee|Vaporeon|Jolteon|Flareon|Espeon|Umbreon|Leafeon|Glaceon|Sylveon)\b/i.test(
+      context.name
+    )
+  ) {
+    return true;
+  }
+
+  return (
+    context.set === "chaos-rising" &&
+    context.cardNumber === "002/086" &&
+    context.name === "Kakuna"
+  );
+}
+
+function getStandardPrice(
+  finish: FinishName,
+  context: CardPricingContext
+): number | undefined {
+  if (isProtectedPricingCard(context)) {
+    return undefined;
+  }
+
+  if (finish === "Holo") {
+    return 8;
+  }
+
+  if (
+    finish === "Normal" &&
+    (context.rarity === "Common" ||
+      context.rarity === "Uncommon")
+  ) {
+    return 5;
+  }
+
+  if (
+    finish === "ReverseHolo" &&
+    (context.rarity === "Common" ||
+      context.rarity === "Uncommon" ||
+      context.rarity === "Rare")
+  ) {
+    return 8;
+  }
+
+  return undefined;
+}
+
 function getExistingVariantPrices(
   lines: string[]
 ): Partial<Record<FinishName, number>> {
@@ -948,7 +1089,8 @@ function buildVariantsLines(
   mainCardPrice: number,
   existingVariantPrices: Partial<
     Record<FinishName, number>
-  >
+  >,
+  pricingContext: CardPricingContext
 ): string[] {
   if (completeFinishes.length <= 1) {
     return [];
@@ -963,6 +1105,10 @@ function buildVariantsLines(
   ) {
     const price =
       existingVariantPrices[item.finish] ??
+      getStandardPrice(
+        item.finish,
+        pricingContext
+      ) ??
       mainCardPrice;
 
     lines.push(
@@ -1200,8 +1346,17 @@ function updateCardData(
       );
     }
 
-    const mainCardPrice =
+    const existingMainCardPrice =
       getMainCardPrice(block.lines);
+    const pricingContext =
+      getCardPricingContext(block.lines);
+    const mainCardPrice =
+      existingMainCardPrice > 0
+        ? existingMainCardPrice
+        : getStandardPrice(
+            primaryFinish,
+            pricingContext
+          ) ?? existingMainCardPrice;
     const existingVariantPrices =
       getExistingVariantPrices(block.lines);
 
@@ -1218,6 +1373,12 @@ function updateCardData(
       updatedLines,
       "stock",
       "1"
+    );
+
+    updatedLines = replacePropertyLine(
+      updatedLines,
+      "price",
+      String(mainCardPrice)
     );
 
     updatedLines = replacePropertyLine(
@@ -1240,7 +1401,8 @@ function updateCardData(
       buildVariantsLines(
         completeFinishes,
         mainCardPrice,
-        existingVariantPrices
+        existingVariantPrices,
+        pricingContext
       );
 
     if (variantsLines.length > 0) {
