@@ -1020,11 +1020,7 @@ function isProtectedPricingCard(
     return true;
   }
 
-  return (
-    context.set === "chaos-rising" &&
-    context.cardNumber === "002/086" &&
-    context.name === "Kakuna"
-  );
+  return false;
 }
 
 function getStandardPrice(
@@ -1057,6 +1053,38 @@ function getStandardPrice(
   }
 
   return undefined;
+}
+
+function getImportedMainCardPrice(
+  existingPrice: number,
+  currentFinish: FinishName | undefined,
+  importedFinish: FinishName,
+  context: CardPricingContext
+): number {
+  const importedStandardPrice =
+    getStandardPrice(importedFinish, context);
+
+  if (importedStandardPrice === undefined) {
+    return existingPrice;
+  }
+
+  if (existingPrice <= 0) {
+    return importedStandardPrice;
+  }
+
+  const currentStandardPrice = currentFinish
+    ? getStandardPrice(currentFinish, context)
+    : undefined;
+
+  if (
+    currentFinish !== importedFinish &&
+    currentStandardPrice !== undefined &&
+    existingPrice === currentStandardPrice
+  ) {
+    return importedStandardPrice;
+  }
+
+  return existingPrice;
 }
 
 function getExistingVariantPrices(
@@ -1351,12 +1379,12 @@ function updateCardData(
     const pricingContext =
       getCardPricingContext(block.lines);
     const mainCardPrice =
-      existingMainCardPrice > 0
-        ? existingMainCardPrice
-        : getStandardPrice(
-            primaryFinish,
-            pricingContext
-          ) ?? existingMainCardPrice;
+      getImportedMainCardPrice(
+        existingMainCardPrice,
+        currentFinish,
+        primaryFinish,
+        pricingContext
+      );
     const existingVariantPrices =
       getExistingVariantPrices(block.lines);
 
