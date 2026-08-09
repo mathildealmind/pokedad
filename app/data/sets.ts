@@ -942,7 +942,16 @@ export const sets: Record<string, PokemonSet> = {
     series: "scarlet-violet",
     totalCards: 245,
     releaseDate: "2024-01-26",
-    logo: "/placeholders/udsolgt.webp",
+    logo: "/series/scarlet-violet/paldean-fates/logo.webp",
+    symbol: "/placeholders/udsolgt.webp",
+  },
+  "scarlet-violet-promos": {
+    slug: "scarlet-violet-promos",
+    name: "Scarlet & Violet Promos",
+    series: "scarlet-violet",
+    totalCards: 223,
+    releaseDate: "2023-01-06",
+    logo: "/series/scarlet-violet/scarlet-violet-promos/logo.webp",
     symbol: "/placeholders/udsolgt.webp",
   },
   "pokemon-151": {
