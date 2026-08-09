@@ -524,8 +524,8 @@ export const chaosRising: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 65,
     stock: 1,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    imageFront: "/series/mega-evolution/chaos-rising/022.webp",
+    imageBack: "/series/mega-evolution/chaos-rising/022-back.webp",
     dateAdded: "2026-08-04",
   },
   {
@@ -2015,8 +2015,8 @@ export const chaosRising: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 180,
     stock: 1,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    imageFront: "/series/mega-evolution/chaos-rising/089.webp",
+    imageBack: "/series/mega-evolution/chaos-rising/089-back.webp",
     dateAdded: "2026-08-04",
   },
   {
@@ -2049,8 +2049,8 @@ export const chaosRising: PokemonCard[] = [
     condition: CardCondition.Mint,
     price: 195,
     stock: 1,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    imageFront: "/series/mega-evolution/chaos-rising/091.webp",
+    imageBack: "/series/mega-evolution/chaos-rising/091-back.webp",
     dateAdded: "2026-08-04",
   },
   {

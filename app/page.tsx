@@ -6,18 +6,26 @@ import { cards } from "./data/cards";
 export default function Home() {
   /*
    * Disse kort vises i Hero-slideren.
-   * Slugs bruges, så priser og øvrige kortdata fortsat
-   * hentes direkte fra kortenes egne datafiler.
+   * Slug eller set og kortnummer bruges, så priser og øvrige
+   * kortdata fortsat hentes direkte fra kortenes egne datafiler.
    */
-  const featuredHeroCardSlugs = [
-    "durant-ex-215",
-    "magnezone-vstar-057",
-    "entei-promo-34",
-  ];
+  const featuredHeroCardSelectors = [
+    { slug: "durant-ex-215" },
+    { slug: "magnezone-vstar-057" },
+    { slug: "entei-promo-34" },
+    { set: "chaos-rising", cardNumber: "089/086" },
+    { set: "perfect-order", cardNumber: "092/088" },
+    { set: "chaos-rising", cardNumber: "091/086" },
+  ] as const;
 
   const featuredHeroCards = cards
     .filter((card) =>
-      featuredHeroCardSlugs.includes(card.slug)
+      featuredHeroCardSelectors.some((selector) =>
+        "slug" in selector
+          ? card.slug === selector.slug
+          : card.set === selector.set &&
+            card.cardNumber === selector.cardNumber
+      )
     )
     .map((card) => ({
       id: card.id,
