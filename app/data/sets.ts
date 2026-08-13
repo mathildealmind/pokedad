@@ -61,7 +61,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "base-series",
     totalCards: 110,
     releaseDate: "2002/05/24",
-    logo: "/placeholders/udsolgt.webp",
+    logo: "/series/base-series/legendary-collection/logo.webp",
     symbol: "/placeholders/udsolgt.webp",
   },
   "gym-heroes": {
@@ -124,7 +124,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "e-card",
     totalCards: 165,
     releaseDate: "2002/09/15",
-    logo: "/placeholders/udsolgt.webp",
+    logo: "/series/e-card/expedition-base-set/logo.webp",
     symbol: "/placeholders/udsolgt.webp",
   },
   "aquapolis": {
@@ -295,7 +295,7 @@ export const sets: Record<string, PokemonSet> = {
     series: "diamond-pearl",
     totalCards: 130,
     releaseDate: "2007/05/01",
-    logo: "/placeholders/udsolgt.webp",
+    logo: "/series/diamond-pearl/diamond-pearl-base/logo.webp",
     symbol: "/placeholders/udsolgt.webp",
   },
   "mysterious-treasures": {
@@ -1090,7 +1090,7 @@ export const sets: Record<string, PokemonSet> = {
     additionalSeries: ["promos"],
     totalCards: 53,
     releaseDate: "1999-07-01",
-    logo: "/placeholders/udsolgt.webp",
+    logo: "/series/promos/promos/logo.webp",
     symbol: "/placeholders/udsolgt.webp",
   },
   "sun-moon-promos": {
