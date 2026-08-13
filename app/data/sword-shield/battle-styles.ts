@@ -329,9 +329,9 @@ export const battleStyles: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 8,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/sword-shield/battle-styles/018.webp",
+    imageBack: "/series/sword-shield/battle-styles/018-back.webp",
     dateAdded: "2026-08-08",
   },
   {

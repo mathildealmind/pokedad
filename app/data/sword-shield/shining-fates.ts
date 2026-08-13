@@ -1309,6 +1309,25 @@ export const shiningFates: PokemonCard[] = [
     imageBack: SOLD_OUT_IMAGE,
     dateAdded: "2026-08-02",
   },
+  {
+    id: 2105100,
+    slug: "grookey-sv004",
+    name: "Grookey",
+    series: "sword-shield",
+    set: "shining-fates",
+    cardNumber: "SV004/SV122",
+    rarity: CardRarity.Rare,
+    finish: CardFinish.Holo,
+    pokemonType: PokemonType.Grass,
+    language: CardLanguage.English,
+    condition: CardCondition.Mint,
+    price: 0,
+    stock: 1,
+    imageFront: "/series/sword-shield/shining-fates/SV004-grookey-holo.webp",
+    imageBack:
+      "/series/sword-shield/shining-fates/SV004-grookey-holo-back.webp",
+    dateAdded: "2026-08-13",
+  },
 ];
 
 export default shiningFates;

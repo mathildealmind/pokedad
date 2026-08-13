@@ -1231,6 +1231,16 @@ export const sets: Record<string, PokemonSet> = {
     logo: "/series/mega-evolution/mega-evolution/logo.webp",
     symbol: "/placeholders/udsolgt.webp",
   },
+  "mega-evolution-promos": {
+    slug: "mega-evolution-promos",
+    name: "MEP Black Star Promos",
+    series: "mega-evolution",
+    additionalSeries: ["promos"],
+    totalCards: 120,
+    releaseDate: "2025-09-26",
+    logo: "/logo/pokedad-logo.webp",
+    symbol: "/placeholders/udsolgt.webp",
+  },
   "phantasmal-flames": {
     slug: "phantasmal-flames",
     name: "Phantasmal Flames",

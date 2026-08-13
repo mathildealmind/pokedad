@@ -581,9 +581,9 @@ export const hiddenFates: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 0,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/sun-moon/hidden-fates/032.webp",
+    imageBack: "/series/sun-moon/hidden-fates/032-back.webp",
     dateAdded: "2026-08-02",
   },
   {

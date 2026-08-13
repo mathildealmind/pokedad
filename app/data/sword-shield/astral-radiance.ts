@@ -10,6 +10,23 @@ import {
 const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 const FIRST_CARD_ID = 2210001;
 
+const CARD_OVERRIDES: Record<string, Partial<PokemonCard>> = {
+  "083/189": {
+    stock: 1,
+    imageFront:
+      "/series/sword-shield/astral-radiance/083-reverse-holo.webp",
+    imageBack:
+      "/series/sword-shield/astral-radiance/083-reverse-holo-back.webp",
+  },
+  "113/189": {
+    stock: 1,
+    imageFront:
+      "/series/sword-shield/astral-radiance/113-reverse-holo.webp",
+    imageBack:
+      "/series/sword-shield/astral-radiance/113-reverse-holo-back.webp",
+  },
+};
+
 type SourceRarity = "C" | "UC" | "R" | "UR" | "HR";
 type CardSeed = readonly [
   cardNumber: string,
@@ -457,6 +474,7 @@ export const astralRadiance: PokemonCard[] = CARD_SEEDS.map(
     stock: 0,
     imageFront: SOLD_OUT_IMAGE,
     imageBack: SOLD_OUT_IMAGE,
+    ...CARD_OVERRIDES[cardNumber],
   })
 );
 

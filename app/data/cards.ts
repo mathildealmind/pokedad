@@ -1,3 +1,4 @@
+import { baseSet } from "./base-series/base-set";
 import { baseSet2 } from "./base-series/base-set-2";
 import { fossil } from "./base-series/fossil";
 import { jungle } from "./base-series/jungle";
@@ -51,6 +52,7 @@ import { callOfLegends } from "./heartgold-soulsilver/call-of-legends";
 import { ascendedHeroes } from "./mega-evolution/ascended-heroes";
 import { chaosRising } from "./mega-evolution/chaos-rising";
 import { megaEvolution } from "./mega-evolution/mega-evolution";
+import { megaEvolutionPromos } from "./mega-evolution/mega-evolution-promos";
 import { perfectOrder } from "./mega-evolution/perfect-order";
 import { phantasmalFlames } from "./mega-evolution/phantasmal-flames";
 import { pitchBlack } from "./mega-evolution/pitch-black";
@@ -145,6 +147,7 @@ import { steamSiege } from "./xy/steam-siege";
 import type { PokemonCard } from "./types";
 
 const rawCards: PokemonCard[] = [
+  ...baseSet,
   ...baseSet2,
   ...fossil,
   ...jungle,
@@ -198,6 +201,7 @@ const rawCards: PokemonCard[] = [
   ...ascendedHeroes,
   ...chaosRising,
   ...megaEvolution,
+  ...megaEvolutionPromos,
   ...perfectOrder,
   ...phantasmalFlames,
   ...pitchBlack,
