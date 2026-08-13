@@ -1,0 +1,153 @@
+import {
+  CardCondition,
+  CardFinish,
+  CardLanguage,
+  CardRarity,
+  PokemonCard,
+  PokemonType,
+} from "../types";
+
+const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
+const FIRST_CARD_ID = 2350001;
+
+type CardSeed = readonly [
+  cardNumber: string,
+  name: string,
+  pokemonType: PokemonType | undefined,
+];
+
+const CARD_SEEDS = [
+  ["BW01", "Snivy", PokemonType.Grass],
+  ["BW02", "Tepig", PokemonType.Fire],
+  ["BW03", "Oshawott", PokemonType.Water],
+  ["BW04", "Reshiram", PokemonType.Fire],
+  ["BW05", "Zekrom", PokemonType.Lightning],
+  ["BW06", "Snivy", PokemonType.Grass],
+  ["BW07", "Tepig", PokemonType.Fire],
+  ["BW08", "Oshawott", PokemonType.Water],
+  ["BW09", "Zoroark", PokemonType.Darkness],
+  ["BW10", "Axew", PokemonType.Dragon],
+  ["BW11", "Pansage", PokemonType.Grass],
+  ["BW12", "Zorua", PokemonType.Darkness],
+  ["BW13", "Minccino", PokemonType.Colorless],
+  ["BW14", "Pansage", PokemonType.Grass],
+  ["BW15", "Pidove", PokemonType.Colorless],
+  ["BW16", "Axew", PokemonType.Dragon],
+  ["BW17", "Ducklett", PokemonType.Water],
+  ["BW18", "Darumaka", PokemonType.Fire],
+  ["BW19", "Zoroark", PokemonType.Darkness],
+  ["BW20", "Serperior", PokemonType.Grass],
+  ["BW21", "Emboar", PokemonType.Fire],
+  ["BW22", "Samurott", PokemonType.Water],
+  ["BW23", "Reshiram", PokemonType.Fire],
+  ["BW24", "Zekrom", PokemonType.Lightning],
+  ["BW25", "Scraggy", PokemonType.Darkness],
+  ["BW26", "Axew", PokemonType.Dragon],
+  ["BW51", "Crobat", PokemonType.Psychic],
+  ["BW27", "Litwick", PokemonType.Fire],
+  ["BW52", "Lillipup", PokemonType.Colorless],
+  ["BW28", "Tropical Beach", undefined],
+  ["BW53", "Flygon", PokemonType.Dragon],
+  ["BW29", "Victory Cup (3rd Place)", undefined],
+  ["BW54", "Pikachu", PokemonType.Lightning],
+  ["BW30", "Victory Cup (2nd Place)", undefined],
+  ["BW55", "Elgyem", PokemonType.Psychic],
+  ["BW31", "Victory Cup (1st Place)", undefined],
+  ["BW56", "Empoleon", PokemonType.Water],
+  ["BW32", "Victini", PokemonType.Fire],
+  ["BW57", "Haxorus", PokemonType.Dragon],
+  ["BW33", "Riolu", PokemonType.Fighting],
+  ["BW58", "Black Kyurem", PokemonType.Dragon],
+  ["BW34", "Luxio", PokemonType.Lightning],
+  ["BW59", "White Kyurem", PokemonType.Water],
+  ["BW35", "Meowth", PokemonType.Colorless],
+  ["BW60", "Keldeo", PokemonType.Water],
+  ["BW36", "Reshiram EX", PokemonType.Fire],
+  ["BW61", "Keldeo EX", PokemonType.Water],
+  ["BW37", "Kyurem EX", PokemonType.Water],
+  ["BW62", "Black Kyurem EX", PokemonType.Dragon],
+  ["BW38", "Zekrom EX", PokemonType.Lightning],
+  ["BW63", "White Kyurem EX", PokemonType.Water],
+  ["BW39", "Battle City", undefined],
+  ["BW64", "Drifblim", PokemonType.Psychic],
+  ["BW40", "Volcarona", PokemonType.Fire],
+  ["BW65", "Jigglypuff", PokemonType.Colorless],
+  ["BW41", "Thundurus", PokemonType.Lightning],
+  ["BW66", "Ninetales", PokemonType.Fire],
+  ["BW42", "Tornadus", PokemonType.Colorless],
+  ["BW67", "Ampharos", PokemonType.Lightning],
+  ["BW43", "Landorus", PokemonType.Fighting],
+  ["BW68", "Meloetta", PokemonType.Psychic],
+  ["BW44", "Kyurem", PokemonType.Water],
+  ["BW69", "Meloetta", PokemonType.Psychic],
+  ["BW45", "Mewtwo EX", PokemonType.Psychic],
+  ["BW70", "Virizion", PokemonType.Grass],
+  ["BW46", "Darkrai EX", PokemonType.Darkness],
+  ["BW71", "Terrakion", PokemonType.Fighting],
+  ["BW47", "Rayquaza EX", PokemonType.Colorless],
+  ["BW72", "Cobalion", PokemonType.Metal],
+  ["BW48", "Altaria", PokemonType.Colorless],
+  ["BW73", "Darkrai", PokemonType.Darkness],
+  ["BW49", "Lilligant", PokemonType.Grass],
+  ["BW74", "Giratina", PokemonType.Psychic],
+  ["BW50", "Tropical Beach", undefined],
+  ["BW75", "Metagross", PokemonType.Metal],
+  ["BW76", "Electrode", PokemonType.Lightning],
+  ["BW79", "Landorus", PokemonType.Fighting],
+  ["BW80", "Druddigon", PokemonType.Dragon],
+  ["BW81", "Thundurus EX", PokemonType.Lightning],
+  ["BW82", "Deoxys EX", PokemonType.Psychic],
+  ["BW83", "Lugia EX", PokemonType.Colorless],
+  ["BW84", "Porygon-Z", PokemonType.Colorless],
+  ["BW85", "Lucario", PokemonType.Fighting],
+  ["BW86", "Genesect", PokemonType.Grass],
+  ["BW87", "Leafeon", PokemonType.Grass],
+  ["BW88", "Flareon", PokemonType.Fire],
+  ["BW89", "Vaporeon", PokemonType.Water],
+  ["BW90", "Glaceon", PokemonType.Water],
+  ["BW91", "Jolteon", PokemonType.Lightning],
+  ["BW92", "Espeon", PokemonType.Psychic],
+  ["BW93", "Umbreon", PokemonType.Darkness],
+  ["BW94", "Eevee", PokemonType.Colorless],
+  ["BW95", "Champions Festival", undefined],
+  ["BW96", "Tornadus EX", PokemonType.Colorless],
+  ["BW97", "Eevee", PokemonType.Colorless],
+  ["BW98", "Mew", PokemonType.Psychic],
+  ["BW99", "Genesect", PokemonType.Grass],
+  ["BW100", "N", undefined],
+  ["BW101", "Genesect", PokemonType.Grass],
+] satisfies readonly CardSeed[];
+
+function createSlug(name: string, cardNumber: string): string {
+  const normalizedName = name
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  return `${normalizedName}-${cardNumber.toLowerCase()}`;
+}
+
+export const blackWhitePromos: PokemonCard[] = CARD_SEEDS.map(
+  ([cardNumber, name, pokemonType], index) => ({
+    id: FIRST_CARD_ID + index,
+    slug: createSlug(name, cardNumber),
+    name,
+    series: "black-white",
+    set: "black-white-promos",
+    cardNumber,
+    rarity: CardRarity.Promo,
+    finish: CardFinish.Holo,
+    pokemonType,
+    language: CardLanguage.English,
+    condition: CardCondition.Mint,
+    price: 0,
+    stock: 0,
+    imageFront: SOLD_OUT_IMAGE,
+    imageBack: SOLD_OUT_IMAGE,
+  }),
+);
+
+export default blackWhitePromos;

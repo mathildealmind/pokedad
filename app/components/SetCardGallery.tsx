@@ -109,6 +109,7 @@ export default function SetCardGallery({
   const [finish, setFinish] = useState("Alle");
   const [stock, setStock] = useState("Alle");
   const [sort, setSort] = useState("Lager først");
+  const [showSoldOut, setShowSoldOut] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const availableRarities = useMemo(() => {
@@ -169,6 +170,9 @@ export default function SetCardGallery({
           finish === "Alle" ||
           getCardFinishes(card).includes(finish)
         );
+      })
+      .filter((card) => {
+        return showSoldOut || getCardStock(card) > 0;
       })
       .filter((card) => {
         const totalStock = getCardStock(card);
@@ -233,6 +237,7 @@ export default function SetCardGallery({
     finish,
     stock,
     sort,
+    showSoldOut,
   ]);
 
   const {
@@ -248,6 +253,19 @@ export default function SetCardGallery({
     setFinish("Alle");
     setStock("Alle");
     setSort("Lager først");
+    setShowSoldOut(false);
+    resetProgress();
+  }
+
+  function toggleSoldOut() {
+    const nextShowSoldOut = !showSoldOut;
+
+    setShowSoldOut(nextShowSoldOut);
+
+    if (!nextShowSoldOut && stock === "Udsolgt") {
+      setStock("Alle");
+    }
+
     resetProgress();
   }
 
@@ -337,7 +355,14 @@ export default function SetCardGallery({
             aria-label="Vælg lagerstatus"
             value={stock}
             onChange={(event) => {
-              setStock(event.target.value);
+              const nextStock = event.target.value;
+
+              setStock(nextStock);
+
+              if (nextStock === "Udsolgt") {
+                setShowSoldOut(true);
+              }
+
               resetProgress();
             }}
             className="min-w-0 w-full max-w-full rounded-xl border px-4 py-3 outline-none transition focus:border-gray-500"
@@ -382,7 +407,7 @@ export default function SetCardGallery({
       </div>
 
       {/* Resultat */}
-      <div className="mb-6 flex items-center justify-between gap-4">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <p className="font-semibold text-gray-600">
           {filteredCards.length}{" "}
           {filteredCards.length === 1
@@ -390,13 +415,26 @@ export default function SetCardGallery({
             : "kort fundet"}
         </p>
 
-        <button
-          type="button"
-          onClick={resetFilters}
-          className="font-semibold hover:underline"
-        >
-          Nulstil filtre
-        </button>
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            aria-pressed={showSoldOut}
+            onClick={toggleSoldOut}
+            className="rounded-xl border border-gray-300 bg-white px-4 py-2 font-semibold transition hover:border-gray-500 hover:bg-gray-50"
+          >
+            {showSoldOut
+              ? "Skjul udsolgte"
+              : "Vis udsolgte"}
+          </button>
+
+          <button
+            type="button"
+            onClick={resetFilters}
+            className="font-semibold hover:underline"
+          >
+            Nulstil filtre
+          </button>
+        </div>
       </div>
 
       {/* Kort */}
