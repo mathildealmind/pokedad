@@ -117,9 +117,14 @@ export default function Navbar() {
             aria-label="Se favoritter"
             className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition hover:bg-gray-100"
           >
-            <span className="text-2xl">
-              ❤️
-            </span>
+            <Image
+              src="/navigation/hjerte-favoritter.webp"
+              alt=""
+              width={256}
+              height={256}
+              aria-hidden="true"
+              className="h-8 w-8 object-contain"
+            />
 
             {favorites.length > 0 && (
               <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs text-white">
@@ -138,9 +143,16 @@ export default function Navbar() {
           <Link
             href="/favoritter"
             aria-label="Se favoritter"
-            className="relative"
+            className="relative flex h-9 w-9 items-center justify-center"
           >
-            ❤️
+            <Image
+              src="/navigation/hjerte-favoritter.webp"
+              alt=""
+              width={256}
+              height={256}
+              aria-hidden="true"
+              className="h-7 w-7 object-contain"
+            />
 
             {favorites.length > 0 && (
               <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] text-white">
@@ -200,8 +212,20 @@ export default function Navbar() {
               <Link href="/nye-kort" onClick={closeMobileMenu}>
                 Nye kort
               </Link>
-              <Link href="/favoritter" onClick={closeMobileMenu}>
-                Favoritter ❤️
+              <Link
+                href="/favoritter"
+                className="flex items-center gap-2"
+                onClick={closeMobileMenu}
+              >
+                Favoritter
+                <Image
+                  src="/navigation/hjerte-favoritter.webp"
+                  alt=""
+                  width={256}
+                  height={256}
+                  aria-hidden="true"
+                  className="h-6 w-6 object-contain"
+                />
               </Link>
               <Link href="/om-os" onClick={closeMobileMenu}>
                 Om os
