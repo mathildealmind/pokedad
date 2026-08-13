@@ -252,4 +252,16 @@ export const mcdonaldsDragonDiscovery2025 = createCards(
   "mcdonalds-dragon-discovery-2025",
   15,
   2325001,
+).map((card) =>
+  card.cardNumber === "10/15"
+    ? {
+        ...card,
+        finish: CardFinish.Holo,
+        stock: 1,
+        imageFront:
+          "/series/promos/mcdonalds-dragon-discovery-2025/010-hydreigon-holo.webp",
+        imageBack:
+          "/series/promos/mcdonalds-dragon-discovery-2025/010-hydreigon-holo-back.webp",
+      }
+    : card
 );

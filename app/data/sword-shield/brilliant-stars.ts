@@ -3056,9 +3056,9 @@ export const brilliantStars: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 0,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/sword-shield/brilliant-stars/171.webp",
+    imageBack: "/series/sword-shield/brilliant-stars/171-back.webp",
     dateAdded: "2026-08-02",
   },
   {

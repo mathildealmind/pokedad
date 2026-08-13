@@ -192,9 +192,9 @@ export const phantasmalFlames: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 5,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/mega-evolution/phantasmal-flames/011.webp",
+    imageBack: "/series/mega-evolution/phantasmal-flames/011-back.webp",
     dateAdded: "2026-08-09",
   },
   {
