@@ -63,6 +63,21 @@ import { platinumBase } from "./platinum/base";
 import { risingRivals } from "./platinum/rising-rivals";
 import { supremeVictors } from "./platinum/supreme-victors";
 import { promos } from "./promos/promos";
+import {
+  mcdonaldsCollection2011,
+  mcdonaldsCollection2016,
+  mcdonaldsCollection2017,
+  mcdonaldsCollection2018,
+  mcdonaldsCollection2019,
+  mcdonaldsCollection2021,
+  mcdonaldsDragonDiscovery2025,
+  mcdonaldsMatchBattle2022,
+  mcdonaldsMatchBattle2023,
+} from "./promos/mcdonalds";
+import { blackWhitePromos } from "./promos/black-white-promos";
+import { nintendoPromos } from "./promos/nintendo-promos";
+import { sunMoonPromos } from "./promos/sun-moon-promos";
+import { xyPromos } from "./promos/xy-promos";
 import { scarletVioletBase } from "./scarlet-violet/base";
 import { blackBolt } from "./scarlet-violet/black-bolt";
 import { crimsonHaze } from "./scarlet-violet/crimson-haze";
@@ -96,16 +111,23 @@ import { ultraPrism } from "./sun-moon/ultra-prism";
 import { unbrokenBonds } from "./sun-moon/unbroken-bonds";
 import { unifiedMinds } from "./sun-moon/unified-minds";
 import { swordShieldBase } from "./sword-shield/base";
+import { astralRadiance } from "./sword-shield/astral-radiance";
 import { battleStyles } from "./sword-shield/battle-styles";
 import { blackStarPromos } from "./sword-shield/black-star-promos";
 import { brilliantStars } from "./sword-shield/brilliant-stars";
 import { celebrations } from "./sword-shield/celebrations";
 import { championsPath } from "./sword-shield/champions-path";
+import { chillingReign } from "./sword-shield/chilling-reign";
+import { crownZenith } from "./sword-shield/crown-zenith";
 import { darknessAblaze } from "./sword-shield/darkness-ablaze";
+import { evolvingSkies } from "./sword-shield/evolving-skies";
+import { fusionStrike } from "./sword-shield/fusion-strike";
 import { lostOrigin } from "./sword-shield/lost-origin";
 import { pokemonGo } from "./sword-shield/pokemon-go";
+import { rebelClash } from "./sword-shield/rebel-clash";
 import { shiningFates } from "./sword-shield/shining-fates";
 import { silverTempest } from "./sword-shield/silver-tempest";
+import { vividVoltage } from "./sword-shield/vivid-voltage";
 import { ancientOrigins } from "./xy/ancient-origins";
 import { xyBase } from "./xy/base";
 import { breakpoint } from "./xy/breakpoint";
@@ -188,6 +210,19 @@ const rawCards: PokemonCard[] = [
   ...risingRivals,
   ...supremeVictors,
   ...promos,
+  ...mcdonaldsCollection2011,
+  ...mcdonaldsCollection2016,
+  ...mcdonaldsCollection2017,
+  ...mcdonaldsCollection2018,
+  ...mcdonaldsCollection2019,
+  ...mcdonaldsCollection2021,
+  ...mcdonaldsDragonDiscovery2025,
+  ...mcdonaldsMatchBattle2022,
+  ...mcdonaldsMatchBattle2023,
+  ...blackWhitePromos,
+  ...nintendoPromos,
+  ...sunMoonPromos,
+  ...xyPromos,
   ...scarletVioletBase,
   ...blackBolt,
   ...crimsonHaze,
@@ -221,16 +256,23 @@ const rawCards: PokemonCard[] = [
   ...unbrokenBonds,
   ...unifiedMinds,
   ...swordShieldBase,
+  ...astralRadiance,
   ...battleStyles,
   ...blackStarPromos,
   ...brilliantStars,
   ...celebrations,
   ...championsPath,
+  ...chillingReign,
+  ...crownZenith,
   ...darknessAblaze,
+  ...evolvingSkies,
+  ...fusionStrike,
   ...lostOrigin,
   ...pokemonGo,
+  ...rebelClash,
   ...shiningFates,
   ...silverTempest,
+  ...vividVoltage,
   ...ancientOrigins,
   ...xyBase,
   ...breakpoint,
