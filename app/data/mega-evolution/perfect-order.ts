@@ -4,6 +4,7 @@ import {
   CardFinish,
   CardLanguage,
   CardRarity,
+  PokemonType,
 } from "../types";
 
 const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
@@ -410,6 +411,7 @@ export const perfectOrder: PokemonCard[] = [
     cardNumber: "024/088",
     rarity: CardRarity.Rare,
     finish: CardFinish.Holo,
+    pokemonType: PokemonType.Water,
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 8,
@@ -1566,6 +1568,7 @@ export const perfectOrder: PokemonCard[] = [
     cardNumber: "092/088",
     rarity: CardRarity.IllustrationRare,
     finish: CardFinish.Holo,
+    pokemonType: PokemonType.Water,
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 100,

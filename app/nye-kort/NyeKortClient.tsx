@@ -9,6 +9,18 @@ type NyeKortClientProps = {
   cards: PokemonCard[];
 };
 
+function getCardStock(card: PokemonCard): number {
+  if (card.variants && card.variants.length > 0) {
+    return card.variants.reduce(
+      (sum, variant) =>
+        sum + Math.max(0, variant.stock ?? 0),
+      0
+    );
+  }
+
+  return Math.max(0, card.stock);
+}
+
 export default function NyeKortClient({ cards }: NyeKortClientProps) {
   const [search, setSearch] = useState("");
   const [series, setSeries] = useState("Alle");
@@ -16,6 +28,7 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
   const [condition, setCondition] = useState("Alle");
   const [price, setPrice] = useState("Alle");
   const [sort, setSort] = useState("Nyeste først");
+  const [showSoldOut, setShowSoldOut] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const availableSeries = useMemo(() => {
@@ -66,6 +79,9 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
         return condition === "Alle" || String(card.condition) === condition;
       })
       .filter((card) => {
+        return showSoldOut || getCardStock(card) > 0;
+      })
+      .filter((card) => {
         if (price === "Alle") return true;
         if (price === "0-50") return card.price <= 50;
 
@@ -114,7 +130,16 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
           }
         }
       });
-  }, [cards, search, series, rarity, condition, price, sort]);
+  }, [
+    cards,
+    search,
+    series,
+    rarity,
+    condition,
+    price,
+    sort,
+    showSoldOut,
+  ]);
 
   const {
     loadMoreRef,
@@ -130,6 +155,12 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
     setCondition("Alle");
     setPrice("Alle");
     setSort("Nyeste først");
+    setShowSoldOut(false);
+    resetProgress();
+  }
+
+  function toggleSoldOut() {
+    setShowSoldOut((currentValue) => !currentValue);
     resetProgress();
   }
 
@@ -266,19 +297,32 @@ export default function NyeKortClient({ cards }: NyeKortClientProps) {
         </div>
 
         {/* Resultat */}
-        <div className="mb-6 mt-8 flex items-center justify-between gap-4">
+        <div className="mb-6 mt-8 flex flex-wrap items-center justify-between gap-4">
           <p className="font-semibold text-gray-600">
             {filteredCards.length}{" "}
             {filteredCards.length === 1 ? "kort fundet" : "kort fundet"}
           </p>
 
-          <button
-            type="button"
-            onClick={resetFilters}
-            className="font-semibold hover:underline"
-          >
-            Nulstil filtre
-          </button>
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              aria-pressed={showSoldOut}
+              onClick={toggleSoldOut}
+              className="rounded-xl border border-gray-300 bg-white px-4 py-2 font-semibold transition hover:border-gray-500 hover:bg-gray-50"
+            >
+              {showSoldOut
+                ? "Skjul udsolgte"
+                : "Vis udsolgte"}
+            </button>
+
+            <button
+              type="button"
+              onClick={resetFilters}
+              className="font-semibold hover:underline"
+            >
+              Nulstil filtre
+            </button>
+          </div>
         </div>
 
         {/* Kort */}

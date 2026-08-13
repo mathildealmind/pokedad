@@ -12,11 +12,13 @@ export function getSeries(): Series[] {
   const grouped: Record<string, PokemonSet[]> = {};
 
   Object.values(sets).forEach((set) => {
-    if (!grouped[set.series]) {
-      grouped[set.series] = [];
-    }
+    getSetSeriesSlugs(set).forEach((seriesSlug) => {
+      if (!grouped[seriesSlug]) {
+        grouped[seriesSlug] = [];
+      }
 
-    grouped[set.series].push(set);
+      grouped[seriesSlug].push(set);
+    });
   });
 
   return Object.entries(grouped).map(([slug, setList]) => ({
@@ -37,7 +39,9 @@ export function getSeriesBySlug(slug: string): Series | undefined {
 
 export function getSetsBySeries(seriesSlug: string): PokemonSet[] {
   return Object.values(sets)
-    .filter((set) => set.series === seriesSlug)
+    .filter((set) =>
+      getSetSeriesSlugs(set).includes(seriesSlug)
+    )
     .sort(
       (a, b) =>
         parseReleaseDate(b.releaseDate) -
@@ -55,6 +59,15 @@ export function getCardsBySet(setSlug: string) {
 
 function parseReleaseDate(releaseDate: string): number {
   return new Date(releaseDate.replaceAll("/", "-")).getTime();
+}
+
+function getSetSeriesSlugs(set: PokemonSet): string[] {
+  return Array.from(
+    new Set([
+      set.series,
+      ...(set.additionalSeries ?? []),
+    ])
+  );
 }
 
 function getSeriesImage(series: string): string {
@@ -98,6 +111,9 @@ function getSeriesImage(series: string): string {
     case "base-series":
       return "/series/base-series/Pokemon-Base-Set.webp";
 
+    case "promos":
+      return "/logo/pokedad-logo.webp";
+
     case "legendary":
       return "/series/legendary/legendaryCollection.webp";
 
@@ -136,7 +152,7 @@ function formatSeriesName(slug: string): string {
       return "EX Series";
 
     case "e-card":
-      return "e-Card";
+      return "E Series";
 
     case "neo-series":
       return "Neo Series";
@@ -146,6 +162,9 @@ function formatSeriesName(slug: string): string {
 
     case "base-series":
       return "Base Series";
+
+    case "promos":
+      return "Promos";
 
     case "legendary":
       return "Legendary Collection";

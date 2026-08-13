@@ -10,23 +10,13 @@ const allSeries = [
     logo: "/series/base-series/Pokemon-Base-Set.webp",
   },
   {
-    slug: "gym-series",
-    name: "Gym Series",
-    logo: "/series/gym-series/gym_en.webp",
-  },
-  {
     slug: "neo-series",
     name: "Neo Series",
     logo: "/series/neo-series/neo_en.webp",
   },
   {
-    slug: "legendary",
-    name: "Legendary Collection",
-    logo: "/series/legendary/legendaryCollection.webp",
-  },
-  {
     slug: "e-card",
-    name: "e-Card",
+    name: "E Series",
     logo: "/series/e-card/e reader.webp",
   },
   {
@@ -78,6 +68,11 @@ const allSeries = [
     slug: "mega-evolution",
     name: "Mega Evolution",
     logo: "/series/mega-evolution/mega evolution.webp",
+  },
+  {
+    slug: "promos",
+    name: "Promos",
+    logo: "/logo/pokedad-logo.webp",
   },
 ];
 
