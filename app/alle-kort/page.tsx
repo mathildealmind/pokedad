@@ -80,7 +80,7 @@ export default function AllCardsPage() {
   const registeredSeries = getSeries();
 
   return (
-    <main className="mx-auto max-w-7xl px-6 py-10">
+    <main className="mx-auto max-w-7xl px-6 pb-10 pt-14 sm:pt-16">
       <h1 className="text-4xl font-bold">
         Alle Pokémon TCG Singles
       </h1>
@@ -101,14 +101,14 @@ export default function AllCardsPage() {
             <Link
               key={item.slug}
               href={`/serie/${item.slug}`}
-              className="flex min-h-[190px] flex-col rounded-xl border bg-white p-2 shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:min-h-[320px] sm:rounded-2xl sm:p-6"
+              className="group flex min-h-[170px] flex-col rounded-xl border border-gray-200 bg-white p-3 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 sm:min-h-[250px] sm:rounded-2xl sm:p-5"
             >
-              <div className="relative mb-2 h-14 w-full sm:mb-6 sm:h-24">
+              <div className="relative mb-3 h-16 w-full sm:mb-5 sm:h-20">
                 <Image
                   src={item.logo}
                   alt={item.name}
                   fill
-                  className="object-contain"
+                  className="object-contain object-center"
                 />
               </div>
 
@@ -116,12 +116,12 @@ export default function AllCardsPage() {
                 {item.name}
               </h2>
 
-              <p className="mt-2 text-[10px] text-gray-500 sm:mt-4 sm:text-sm">
+              <p className="mt-2 text-[10px] text-gray-500 sm:mt-3 sm:text-sm">
                 {numberOfSets} sæt
               </p>
 
-              <div className="mt-auto pt-2 sm:pt-6">
-                <span className="text-[10px] font-semibold text-red-600 sm:text-base">
+              <div className="mt-auto pt-3 sm:pt-4">
+                <span className="text-[10px] font-semibold text-gray-900 transition-colors duration-200 group-hover:text-red-600 sm:text-base">
                   Se serien →
                 </span>
               </div>
