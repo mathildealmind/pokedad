@@ -3081,9 +3081,9 @@ export const temporalForces: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 0,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/scarlet-violet/temporal-forces/164.webp",
+    imageBack: "/series/scarlet-violet/temporal-forces/164-back.webp",
     dateAdded: "2026-07-31",
   },
   {

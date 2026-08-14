@@ -208,9 +208,9 @@ export const jungle: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 0,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/base-series/jungle/012.webp",
+    imageBack: "/series/base-series/jungle/012-back.webp",
     dateAdded: "2026-08-02",
   },
   {
