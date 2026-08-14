@@ -60,7 +60,7 @@ export default function Home() {
 
       return b.id - a.id;
     })
-    .slice(0, 6);
+    .slice(0, 8);
 
   return (
     <main className="min-h-screen bg-[#F7F7F5] pb-20">

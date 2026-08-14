@@ -11,6 +11,11 @@ const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 const FIRST_CARD_ID = 2211001;
 
 const CARD_OVERRIDES: Record<string, Partial<PokemonCard>> = {
+  "033/264": {
+    stock: 1,
+    imageFront: "/series/sword-shield/fusion-strike/033.webp",
+    imageBack: "/series/sword-shield/fusion-strike/033-back.webp",
+  },
   "257/264": {
     stock: 1,
     imageFront: "/series/sword-shield/fusion-strike/257.webp",

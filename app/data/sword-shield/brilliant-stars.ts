@@ -3324,6 +3324,23 @@ export const brilliantStars: PokemonCard[] = [
     imageBack: SOLD_OUT_IMAGE,
     dateAdded: "2026-08-02",
   },
+  {
+    id: 2111187,
+    slug: "rapid-strike-style-mustard-tg27",
+    name: "Rapid Strike Style Mustard",
+    series: "sword-shield",
+    set: "brilliant-stars",
+    cardNumber: "TG27/TG30",
+    rarity: CardRarity.UltraRare,
+    finish: CardFinish.Holo,
+    language: CardLanguage.English,
+    condition: CardCondition.Mint,
+    price: 0,
+    stock: 1,
+    imageFront: "/series/sword-shield/brilliant-stars/TG27-rapid-strike-style-mustard.webp",
+    imageBack: "/series/sword-shield/brilliant-stars/TG27-rapid-strike-style-mustard-back.webp",
+    dateAdded: "2026-08-14",
+  },
 ];
 
 export default brilliantStars;

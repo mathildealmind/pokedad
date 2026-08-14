@@ -1946,9 +1946,9 @@ export const perfectOrder: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 0,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/mega-evolution/perfect-order/114.webp",
+    imageBack: "/series/mega-evolution/perfect-order/114-back.webp",
     dateAdded: "2026-08-09",
   },
   {
