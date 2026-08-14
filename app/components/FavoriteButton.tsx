@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { MouseEvent } from "react";
 import type { CSSProperties } from "react";
 import { useFavorites } from "@/app/context/FavoritesContext";
@@ -123,6 +124,22 @@ const THEMES: Record<PokemonType, HeartTheme> = {
   },
 };
 
+const DEFAULT_HEART_IMAGE = "/favorites/default.webp";
+
+const HEART_IMAGES: Partial<Record<PokemonType, string>> = {
+  Grass: "/favorites/grass.webp",
+  Fire: "/favorites/fire.webp",
+  Water: "/favorites/water.webp",
+  Lightning: "/favorites/lightning.webp",
+  Psychic: "/favorites/psychic.webp",
+  Fighting: "/favorites/fighting.webp",
+  Darkness: "/favorites/darkness.webp",
+  Metal: "/favorites/metal.webp",
+  Dragon: "/favorites/dragon.webp",
+  Fairy: "/favorites/fairy.webp",
+  Colorless: "/favorites/colorless.webp",
+};
+
 export default function FavoriteButton({
   id,
   slug,
@@ -147,6 +164,10 @@ export default function FavoriteButton({
   const theme = resolvedPokemonType
     ? THEMES[resolvedPokemonType]
     : DEFAULT_THEME;
+
+  const heartImage = resolvedPokemonType
+    ? HEART_IMAGES[resolvedPokemonType] ?? DEFAULT_HEART_IMAGE
+    : DEFAULT_HEART_IMAGE;
 
   function handleClick(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -183,20 +204,18 @@ export default function FavoriteButton({
       className="flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 hover:scale-110 active:scale-95"
       style={style}
     >
-      <svg
-        viewBox="0 0 24 24"
+      <Image
+        src={heartImage}
+        alt=""
+        width={192}
+        height={192}
         aria-hidden="true"
-        className="h-6 w-6"
-        fill={favorite ? "currentColor" : "none"}
-        stroke="currentColor"
-        strokeWidth="1.8"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"
-        />
-      </svg>
+        className={`h-8 w-8 object-contain transition-all duration-300 ${
+          favorite
+            ? "scale-110 opacity-100"
+            : "opacity-75 grayscale-[20%]"
+        }`}
+      />
     </button>
   );
 }
