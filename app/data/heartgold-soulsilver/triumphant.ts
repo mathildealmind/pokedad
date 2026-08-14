@@ -329,9 +329,9 @@ export const triumphant: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 0,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/heartgold-soulsilver/triumphant/018.webp",
+    imageBack: "/series/heartgold-soulsilver/triumphant/018-back.webp",
     dateAdded: "2026-08-02",
   },
   {

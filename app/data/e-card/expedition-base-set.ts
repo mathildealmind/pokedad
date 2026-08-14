@@ -2219,9 +2219,9 @@ export const expeditionBaseSet: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 5,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/e-card/expedition-base-set/123.webp",
+    imageBack: "/series/e-card/expedition-base-set/123-back.webp",
     dateAdded: "2026-08-02",
   },
   {

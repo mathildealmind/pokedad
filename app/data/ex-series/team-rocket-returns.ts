@@ -851,9 +851,9 @@ export const teamRocketReturns: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 5,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/ex-series/team-rocket-returns/047.webp",
+    imageBack: "/series/ex-series/team-rocket-returns/047-back.webp",
     dateAdded: "2026-08-02",
   },
   {

@@ -10,6 +10,14 @@ import {
 const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 const FIRST_CARD_ID = 2211001;
 
+const CARD_OVERRIDES: Record<string, Partial<PokemonCard>> = {
+  "257/264": {
+    stock: 1,
+    imageFront: "/series/sword-shield/fusion-strike/257.webp",
+    imageBack: "/series/sword-shield/fusion-strike/257-back.webp",
+  },
+};
+
 type SourceRarity = "C" | "UC" | "R" | "UR" | "HR";
 type CardSeed = readonly [
   cardNumber: string,
@@ -380,6 +388,7 @@ export const fusionStrike: PokemonCard[] = CARD_SEEDS.map(
     stock: 0,
     imageFront: SOLD_OUT_IMAGE,
     imageBack: SOLD_OUT_IMAGE,
+    ...CARD_OVERRIDES[cardNumber],
   }),
 );
 

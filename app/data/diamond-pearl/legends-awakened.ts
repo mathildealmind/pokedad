@@ -275,9 +275,9 @@ export const legendsAwakened: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 8,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/diamond-pearl/legends-awakened/015.webp",
+    imageBack: "/series/diamond-pearl/legends-awakened/015-back.webp",
     dateAdded: "2026-08-02",
   },
   {

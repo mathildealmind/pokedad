@@ -1643,9 +1643,9 @@ export const celestialStorm: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 8,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/sun-moon/celestial-storm/090.webp",
+    imageBack: "/series/sun-moon/celestial-storm/090-back.webp",
     dateAdded: "2026-08-02",
   },
   {

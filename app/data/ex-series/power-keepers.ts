@@ -23,9 +23,9 @@ export const powerKeepers: PokemonCard[] = [
     language: CardLanguage.English,
     condition: CardCondition.Mint,
     price: 8,
-    stock: 0,
-    imageFront: SOLD_OUT_IMAGE,
-    imageBack: SOLD_OUT_IMAGE,
+    stock: 1,
+    imageFront: "/series/ex-series/power-keepers/001.webp",
+    imageBack: "/series/ex-series/power-keepers/001-back.webp",
     dateAdded: "2026-08-02",
   },
   {

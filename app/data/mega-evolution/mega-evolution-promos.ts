@@ -68,6 +68,24 @@ export const megaEvolutionPromos: PokemonCard[] = [
       "/series/mega-evolution/mega-evolution-promos/MEP087-binacle-back.webp",
     dateAdded: "2026-08-13",
   },
+  {
+    id: 2400070,
+    slug: "tyrunt-mep070",
+    name: "Tyrunt",
+    series: "mega-evolution",
+    set: "mega-evolution-promos",
+    cardNumber: "MEP070",
+    rarity: CardRarity.Promo,
+    finish: CardFinish.Holo,
+    pokemonType: PokemonType.Fighting,
+    language: CardLanguage.English,
+    condition: CardCondition.Mint,
+    price: 0,
+    stock: 1,
+    imageFront: "/series/mega-evolution/mega-evolution-promos/MEP070-tyrunt.webp",
+    imageBack: "/series/mega-evolution/mega-evolution-promos/MEP070-tyrunt-back.webp",
+    dateAdded: "2026-08-14",
+  },
 ];
 
 export default megaEvolutionPromos;
