@@ -10,6 +10,14 @@ import {
 const SOLD_OUT_IMAGE = "/placeholders/udsolgt.webp";
 const FIRST_CARD_ID = 2204001;
 
+const CARD_OVERRIDES: Record<string, Partial<PokemonCard>> = {
+  "025/185": {
+    stock: 1,
+    imageFront: "/series/sword-shield/vivid-voltage/025.webp",
+    imageBack: "/series/sword-shield/vivid-voltage/025-back.webp",
+  },
+};
+
 type SourceRarity = "C" | "UC" | "R" | "UR" | "HR";
 type CardSeed = readonly [cardNumber: string, name: string, rarity: SourceRarity, isHolo: boolean];
 
@@ -263,6 +271,7 @@ export const vividVoltage: PokemonCard[] = CARD_SEEDS.map(([cardNumber, name, so
   stock: 0,
   imageFront: SOLD_OUT_IMAGE,
   imageBack: SOLD_OUT_IMAGE,
+  ...CARD_OVERRIDES[cardNumber],
 }));
 
 export default vividVoltage;
